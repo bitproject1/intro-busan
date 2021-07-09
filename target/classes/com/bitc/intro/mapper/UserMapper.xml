@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.intro.mapper.UserMapper">
+	<resultMap type="com.bitc.intro.domain.User" id="userMap">
+		<id property="userid" column="userid" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="age" column="age" />
+		<result property="gender" column="gender" />
+		<result property="auth" column="auth" />
+	</resultMap>
+	
+	<insert id="insert">
+		INSERT INTO user (userid, password, name, email, age, gender, auth) 
+		VALUES (#{userid}, #{password}, #{name}, #{email}, #{age}, #{gender}, #{auth})
+	</insert>
+
+</mapper>
