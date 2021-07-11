@@ -1,5 +1,11 @@
 package com.bitc.intro.domain;
 
-public class Qna {
+import lombok.Data;
 
+@Data
+public class Qna {
+	private int id;
+	private String title;
+	private String content;
+	private int userId; // FK
 }

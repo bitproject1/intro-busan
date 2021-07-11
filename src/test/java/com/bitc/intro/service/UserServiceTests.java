@@ -20,11 +20,11 @@ public class UserServiceTests {
 		@Test
 		public void testRegister() {
 			User user = new User();
-			user.setUserid(1);
-			user.setName("테스트맨");
+			user.setId(1);
+			user.setUsername("테스트맨");
 			user.setPassword("1234");
 			user.setEmail("aa@a.com");
-			user.setAge("25");
+			user.setAge(25);
 			user.setGender("1");
 			user.setAuth("0");
 			

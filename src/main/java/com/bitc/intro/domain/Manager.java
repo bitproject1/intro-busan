@@ -1,5 +1,13 @@
 package com.bitc.intro.domain;
 
-public class Manager {
+import lombok.Data;
 
+@Data
+public class Manager {
+	private int id;
+	private String name;
+	private String password;
+	private String email;
+	private String gender;
+	private String auth;
 }

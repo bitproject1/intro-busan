@@ -1,5 +1,18 @@
 package com.bitc.intro.domain;
 
-public class Restaurant {
+import lombok.Data;
 
+@Data
+public class Restaurant {
+	private int id;
+	private String name;
+	private String district;
+	private String address;
+	private String phoneNum;
+	private String url;
+	private String time;
+	private String mainMenu;
+	private String img;
+	private String content;
+	private int spotId; // FK
 }
