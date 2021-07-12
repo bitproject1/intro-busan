@@ -22,7 +22,7 @@
 	</resultMap> -->
 	
 	<!-- 관광지 1건 찾기 -->
-	<select id="findById" resultType="Hotspot">
+	<select id="findById" resultType="com.bitc.intro.domain.Hotspot">
 		SELECT * FROM hotspot WHERE id = #{id}
 	</select>
 

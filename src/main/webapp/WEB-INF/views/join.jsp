@@ -54,7 +54,11 @@ body {
 					<div class="input-field col s12">
 						<i class="material-icons prefix">mail_outline</i>
 						<input class="validate" id="userID" type="text">
-						<label for="userID" data-error="wrong" data-success="right">ID</label>
+						<label for="userID" data-error="wrong" data-success="available">ID</label>
+						 <br/>
+						  <br/>
+						 <button id="btnIdDupChk" type="button" class="btn-small waves-effect waves-light">아이디 중복확인</button>
+                         <span class="helper-text" id="idDupMessage">*아이디는 필수 입력 항목입니다.</span>
 					</div>
 				</div>
 				<div class="row">
@@ -150,6 +154,57 @@ body {
 			$('select').material_select();
 		});
 	</script>
+	
+	
+	<!-- 회원가입 ID 중복체크,ID입력확인 관련 자바스크립트 -->
+	 <script>
+		$('#btnIdDupChk').on('click', function () {
+			
+			var inputId = $('#member_id').val();
+			
+			if (inputId.length == 0) { // inputId == ''
+				alert('아이디를 입력하세요.');
+				$('#member_id').focus();
+				return;
+			}
+			
+			// 새로운 자식창(브라우저) 열기
+			var childWindow = window.open('/member/joinIdDupChk?id=' + inputId, 'joinIdDupChk', 'width=500,height=400');
+			
+		});
+		
+		
+		$('#member_id').on('keyup', function () {
+			var inputId = $(this).val();
+			console.log(inputId);
+			
+			if (inputId == '') {
+				$('span#idDupMessage').html('*아이디는 필수 입력 항목입니다.').css('color', 'grey');
+				return;
+			}
+			
+			$.ajax({
+				url: '/member/joinIdDupChkJson',
+				data: { id: inputId },
+				method: 'GET',
+				success: function (data) {
+					console.log(typeof data);
+					console.log(data);
+					
+					showIdDupMessage(data.isIdDup);
+				}
+			});
+		});
+		
+		function showIdDupMessage(isIdDup) {
+			if (isIdDup == true) {
+				$('span#idDupMessage').html('중복된 아이디 입니다.').css('color', 'red');
+			} else {
+				$('span#idDupMessage').html('사용가능한 아이디 입니다.').css('color', 'green');
+			}
+		}
+		
+    </script>
 </body>
 
 
