@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitc.intro.mapper.HotspotMapper">
-	<resultMap type="com.bitc.intro.domain.Hotspot" id="HotspotMap">
+	<!-- <resultMap type="com.bitc.intro.domain.Hotspot" id="HotspotMap">
 		<id property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="district" column="district" />
@@ -19,7 +19,7 @@
 		<result property="fee" column="fee" />
 		<result property="conv" column="conv" />
 		<result property="content" column="content" />
-	</resultMap>
+	</resultMap> -->
 	
 	<!-- 관광지 1건 찾기 -->
 	<select id="findById" resultType="Hotspot">
