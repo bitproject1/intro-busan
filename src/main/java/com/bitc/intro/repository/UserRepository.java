@@ -1,5 +1,7 @@
 package com.bitc.intro.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,10 +13,30 @@ import lombok.Setter;
 @Repository
 public class UserRepository {
 
-	@Setter(onMethod_ = @Autowired)
+	@Autowired
 	private UserMapper userMapper;
 	
-	public void insert(User user) {
-		userMapper.insert(user);
+	public int insert(User user) {
+		return userMapper.insert(user);
+	}
+	
+	public int getCountById(int id) {
+		return userMapper.getCountById(id);
+	}
+	
+	public User getUserById(int id) {
+		return userMapper.getUserById(id);
+	}
+	
+	public List<User> getUsers(){
+		return userMapper.getUsers();
+	}
+	
+	public int deleteById(int id) {
+		return userMapper.deleteById(id);
+	}
+	
+	public void updateUserById(User user) {
+		userMapper.updateUserById(user);
 	}
 }

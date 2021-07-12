@@ -14,10 +14,10 @@
                 
                <%--  <c:choose>
                 	<c:when test="${ not empty memberVO }"> --%>
-                		<li><a href="/member/logout">로그아웃</a></li>
-                		<li><a href="/member/info">회원정보확인</a></li>
-                		<li><a href="/member/modify">회원정보수정</a></li>
-                		<li><a href="/member/remove">회원탈퇴</a></li>
+                		<li><a href="/user/logout">로그아웃</a></li>
+                		<li><a href="/user/info">회원정보확인</a></li>
+                		<li><a href="/user/modify">회원정보수정</a></li>
+                		<li><a href="/user/remove">회원탈퇴</a></li>
                 <%-- 	</c:when>
                 	<c:otherwise> --%>
                 		<li><a href="/user/join">회원가입</a></li>

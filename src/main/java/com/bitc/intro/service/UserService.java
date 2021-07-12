@@ -1,7 +1,10 @@
 package com.bitc.intro.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bitc.intro.domain.User;
 import com.bitc.intro.repository.UserRepository;
@@ -9,12 +12,35 @@ import com.bitc.intro.repository.UserRepository;
 import lombok.Setter;
 
 @Service
+@Transactional
 public class UserService {
 	
 	@Setter(onMethod_ = @Autowired)
 	private UserRepository userRepository;
 	
-	public void ResisterUser(User user) {
-		userRepository.insert(user);
+	public int resister(User user) {
+		return userRepository.insert(user);
 	}
+
+	public int getCountById(int id) {
+		return userRepository.getCountById(id);
+	}
+	
+	public User getUserById(int id) {
+		return userRepository.getUserById(id);
+	}
+	
+	public List<User> getUsers(){
+		return userRepository.getUsers();
+	}
+	
+	public int deleteById(int id) {
+		return userRepository.deleteById(id);
+	}
+	
+	public void updateUserById(User user) {
+		userRepository.updateUserById(user);
+	}
+	
+	
 }

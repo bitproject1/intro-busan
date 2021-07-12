@@ -3,19 +3,40 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitc.intro.mapper.UserMapper">
-	<resultMap type="com.bitc.intro.domain.User" id="userMap">
-		<id property="userid" column="userid" />
+	<!-- <resultMap type="com.bitc.intro.domain.User" id="user">
+		<id property="id" column="id" />
+		<result property="username" column="username" />
 		<result property="password" column="password" />
-		<result property="name" column="name" />
 		<result property="email" column="email" />
 		<result property="age" column="age" />
 		<result property="gender" column="gender" />
 		<result property="auth" column="auth" />
-	</resultMap>
+	</resultMap> -->
 	
 	<insert id="insert">
-		INSERT INTO user (userid, password, name, email, age, gender, auth) 
-		VALUES (#{userid}, #{password}, #{name}, #{email}, #{age}, #{gender}, #{auth})
+		INSERT INTO user (id, username, password, email, age, gender, auth) 
+		VALUES (#{id}, #{username}, #{password}, #{email}, #{age}, #{gender}, #{auth})
 	</insert>
 
+	<select id="getCountById" resultType="com.bitc.intro.domain.User">
+		SELECT COUNT(*) FROM user WHERE id = #{id}
+	</select>
+	
+	<select id="getUserById" resultType="com.bitc.intro.domain.User">
+		SELECT * FROM user WHERE id = #{id}
+	</select>
+	
+	<select id="getUsers" resultType="com.bitc.intro.domain.User">
+		SELECT * FROM user
+	</select>
+	
+	<delete id="deleteById">
+		DELETE FROM user WHERE id = #{id}
+	</delete>
+	
+	<update id="updateUserById">
+		UPDATE user 
+		SET password=#{password}, email=#{email}, age=#{age}, gender=#{gender}
+		WHERE id=#{id}
+	</update>
 </mapper>
