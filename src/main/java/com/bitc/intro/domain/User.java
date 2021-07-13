@@ -12,7 +12,7 @@ public class User {
 	private String username;
 	private String password;
 	private String email;
-	private int age;
+	private String age;
 	private String gender;
 	private String auth;
 }

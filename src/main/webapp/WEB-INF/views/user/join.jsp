@@ -48,13 +48,13 @@ body {
 <body ng-app="mainModule" ng-controller="mainController">
 	<div id="login-page" class="row">
 		<div class="col s12 z-depth-6 card-panel">
-			<form class="login-form" action="/user/regist" method="post">
+			<form class="login-form" action="/user/join" method="post">
 				<div class="row"></div>
 				<div class="row">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">mail_outline</i>
-						<input class="validate" id="userID" type="text">
-						<label for="userID" data-error="wrong" data-success="available">ID</label>
+						<input class="validate" id="username" name="username" type="text">
+						<label for="username" data-error="wrong" data-success="available">ID</label>
 						 <br/>
 						  <br/>
 						 <button id="btnIdDupChk" type="button" class="btn-small waves-effect waves-light">아이디 중복확인</button>
@@ -64,30 +64,23 @@ body {
 				<div class="row">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">lock_outline</i>
-						<input id="password" type="password">
+						<input class="validate" id="password" name="password" type="password">
 						<label for="password">Password</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">mail_outline</i>
-						<input class="validate" id="userID" type="text">
-						<label for="userID" data-error="wrong" data-success="right">NAME</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
 						<i class="material-icons prefix">email</i>
-						<input class="validate" id="userID" type="text">
-						<label for="userID" data-error="wrong" data-success="right">E-mail</label>
+						<input class="validate" id="email" name="email" type="text">
+						<label for="email" data-error="wrong" data-success="right">E-mail</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
 
-						<i id="age" class="material-icons prefix">confirmation_number</i> <br />
-						<select>
-							<option value="" disabled selected>Select Your Age</option>
+						<i id="fsdkjslf" class="material-icons prefix">confirmation_number</i> <br />
+						<select id="age" name="age">
+							<option disabled selected>Select Your Age</option>
 							<option value="1">10s</option>
 							<option value="2">20s</option>
 							<option value="3">30s</option>
@@ -104,10 +97,10 @@ body {
 				<div class="row">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">person_pin_circle</i> <br /> <br /> <label for="gender-radio" data-error="wrong" data-success="right">Gender</label>
-						<input name="grp1" type="radio" id="r1">
+						<input name="gender" type="radio" id="r1" value="M">
 						<label for="r1">Male</label>
 
-						<input name="grp1" type="radio" id="r2">
+						<input name="gender" type="radio" id="r2" value="F">
 						<label for="r2">Female</label>
 
 					</div>
@@ -116,7 +109,7 @@ body {
 				
 				<div class="row">
 					<div class="input-field col s12">
-						<a href="#" class="btn waves-effect waves-light col s12">Sign Up</a>
+						<button type="submit" class="btn waves-effect waves-light col s12">Sign Up</button>
 					</div>
 				</div>
 

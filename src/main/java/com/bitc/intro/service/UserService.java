@@ -26,8 +26,8 @@ public class UserService {
 		return userRepository.getCountById(id);
 	}
 	
-	public User getUserById(int id) {
-		return userRepository.getUserById(id);
+	public User getUserById(String username) {
+		return userRepository.getUserById(username);
 	}
 	
 	public List<User> getUsers(){

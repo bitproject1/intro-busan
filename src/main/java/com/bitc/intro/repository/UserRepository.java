@@ -24,8 +24,8 @@ public class UserRepository {
 		return userMapper.getCountById(id);
 	}
 	
-	public User getUserById(int id) {
-		return userMapper.getUserById(id);
+	public User getUserById(String username) {
+		return userMapper.getUserById(username);
 	}
 	
 	public List<User> getUsers(){

@@ -25,7 +25,7 @@ public class UserServiceTests {
 			user.setUsername("테스트맨3");
 			user.setPassword("1234");
 			user.setEmail("aa@a.com");
-			user.setAge(25);
+			user.setAge("25");
 			user.setGender("1");
 			user.setAuth("0");
 			

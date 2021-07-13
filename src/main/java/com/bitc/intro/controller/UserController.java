@@ -29,7 +29,7 @@ public class UserController {
 	// 회원가입 폼으로 이동
 	@GetMapping("join")
 	public String joinForm(){
-		return "join";
+		return "user/join";
 	} // get join
 	
 	
@@ -50,22 +50,23 @@ public class UserController {
 	// 로그인 폼으로 이동
 	@GetMapping("login")
 	public String loginForm() {
-		return "login";
+		return "user/login";
 	} // get login
 	
 	
 	// 로그인
 	@PostMapping("login")
-	public ResponseEntity<String> login(int id, String password, HttpSession session) {
+	public ResponseEntity<String> login(String username, String password, HttpSession session) {
 		
-		User user = userService.getUserById(id);
+		User user = userService.getUserById(username);
+//		System.out.println(user.toString());
+//		System.out.println(user.getPassword());
 		boolean isSamePassword = false;
 		String message = "";
 		
 		if (user != null) { // 아이디가 존재할 경우
 			// 입력된 패스워드를 데이터베이스에 저장된 암호화된 패스워드와 같은지 비교
 			isSamePassword = BCrypt.checkpw(password, user.getPassword()); 
-
 			if (!isSamePassword) { // 패스워드 불일치
 				message = "패스워드가 일치하지 않습니다.";
 			}
@@ -77,9 +78,7 @@ public class UserController {
 		if (user == null || isSamePassword == false) {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add("Content-Type", "text/html; charset=utf-8");
-
 			String str = Script.back(message);
-
 			return new ResponseEntity<String>(str, headers, HttpStatus.OK);
 		}
 

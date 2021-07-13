@@ -19,11 +19,11 @@
 	</insert>
 
 	<select id="getCountById" resultType="com.bitc.intro.domain.User">
-		SELECT COUNT(*) FROM user WHERE id = #{id}
+		SELECT COUNT(*) FROM user WHERE id=#{id}
 	</select>
 	
 	<select id="getUserById" resultType="com.bitc.intro.domain.User">
-		SELECT * FROM user WHERE id = #{id}
+		SELECT * FROM user WHERE username=#{username}
 	</select>
 	
 	<select id="getUsers" resultType="com.bitc.intro.domain.User">

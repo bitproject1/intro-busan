@@ -49,27 +49,21 @@ body {
 				<div class="row">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">mail_outline</i>
-						<input class="validate" id="userID" type="text">
-						<label for="userID" data-error="wrong" data-success="right">ID</label>
+						<input class="validate" id="username" name="username" type="text">
+						<label for="username" data-error="wrong" data-success="right">ID</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">lock_outline</i>
-						<input id="password" type="password">
+						<input id="password" name="password" type="password">
 						<label for="password">Password</label>
 					</div>
 				</div>
-				<div class="row">
-					<div class="input-field col s12 m12 l12  login-text">
-						<input type="checkbox" id="remember-me" />
-						<label for="remember-me">Remember me</label>
-					</div>
-					
-				</div>
+				
 				<div class="row">
 					<div class="input-field col s12">
-						<a href="#" class="btn waves-effect waves-light col s12">Login</a>
+						<button type="submit" class="btn waves-effect waves-light col s12">Login</button>
 					</div>
 				</div>
 				<div class="row">

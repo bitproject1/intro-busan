@@ -10,7 +10,7 @@ import com.bitc.intro.domain.User;
 public interface UserMapper {
 	int insert(User user);
 	int getCountById(int id);
-	User getUserById(int id);
+	User getUserById(String username);
 	List<User> getUsers();
 	int deleteById(int id);
 	void updateUserById(User user);
