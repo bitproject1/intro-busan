@@ -20,8 +20,8 @@ public class UserRepository {
 		return userMapper.insert(user);
 	}
 	
-	public int getCountById(int id) {
-		return userMapper.getCountById(id);
+	public int getCountById(String username) {
+		return userMapper.getCountById(username);
 	}
 	
 	public User getUserById(String username) {
@@ -32,8 +32,8 @@ public class UserRepository {
 		return userMapper.getUsers();
 	}
 	
-	public int deleteById(int id) {
-		return userMapper.deleteById(id);
+	public int deleteById(String username) {
+		return userMapper.deleteById(username);
 	}
 	
 	public void updateUserById(User user) {

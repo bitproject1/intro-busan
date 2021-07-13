@@ -18,8 +18,8 @@
 		VALUES (#{id}, #{username}, #{password}, #{email}, #{age}, #{gender}, #{auth})
 	</insert>
 
-	<select id="getCountById" resultType="com.bitc.intro.domain.User">
-		SELECT COUNT(*) FROM user WHERE id=#{id}
+	<select id="getCountById" resultType="int">
+		SELECT COUNT(*) FROM user WHERE username=#{username}
 	</select>
 	
 	<select id="getUserById" resultType="com.bitc.intro.domain.User">
@@ -31,12 +31,12 @@
 	</select>
 	
 	<delete id="deleteById">
-		DELETE FROM user WHERE id = #{id}
+		DELETE FROM user WHERE username=#{username}
 	</delete>
 	
 	<update id="updateUserById">
 		UPDATE user 
-		SET password=#{password}, email=#{email}, age=#{age}, gender=#{gender}
-		WHERE id=#{id}
+		SET password=#{password}, email=#{email}
+		WHERE username=#{username}
 	</update>
 </mapper>

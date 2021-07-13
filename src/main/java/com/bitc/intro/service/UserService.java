@@ -22,8 +22,8 @@ public class UserService {
 		return userRepository.insert(user);
 	}
 
-	public int getCountById(int id) {
-		return userRepository.getCountById(id);
+	public int getCountById(String username) {
+		return userRepository.getCountById(username);
 	}
 	
 	public User getUserById(String username) {
@@ -34,11 +34,11 @@ public class UserService {
 		return userRepository.getUsers();
 	}
 	
-	public int deleteById(int id) {
-		return userRepository.deleteById(id);
+	public int deleteById(String username) {
+		return userRepository.deleteById(username);
 	}
 	
-	public void updateUserById(User user) {
+	public void modifyUserById(User user) {
 		userRepository.updateUserById(user);
 	}
 	
