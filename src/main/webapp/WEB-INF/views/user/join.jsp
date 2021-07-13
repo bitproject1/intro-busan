@@ -57,7 +57,6 @@ body {
 						<label for="username" data-error="wrong" data-success="available">ID</label>
 						 <br/>
 						  <br/>
-						 <button id="btnIdDupChk" type="button" class="btn-small waves-effect waves-light">아이디 중복확인</button>
                          <span class="helper-text" id="idDupMessage">*아이디는 필수 입력 항목입니다.</span>
 					</div>
 				</div>
@@ -91,7 +90,6 @@ body {
 							<option value="8">80s</option>
 							<option value="9">90s</option>
 						</select>
-
 					</div>
 				</div>
 				<div class="row">
@@ -105,16 +103,11 @@ body {
 
 					</div>
 				</div>
-
-				
 				<div class="row">
 					<div class="input-field col s12">
 						<button type="submit" class="btn waves-effect waves-light col s12">Sign Up</button>
 					</div>
 				</div>
-
-
-
 			</form>
 		</div>
 	</div>
@@ -151,23 +144,8 @@ body {
 	
 	<!-- 회원가입 ID 중복체크,ID입력확인 관련 자바스크립트 -->
 	 <script>
-		$('#btnIdDupChk').on('click', function () {
-			
-			var inputId = $('#member_id').val();
-			
-			if (inputId.length == 0) { // inputId == ''
-				alert('아이디를 입력하세요.');
-				$('#member_id').focus();
-				return;
-			}
-			
-			// 새로운 자식창(브라우저) 열기
-			var childWindow = window.open('/member/joinIdDupChk?id=' + inputId, 'joinIdDupChk', 'width=500,height=400');
-			
-		});
 		
-		
-		$('#member_id').on('keyup', function () {
+		$('#username').on('keyup', function () {
 			var inputId = $(this).val();
 			console.log(inputId);
 			
@@ -177,9 +155,9 @@ body {
 			}
 			
 			$.ajax({
-				url: '/member/joinIdDupChkJson',
-				data: { id: inputId },
-				method: 'GET',
+				url: '/user/joinIdDupChkJson',
+				data: { username: inputId },
+				method: 'POST',
 				success: function (data) {
 					console.log(typeof data);
 					console.log(data);
