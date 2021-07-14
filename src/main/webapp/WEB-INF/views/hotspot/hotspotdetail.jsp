@@ -71,6 +71,7 @@
 							<a href="#">
 								<img src="/resources/images/amsterdam.jpg">
 							</a>
+<<<<<<< HEAD
 
 						</div>
 						<div class="card-content"></div>
@@ -86,12 +87,34 @@
 
 				</div>
 
+=======
+							
+						</div>
+						<div class="card-content">
+							
+							
+							
+						</div>
+
+					</div>
+					<a href="restaurantmodify" class="btn-large waves-effect waves-light btn right">
+						<i class="material-icons left">delete</i> 글삭제
+					</a>
+
+					<a href="restaurantmodify" class="btn-large waves-effect waves-light btn right">
+						<i class="material-icons left">edit</i> 글수정
+					</a>
+				</div>
+>>>>>>> 21cd940fa564b47a95a868a8dab5fbd44b58853e
 			</div>
 
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21cd940fa564b47a95a868a8dab5fbd44b58853e
 		</div>
 
 
@@ -99,7 +122,11 @@
 
 	</div>
 
+<<<<<<< HEAD
 
+=======
+	</div>
+>>>>>>> 21cd940fa564b47a95a868a8dab5fbd44b58853e
 
 	<!-- Container -->
 	<div class="container">
