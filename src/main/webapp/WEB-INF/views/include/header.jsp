@@ -17,6 +17,10 @@
 						<li><a href="/user/logout">로그아웃</a></li>
 						<li><a href="/user/mypage">마이페이지</a></li>
 					</c:when>
+					<c:when test="${not empty manager }">
+						<li><a href="/manager/userManagement">고객관리</a></li>
+						<li><a href="/manager/logout">로그아웃</a></li>
+					</c:when>
 					<c:otherwise>
 						<li><a href="/user/join">회원가입</a></li>
 						<li><a href="/user/login">로그인</a></li>
