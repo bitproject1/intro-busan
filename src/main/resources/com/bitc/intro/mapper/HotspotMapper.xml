@@ -21,9 +21,37 @@
 		<result property="content" column="content" />
 	</resultMap> -->
 	
+	<insert id="insert">
+		INSERT INTO hotspot (name , district , title , subtitle , address , phonenum , url , traffic , day , holiday , time , fee , conv , img , content) 
+		VALUES (name=#{name} , district=#{district} , title=#{title} , subtitle=#{subtitle} , address=#{address} , phonenum=#{phonenum} , url=#{url} , traffic=#{traffic} , day=#{day} , holiday=#{holiday} , time=#{time} , fee=#{fee} , conv=#{conv} , img=#{img} , content=#{content})
+	</insert>
+	
 	<!-- 관광지 1건 찾기 -->
-	<select id="findById" resultType="com.bitc.intro.domain.Hotspot">
+	<select id="getHotspot" resultType="com.bitc.intro.domain.Hotspot">
 		SELECT * FROM hotspot WHERE id = #{id}
 	</select>
+	
+	<select id="getHotspots" resultType="com.bitc.intro.domain.Hotspot">
+		SELECT * FROM hotspot ORDER BY id DESC
+	</select>
+	
+	<select id="getHotspotsWithPaging" resultType="com.bitc.intro.domain.Hotspot">
+		SELECT * FROM hotspot ORDER BY id DESC LIMIT #{pageStart} , #{amount}
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM hotspot
+	</select>
+	
+	<delete id="deleteHotspotById">
+		DELETE FROM hotspot WHERE id = #{id}
+	</delete>
+	
+	<!-- 업데이트 이름, 제목, 부제목 ,주소, 전번, 홈페이지, 교통정보, 운영일, 휴무일, 운영시간, 요금, 편의시설, 사진, 상세-->
+	<update id="updateHotspotById">
+		UPDATE hotspot
+		SET name=#{name} , title=#{title} , subtitle=#{subtitle} , address=#{address} , phonenum=#{phonenum} , url=#{url} , traffic=#{traffic} , day=#{day} , holiday=#{holiday} , time=#{time} , fee=#{fee} , conv=#{conv} , img=#{img} , content=#{content}
+		WHERE id=#{id}
+	</update>
 
 </mapper>

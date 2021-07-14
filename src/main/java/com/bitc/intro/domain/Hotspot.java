@@ -17,6 +17,7 @@ public class Hotspot {
 	private String holiday; // 휴무일
 	private String time; // 운영시간
 	private String fee; // 요금정보
+	private String img;
 	private String conv; // 편의시설
 	private String content; // 상세내용
 }
