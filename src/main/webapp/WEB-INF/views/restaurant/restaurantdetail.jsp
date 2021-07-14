@@ -60,190 +60,152 @@
 		</div>
 
 		<!-- end of Container -->
-
-
+		<div class="container">
+			
+			<div class="col s12 l8 offset-l2">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                            	<div class ="col s12 m6">
+                            		<img src="/resources/images/amsterdam.jpg"/>
+                            	</div>
+                            	
+                            	<div class="col s12 l4">
+                            		조회수: ${ boardVO.readcount }
+                            	</div>
+                            	<div class="col s12 l4">
+                            		글쓴이: ${ boardVO.mbrid }
+                            	</div>
+                            	<div class="col s12 l4">
+                            		작성일자: <fmt:formatDate value="${ boardVO.regDate }" pattern="yyyy-MM-dd a hh:mm:ss" />
+                            	</div>
+                            </div>
+                            <pre>${ boardVO.content }</pre>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+		
+		
+		</div>
+		
 		<!-- Container -->
 		<div class="container">
-
-			<!-- Basic Card -->
-			<div class="row">
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
 			
+		
+			
+			<!-- Basic Card -->
+			
+			<div class="row">
+				<div class="col s12 m3">
+					<div class="card">
+						<div class="card-image">
+							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
+							<span class="card-title">Card Title</span>
+							<a class="btn-floating halfway-fab waves-effect waves-light red">
+								<i data-target="modal1" class="material-icons modal-trigger">add</i>
+							</a>
+						</div>
+						<div class="card-content">
+							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3">
+					<div class="card">
+						<div class="card-image">
+							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
+							<span class="card-title">Card Title</span>
+							<a class="btn-floating halfway-fab waves-effect waves-light red">
+								<i data-target="modal1" class="material-icons modal-trigger">add</i>
+							</a>
+						</div>
+						<div class="card-content">
+							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3">
+					<div class="card">
+						<div class="card-image">
+							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
+							<span class="card-title">Card Title</span>
+							<a class="btn-floating halfway-fab waves-effect waves-light red">
+								<i data-target="modal1" class="material-icons modal-trigger">add</i>
+							</a>
+						</div>
+						<div class="card-content">
+							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3">
+					<div class="card">
+						<div class="card-image">
+							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
+							<span class="card-title">Card Title</span>
+							<a class="btn-floating halfway-fab waves-effect waves-light red">
+								<i data-target="modal1" class="material-icons modal-trigger">add</i>
+							</a>
+						</div>
+						<div class="card-content">
+							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+						</div>
+					</div>
+				</div>
 
-				<%--<a href="/board/write?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
+			</div>
+
+			<%--<a href="/board/write?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
 						<i class="material-icons left">create</i>새글쓰기
 				</a> --%>
-				<a href="/hotspotadd" class="waves-effect waves-light btn right">
-					<i class="material-icons left">create</i>새글쓰기
-				</a>
-			</div>
-			<!-- end of Basic Card -->
-
-
-			<!-- 모달테스트 -->
-			<!-- Modal Structure -->
-			<div id="modal1" class="modal">
-				<div class="modal-content">
-					<h4>Modal Header</h4>
-					<p>A bunch of text</p>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn-flat">닫기</a>
-				</div>
-			</div>
-
-			<!-- 모달테스트 끝-->
-
-			<br />
-			<!-- pagination -->
-			<ul class="pagination" align="center">
-				<li class="disabled"><a href="#!">
-						<i class="material-icons">chevron_left</i>
-					</a></li>
-				<li class="active"><a href="#!">1</a></li>
-				<li class="waves-effect"><a href="#!">2</a></li>
-				<li class="waves-effect"><a href="#!">3</a></li>
-				<li class="waves-effect"><a href="#!">4</a></li>
-				<li class="waves-effect"><a href="#!">5</a></li>
-				<li class="waves-effect"><a href="#!">
-						<i class="material-icons">chevron_right</i>
-					</a></li>
-			</ul>
-			<!-- end of pagination -->
-
-
-			<!-- Footer -->
-			<%-- include footer.jsp --%>
-			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-			<!-- end of Footer -->
-
+			<a href="restaurantadd" class="waves-effect waves-light btn right">
+				<i class="material-icons left">create</i>새글쓰기
+			</a>
 		</div>
-		<!-- end of Container -->
+		<!-- end of Basic Card -->
+
+
+		<!-- 모달테스트 -->
+		<!-- Modal Structure -->
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h4>Modal Header</h4>
+				<p>A bunch of text</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat">닫기</a>
+			</div>
+		</div>
+
+		<!-- 모달테스트 끝-->
+
+		<br />
+		<!-- pagination -->
+		<ul class="pagination" align="center">
+			<li class="disabled"><a href="#!">
+					<i class="material-icons">chevron_left</i>
+				</a></li>
+			<li class="active"><a href="#!">1</a></li>
+			<li class="waves-effect"><a href="#!">2</a></li>
+			<li class="waves-effect"><a href="#!">3</a></li>
+			<li class="waves-effect"><a href="#!">4</a></li>
+			<li class="waves-effect"><a href="#!">5</a></li>
+			<li class="waves-effect"><a href="#!">
+					<i class="material-icons">chevron_right</i>
+				</a></li>
+		</ul>
+		<!-- end of pagination -->
+
+
+		<!-- Footer -->
+		<%-- include footer.jsp --%>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+		<!-- end of Footer -->
+
+	</div>
+	<!-- end of Container -->
 
 
 
