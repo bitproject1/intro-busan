@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -72,146 +73,34 @@
 
 		<!-- Container -->
 		<div class="container">
-
+		
 			<!-- Basic Card -->
 			<div class="row">
+			<c:choose>
+			<c:when test="${ pageDTO.total gt 0 }">
+			<c:forEach var="hotspot" items="${ hotspotList }">
+			<!-- 카드 1건 시작 -->
 				<div class="col s12 m4">
 					<div class="card">
 						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
+							<img src="${hotspot.img}" alt="카드 이미지">
+							<span class="card-title">${hotspot.title}</span>
 							<a class="btn-floating halfway-fab waves-effect waves-light red">
 								<i data-target="modal1" class="material-icons modal-trigger">add</i>
 							</a>
 						</div>
 						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m4">
-					<div class="card">
-						<div class="card-image">
-							<img src="/resources/images/amsterdam.jpg">
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+							<p>${hotspot.conv}</p>
 						</div>
 					</div>
 				</div>
 				
-			</div>
-			<!-- end of Basic Card -->
-
-
-			<!-- 모달테스트 -->
+				<!-- 모달테스트 -->
 			<!-- Modal Structure -->
 			<div id="modal1" class="modal">
 				<div class="modal-content">
-					<h4>Modal Header</h4>
-					<p>A bunch of text</p>
+					<h4>${hotspot.title}</h4>
+					<p>${hotspot.content}</p>
 				</div>
 				<div class="modal-footer">
 					<a href="#!" class="modal-close waves-effect waves-green btn-flat">닫기</a>
@@ -219,25 +108,39 @@
 			</div>
 
 			<!-- 모달테스트 끝-->
+				<!-- 카드 1건 끝 -->
+				</c:forEach>
+				</c:when>
+				<c:otherwise>
+				<div class="row">
+					<span colspan="5">현재 게시판에 작성된 글이 없습니다.</span>
+					<!-- colspan 열병합 속성 rowspan 행병합 -->
+				</div>
+				</c:otherwise>
+			</c:choose>
+			</div>
+			<!-- end of Basic Card -->
+			
+
+			
 
 			<br />
 			<!-- pagination -->
 			<ul class="pagination" align="center">
-				<li class="disabled"><a href="#!">
-						<i class="material-icons">chevron_left</i>
-					</a></li>
-				<li class="active"><a href="#!">1</a></li>
-				<li class="waves-effect"><a href="#!">2</a></li>
-				<li class="waves-effect"><a href="#!">3</a></li>
-				<li class="waves-effect"><a href="#!">4</a></li>
-				<li class="waves-effect"><a href="#!">5</a></li>
-				<li class="waves-effect"><a href="#!">
-						<i class="material-icons">chevron_right</i>
-					</a></li>
+					<li class="${pageDTO.prev ? 'waves-effect' : 'disabled'}">
+				 	<a id="prev"><i class="material-icons">chevron_left</i></a></li>
+						<!-- 페이지버튼 반복문 -->
+						<c:forEach var="i" begin="${pageDTO.startPage}" end="${pageDTO.endPage}" step="1">
+						<li class=" ${pageDTO.cri.pageNum == i ? 'active' : 'waves-effect'}">
+						<a href="/hotspot/list?pageNum=${i}">${i}</a></li>
+						</c:forEach>
+						<!-- 페이지버튼 반복문 끝 -->
+					<li class="${pageDTO.next ? 'waves-effect' : 'disabled'}">
+					<a id="next"><i class="material-icons">chevron_right</i></a></li>
+						
 			</ul>
 			<!-- end of pagination -->
-
-
+			
 			<!-- Footer -->
 			<%-- include footer.jsp --%>
 			<jsp:include page="/WEB-INF/views/include/footer.jsp" />
@@ -246,17 +149,9 @@
 		</div>
 		<!-- end of Container -->
 
-
-
-
 	</div>
 	<!-- end of App -->
 
-
-
-
-
-	
 	<script>
 		const sideNav = document.querySelector('.sidenav');
 		M.Sidenav.init(sideNav, {});
@@ -297,8 +192,30 @@
 			var instances = M.Modal.init(elems);
 		});
 	</script>
+	<script>
+	var prev = document.querySelector('a#prev');
 
+	prev.addEventListener('click', function(event) {
+		event.preventDefault();
+		
+		var isPrev = ${pageDTO.prev}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+		if (!isPrev) {
+			return;
+		}
+		location.href = '/hotspot/list?pageNum=${pageDTO.startPage - 1}';
+	});
+	// 다음 a태그 클릭 이벤트
+	var next = document.querySelector('a#next');
 
+	next.addEventListener('click', function(event) {
+		event.preventDefault();
+		var isNext = ${pageDTO.next}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+		if (!isNext) {
+			return;
+		}
+		location.href = '/hotspot/list?pageNum=${pageDTO.endPage + 1}';
+	});
+	</script>
 </body>
 
 </html>
