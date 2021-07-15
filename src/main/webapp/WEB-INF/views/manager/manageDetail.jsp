@@ -38,7 +38,7 @@
 
 			<!-- Forms -->
 			<div class="row">
-				<h4 class="center-align">마이페이지</h4>
+				<h4 class="center-align">고객관리 상세 페이지</h4>
 				<hr style="margin-bottom: 50px;">
 				<div class="col s12 l6 offset-l3">
 					<div class="row">

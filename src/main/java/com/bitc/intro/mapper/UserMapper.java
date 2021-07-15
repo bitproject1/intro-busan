@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
 
 @Mapper
@@ -14,4 +15,5 @@ public interface UserMapper {
 	List<User> getUsers();
 	int deleteById(String username);
 	void updateUserById(User user);
+	List<Restaurant> getLoveList(User user);
 }

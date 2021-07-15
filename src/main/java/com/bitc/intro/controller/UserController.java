@@ -1,6 +1,7 @@
 package com.bitc.intro.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
+import com.bitc.intro.service.RestaurantService;
 import com.bitc.intro.service.UserService;
 import com.bitc.intro.util.Script;
 
@@ -31,18 +34,14 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
+	
 	// 회원가입 폼으로 이동
 	@GetMapping("join")
-<<<<<<< HEAD
 	public String joinForm() {
 		return "user/join";
-=======
-	public String joinForm(){
-		return "/user/join";
->>>>>>> lsuk
 	} // get join
 
+	
 	// 회원가입
 	@PostMapping("join")
 	public String join(User user) {
@@ -56,16 +55,29 @@ public class UserController {
 		return "redirect:/user/login";
 	} // post join
 
+	
+	// 회원가입시 아이디 중복체크
+		@PostMapping(value = "/joinIdDupChkJson", produces = MediaType.APPLICATION_JSON_VALUE)
+		public @ResponseBody Map<String, Object> joinIdDupChkJson(String username) {
+			
+			int rowCount = userService.getCountById(username);
+			
+			boolean isIdDup = (rowCount == 1) ? true : false;
+			
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("isIdDup", isIdDup);
+			
+			return map;
+		}
+	
+		
 	// 로그인 폼으로 이동
 	@GetMapping("login")
 	public String loginForm() {
-<<<<<<< HEAD
 		return "user/login";
-=======
-		return "/user/login";
->>>>>>> lsuk
 	} // get login
 
+	
 	// 로그인
 	@PostMapping("login")
 	public ResponseEntity<String> login(String username, String password, HttpSession session) {
@@ -99,6 +111,7 @@ public class UserController {
 		return new ResponseEntity<String>(headers, HttpStatus.FOUND);
 	} // login post
 
+	
 	// 로그아웃
 	@GetMapping("logout")
 	public ResponseEntity<String> logout(HttpSession session) {
@@ -110,18 +123,21 @@ public class UserController {
 		return new ResponseEntity<String>(str, headers, HttpStatus.OK);
 	} // logout get
 
+	
 	// 마이페이지로 이동
 	@GetMapping("/mypage")
 	public String mypage() {
 		return "user/mypage";
 	} // mypage get
 
+	
 	// 회원 탈퇴 페이지로 이동
 	@GetMapping("/remove")
 	public String remove() {
 		return "user/remove";
 	} // remove get
 
+	
 	// 회원 탈퇴
 	@PostMapping("/remove")
 	public ResponseEntity<String> remove(String password, HttpSession session) {
@@ -149,6 +165,7 @@ public class UserController {
 		return new ResponseEntity<String>(str, headers, HttpStatus.OK);
 	} // remove post
 
+	
 	// 회원정보 수정시 패스워드 입력
 	@GetMapping("/modify")
 	public String modify() {
@@ -156,6 +173,8 @@ public class UserController {
 		return "user/modifyPassword";
 	}
 
+	
+	// 회원 정보 수정시 비밀번호 한번더 확인
 	@PostMapping("/modifyValid")
 	public ResponseEntity<String> modifyValid(String password, HttpSession session) {
 		User user = (User) session.getAttribute("user");
@@ -186,6 +205,7 @@ public class UserController {
 	} // modifyFrom post
 
 	
+	// 회원정보 수정
 	@PostMapping("/modifyProcess")
 	public String modifyProcess(User user, HttpSession session) {
 
@@ -205,18 +225,15 @@ public class UserController {
 	} // modifyProcess post
 
 
-	
-	@PostMapping(value = "/joinIdDupChkJson", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Map<String, Object> joinIdDupChkJson(String username) {
-		
-		int rowCount = userService.getCountById(username);
-		
-		boolean isIdDup = (rowCount == 1) ? true : false;
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("isIdDup", isIdDup);
-		
-		return map;
+	// 좋아요 목록 보기
+	@GetMapping("loveList")
+	public String likeList(HttpSession session, Model model) {
+		User user = (User)session.getAttribute("user");
+		System.out.println(user);
+		List<Restaurant> loveList = userService.getLoveList(user);
+		System.out.println(loveList);
+		model.addAttribute("loveList", loveList);
+		return "user/loveList";
 	}
 	
 }

@@ -29,7 +29,7 @@
 				<div class="nav-wrapper cyan">
 					<div class="col s12">
 						<a href="/" class="breadcrumb">홈</a> <a href="/member/modify"
-							class="breadcrumb">마이페이지</a>
+							class="breadcrumb">고객관리</a>
 					</div>
 				</div>
 			</nav>
@@ -38,57 +38,37 @@
 
 			<!-- Forms -->
 			<div class="row">
-				<h4 class="center-align">마이페이지</h4>
+				<h4 class="center-align">고객관리</h4>
 				<hr style="margin-bottom: 50px;">
 				<div class="col s12 l6 offset-l3">
 					<div class="row">
-						<div class="card-content">
-							<label style="float: left; font-size: 20px;" for="username">아이디&nbsp;</label>
-							<p style="font-size: 20px">${user.username }</p>
-						</div>
+						<!-- Table -->
+						<table class="highlight responsive-table ">
+							<thead class="blue white-text">
+								<tr>
+									<th class="center-align">ID</th>
+									<th class="center-align">이름</th>
+									<th class="center-align">나이</th>
+									<th class="center-align">성별</th>
+									<th class="center-align">E-mail</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${users }" var="user">
+									<tr onclick="location.href='/manager/manageDetail?username=${user.id}'">
+										<td class="center-align">${ user.id }</td>
+										<td class="center-align">${ user.username }</td>
+										<td class="center-align">${ user.age }</td>
+										<td class="center-align">${ user.gender }</td>
+										<td class="center-align">${ user.email }</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+						<!-- end of Table -->
 					</div>
-					<div class="row">
-						<div class="card-content">
-							<label style="float: left; font-size: 20px;" for="username">나이&nbsp;</label>
-							<p style="font-size: 20px">${user.age }0대</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="card-content">
-							<label style="float: left; font-size: 20px;" for="username">성별&nbsp;</label>
-							<p style="font-size: 20px">
-							<c:choose>
-								<c:when test="${user.gender eq 'M'}">
-									<p style="font-size: 20px">남성</p>
-								</c:when>
-								<c:otherwise>
-									<p style="font-size: 20px">여성</p>
-								</c:otherwise>
-							</c:choose>
-							</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="card-content">
-							<label style="float: left; font-size: 20px;" for="username">email&nbsp;</label>
-							<p style="font-size: 20px">${user.email }</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="card-content">
-							<p style="font-size: 20px"><a href="/user/modify">회원정보 수정하기</a></p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="card-content">
-							<p style="font-size: 20px"><a href="/user/loveList">찜한 목록 보러가기</a></p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="card-content">
-							<p style="font-size: 20px"><a href="/user/remove">회원 탈퇴하기</a></p>
-						</div>
-					</div>
+
+
 				</div>
 			</div>
 			<!-- form태그를 div로 바꿧음 -->

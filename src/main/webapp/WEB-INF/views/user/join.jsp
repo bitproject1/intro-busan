@@ -53,13 +53,8 @@ body {
 				<div class="row">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">mail_outline</i>
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/user/join.jsp
 						<input class="validate" id="username" name="username" type="text">
 						<label for="username" data-error="wrong" data-success="available">ID</label>
-=======
-						<input class="validate" id="user_id" type="text">
-						<label for="userID" data-error="wrong" data-success="available">ID</label>
->>>>>>> lsuk:src/main/webapp/WEB-INF/views/join.jsp
 						 <br/>
 						  <br/>
                          <span class="helper-text" id="idDupMessage">*아이디는 필수 입력 항목입니다.</span>
@@ -149,31 +144,11 @@ body {
 	
 	<!-- 회원가입 ID 중복체크,ID입력확인 관련 자바스크립트 -->
 	 <script>
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/user/join.jsp
+
 		
 		$('#username').on('keyup', function () {
-=======
-		$('#btnIdDupChk').on('click', function () {
-			
-			var inputId = $('#user_id').val();
-			
-			if (inputId.length == 0) { // inputId == ''
-				alert('아이디를 입력하세요.');
-				$('#user_id').focus();
-				return;
-			}
-			
-			// 새로운 자식창(브라우저) 열기
-			var childWindow = window.open('/member/joinIdDupChk?id=' + inputId, 'joinIdDupChk', 'width=500,height=400');
-			
-		});
-		
-		
-		$('#user_id').on('keyup', function () {
->>>>>>> lsuk:src/main/webapp/WEB-INF/views/join.jsp
 			var inputId = $(this).val();
 			console.log(inputId);
-			
 			if (inputId == '') {
 				$('span#idDupMessage').html('*아이디는 필수 입력 항목입니다.').css('color', 'grey');
 				return;
@@ -186,7 +161,6 @@ body {
 				success: function (data) {
 					console.log(typeof data);
 					console.log(data);
-					
 					showIdDupMessage(data.isIdDup);
 				}
 			});
