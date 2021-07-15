@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ import com.bitc.intro.domain.PageDTODetail;
 import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.service.HotspotService;
 import com.bitc.intro.service.RestaurantService;
+import com.mysql.cj.Session;
 
 @Controller
 @RequestMapping("/hotspot/*") // hotspot컨트롤러에서 index페이지 타기 문제
@@ -54,7 +56,7 @@ public class HotspotController {
 	// 관광지 1건 상세보기
 	// 관광지 정보, 식당 목록이 보여야한다.
 	@GetMapping("detail")
-	public String hotspotDetail(Model model, int id, CriteriaDetail cri) {
+	public String hotspotDetail(Model model, int id, CriteriaDetail cri, SqlSession session) {
 		//http://localhost:8888/hotspot/detail/
 		// 관광지 1건 가져오기
 		Hotspot hotspot = hotspotService.getHotspot(id);

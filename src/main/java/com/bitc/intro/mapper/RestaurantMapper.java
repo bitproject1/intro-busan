@@ -2,6 +2,8 @@ package com.bitc.intro.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.Restaurant;
@@ -21,5 +23,5 @@ public interface RestaurantMapper {
 	// 관광지 detail의 페이징 용 맵퍼 
 	int getTotalCountBySpotId(int id);
 	
-	List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot hotspot, CriteriaDetail cri);
+	List<Restaurant> getRestaurantsBySpotIdWithPage(@Param("hotspot") Hotspot hotspot, CriteriaDetail cri);
 }	

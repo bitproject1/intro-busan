@@ -11,11 +11,13 @@
 	
 	<!-- 관광지 주변 식당 별점 추가해야함 -->
 	<select id="getRestaurantsBySpotIdWithPage" resultType="com.bitc.intro.domain.Restaurant">
-		SELECT *
-		FROM (select hotspot.id hid , restaurant.id rid , restaurant.img rimg , restaurant.name rname
-		FROM introbusandb.hotspot inner join introbusandb.restaurant
-		WHERE hotspot.district = restaurant.district) newtable , hotspot
-		WHERE newtable.hid = id
+		SELECT DISTINCT name
+		from restaurant,
+		(SELECT hostpot.id hid, restaurnat.id rid
+		FROM hotspot, restaurnat
+		WHERE hotspot.district = restaurant.district
+		AND hotspot.id=#{id}) newtable
+		WHERE newtable.hid=#{id}
 	</select>
 	
 	<!-- 전체 글 개수 -->
