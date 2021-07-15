@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,13 +33,9 @@ public class UserController {
 
 	// 회원가입 폼으로 이동
 	@GetMapping("join")
-<<<<<<< HEAD
-	public String joinForm() {
-		return "user/join";
-=======
 	public String joinForm(){
 		return "/user/join";
->>>>>>> lsuk
+
 	} // get join
 
 	// 회원가입
@@ -59,11 +54,7 @@ public class UserController {
 	// 로그인 폼으로 이동
 	@GetMapping("login")
 	public String loginForm() {
-<<<<<<< HEAD
-		return "user/login";
-=======
 		return "/user/login";
->>>>>>> lsuk
 	} // get login
 
 	// 로그인

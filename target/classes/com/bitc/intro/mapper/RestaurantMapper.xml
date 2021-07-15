@@ -10,17 +10,17 @@
 	</insert>
 	
 	<!-- 관광지 주변 식당 별점 추가해야함 -->
-	<select id="getRestaurantsBySpotId" resultType="com.bitc.intro.domain.Restaurant">
+	<select id="getRestaurantsBySpotIdWithPage" resultType="com.bitc.intro.domain.Restaurant">
 		SELECT *
 		FROM (select hotspot.id hid , restaurant.id rid , restaurant.img rimg , restaurant.name rname
 		FROM introbusandb.hotspot inner join introbusandb.restaurant
-		WHERE hotspot.district = restaurant.district) newtable
-		WHERE newtable.hid = #{id};
+		WHERE hotspot.district = restaurant.district) newtable , hotspot
+		WHERE newtable.hid = id
 	</select>
 	
 	<!-- 전체 글 개수 -->
-	<select id="getTotalCount" resultType="int">
-		SELECT COUNT(*) FROM restaurant
+	<select id="getTotalCountBySpotId" resultType="int">
+		SELECT COUNT(*) FROM restaurant WHERE id = #{id}
 	</select>
 	
 	<select id="getRestaurantById" resultType="com.bitc.intro.domain.Restaurant">
