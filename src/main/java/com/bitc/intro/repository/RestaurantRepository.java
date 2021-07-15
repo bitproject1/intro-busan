@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bitc.intro.domain.CriteriaDetail;
+import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.mapper.RestaurantMapper;
 
@@ -18,8 +20,8 @@ public class RestaurantRepository {
 		restaurantMapper.insert(restaurant);
 	};
 	
-	public int getTotalCount() {
-		return restaurantMapper.getTotalCount();
+	public int getTotalCountSpotId(int id) {
+		return restaurantMapper.getTotalCountBySpotId(id);
 	};
 	
 	public int getRestaurantById(int id) {
@@ -38,7 +40,7 @@ public class RestaurantRepository {
 		restaurantMapper.updateRestaurantById(resutaurant);
 	};
 	
-	public List<Restaurant> getRestaurantsBySpotId(int id) {
-		return restaurantMapper.getRestaurantsBySpotId(id);
+	public List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot hotspot, CriteriaDetail cri) {
+		return restaurantMapper.getRestaurantsBySpotIdWithPage(hotspot, cri);
 	};
 }
