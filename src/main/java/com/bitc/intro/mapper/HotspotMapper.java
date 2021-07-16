@@ -1,9 +1,11 @@
 package com.bitc.intro.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.Hotspot;
+import com.bitc.intro.domain.HotspotDetailVO;
 
 public interface HotspotMapper {
 	
@@ -28,6 +30,9 @@ public interface HotspotMapper {
 	// 관광지 1건 수정하기
 	void updateHotspotById(Hotspot hotspot);
 	
+	// 관광지 주변 식당 정보
+	Hotspot getRestsWithPaging(int id);
 	
+	int getTotalCountBySpotId(int id);
 	
 }

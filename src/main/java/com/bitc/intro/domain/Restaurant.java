@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Restaurant {
-	private int id;
+	private int rid;
 	private String name;
 	private String district;
 	private String address;
@@ -14,5 +14,4 @@ public class Restaurant {
 	private String mainMenu;
 	private String img;
 	private String content;
-	private int spotId; // FK
 }

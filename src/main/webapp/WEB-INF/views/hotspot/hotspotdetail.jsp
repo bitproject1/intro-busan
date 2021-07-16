@@ -146,14 +146,13 @@ pageEncoding="UTF-8"%>
       <!-- Basic Card -->
 
       <div class="row">
-      <c:choose>
-		<c:when test="${ pageMaker.total gt 0 }">
-		<c:forEach var="restaurant" items="${ restaurants }">
+      
+		<c:forEach var="restaurant" items="${ restaurants.restaurantList }">
       <!-- 레스토랑 카드 1건 시작 -->
         <div class="col s12 m2">
           <div class="card">
             <div class="card-image">
-              <a href="/restaurant/detail/${restaurant.id}">
+              <a href="/restaurant/detail/${restaurant.rid}">
                 <img src="${restaurant.img}" />
               </a>
               <span class="card-title">${restaurant.name}</span>
@@ -188,16 +187,9 @@ pageEncoding="UTF-8"%>
         </div>
 		<!-- 레스토랑 카드 1건 끝 -->
 		
-		</c:forEach>
-		</c:when>
-		  <c:otherwise>
-		  <div class="row">
-			<span colspan="5">현재 게시판에 작성된 글이 없습니다.</span>
-		  </div>
-		  </c:otherwise>
-		</c:choose>
 		</div>
 			<!-- end of Basic Card -->
+			</c:forEach>
 		</div>
         <%--<a
           href="/board/write?pageNum=${ pageMaker.cri.pageNum }"
@@ -218,7 +210,7 @@ pageEncoding="UTF-8"%>
 			<a id="prev"><i class="material-icons">chevron_left</i></a></li>
 				<!-- 페이지버튼 반복문 -->
 				<c:forEach var="i" begin="${pageMaker.startPage}" end="${pageMaker.endPage}" step="1">
-				<li class=" ${pageMaker.cri.pageNum == i ? 'active' : 'waves-effect'}">
+				<li class=" ${pageMaker.criDetail.pageNum == i ? 'active' : 'waves-effect'}">
 				<a href="/hotspot/list?pageNum=${i}">${i}</a></li>
 				</c:forEach>
 				<!-- 페이지버튼 반복문 끝 -->
