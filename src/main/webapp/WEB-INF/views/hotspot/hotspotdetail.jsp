@@ -132,32 +132,6 @@
 	<div class="container">
 		<!-- Basic Card -->
 
-		<div class="row">
-				
-					<c:forEach var="restaurant" items="${ restaurants }">
-						<!-- 레스토랑 카드 1건 시작 -->
-						<div class="col s12 m2">
-							<div class="card">
-								<div class="card-image">
-									<a href="/restaurant/detail/${restaurant.id}"> <img
-										src="${restaurant.img}" />
-									</a> <span class="card-title">${restaurant.name}</span> <a
-										class="btn-floating halfway-fab waves-effect waves-light red">
-										<i data-target="modal1" class="material-icons modal-trigger">add</i>
-									</a>
-								</div>
-								<div class="card-content">
-									<div class="card-content">${restaurant.district}</div>
-									<div class="card-content">${restaurant.mainMenu}</div>
-									<div class="card-content">좋아요 수</div>
-									<div class="card-content">리뷰 수</div>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
-				
-
-		</div>
 		<!-- 레스토랑 카드 1건 끝 -->
 
 
