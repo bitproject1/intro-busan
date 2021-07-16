@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bitc.intro.domain.Manager;
+import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
 import com.bitc.intro.service.ManagerService;
+import com.bitc.intro.service.RestaurantService;
 import com.bitc.intro.service.UserService;
 import com.bitc.intro.util.Script;
 
@@ -30,6 +32,9 @@ public class ManagerController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RestaurantService restService;
 	
 	
 	// 로그인 페이지로 이동
@@ -89,5 +94,17 @@ public class ManagerController {
 		System.out.println(user);
 		model.addAttribute("user", user);
 		return "manager/manageDetail";
+	}
+	
+	// 맛집 등록 페이지로 이동
+	@GetMapping("/write")
+	public String write() {
+		return "manager/write";
+	}
+	
+	// 맛집 등록하기
+	@PostMapping("/write")
+	public String write(Restaurant restaurant) {
+		restService.insert(null);
 	}
 }

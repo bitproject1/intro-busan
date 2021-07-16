@@ -133,9 +133,8 @@
 		<!-- Basic Card -->
 
 		<div class="row">
-			<c:choose>
-				<c:when test="${ pageMaker.total gt 0 }">
-					<c:forEach var="restaurant" items="${ Restaurants }">
+				
+					<c:forEach var="restaurant" items="${ restaurants }">
 						<!-- 레스토랑 카드 1건 시작 -->
 						<div class="col s12 m2">
 							<div class="card">
@@ -156,30 +155,12 @@
 							</div>
 						</div>
 					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<div class="row">
-						<span colspan="5">현재 게시판에 작성된 글이 없습니다.</span>
-					</div>
-				</c:otherwise>
-			</c:choose>
-
-			<!-- Modal Modal component -->
-			<div id="modal1" class="modal">
-				<div class="modal-content">
-					<h4>Modal Header</h4>
-					<p>A bunch of text</p>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn-flat">닫기</a>
-				</div>
-			</div>
-			<!-- Modal component end-->
-
-			<!-- 레스토랑 카드 1건 끝 -->
-
+				
 
 		</div>
+		<!-- 레스토랑 카드 1건 끝 -->
+
+
 	</div>
 	<!-- end of Basic Card -->
 	</div>
@@ -225,7 +206,6 @@
 	<script>
 		const sideNav = document.querySelector('.sidenav');
 		M.Sidenav.init(sideNav, {});
-
 		const slider = document.querySelector('.slider');
 		M.Slider.init(slider, {
 			indicators : false,
@@ -233,7 +213,6 @@
 			duration : 500,
 			interval : 6000,
 		});
-
 		const ac = document.querySelector('.autocomplete');
 		M.Autocomplete.init(ac, {
 			data : {
@@ -248,7 +227,6 @@
 				로마 : null,
 			},
 		});
-
 		var elems = document.querySelectorAll('.collapsible');
 		var instances = M.Collapsible.init(elems, {});
 	</script>

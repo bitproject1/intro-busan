@@ -2,15 +2,11 @@ package com.bitc.intro.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,7 +22,6 @@ import com.bitc.intro.domain.PageDTODetail;
 import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.service.HotspotService;
 import com.bitc.intro.service.RestaurantService;
-import com.mysql.cj.Session;
 
 @Controller
 @RequestMapping("/hotspot/*") // hotspot컨트롤러에서 index페이지 타기 문제
@@ -56,18 +51,20 @@ public class HotspotController {
 	// 관광지 1건 상세보기
 	// 관광지 정보, 식당 목록이 보여야한다.
 	@GetMapping("detail")
-	public String hotspotDetail(Model model, int id, CriteriaDetail cri, SqlSession session) {
+	public String hotspotDetail(int id, CriteriaDetail cri, Model model) {
 		//http://localhost:8888/hotspot/detail/
 		// 관광지 1건 가져오기
 		Hotspot hotspot = hotspotService.getHotspot(id);
+		System.out.println(hotspot.toString());
 		// 식당 전체가져오기
-		List<Restaurant> Restaurants = restaurantService.getRestaurantsBySpotIdWithPage(hotspot, cri);
+		List<Restaurant> restaurants = restaurantService.getRestaurantsBySpotIdWithPage(hotspot, cri);
+		System.out.println(restaurants);
 		// board.setHitcount(board.getHitcount()+1); // OSIV = true 여기 있음 안댐
 		int totalCount = restaurantService.getTotalCountBySpotId(id);
 		
 		PageDTODetail pageMaker = new PageDTODetail(cri, totalCount);
 		model.addAttribute("hotspot", hotspot);
-		model.addAttribute("Restaurants", Restaurants);
+		model.addAttribute("restaurants", restaurants);
 		model.addAttribute("pageMaker", pageMaker);
 		//System.out.println(board.getComments().get(0));
 		return "/hotspot/hotspotdetail";

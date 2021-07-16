@@ -5,42 +5,47 @@
 <mapper namespace="com.bitc.intro.mapper.RestaurantMapper">
 
 	<insert id="insert">
-		INSERT INTO restaurant (name , district , address , phonenum , url , mainmenu , img , content , spot_id) 
-		VALUES (#{name} , #{district} , #{address} , #{phonenum} , #{url} , #{mainmenu} , #{img} , #{content} , #{spot_id})
+		INSERT INTO restaurant (name , district , address ,
+		phonenum , url , mainmenu , img , content , spot_id)
+		VALUES (#{name} , #{district} , #{address} , #{phonenum} , #{url} ,
+		#{mainmenu} , #{img} , #{content} , #{spot_id})
 	</insert>
-	
+
 	<!-- 관광지 주변 식당 별점 추가해야함 -->
-	<select id="getRestaurantsBySpotIdWithPage" resultType="com.bitc.intro.domain.Restaurant">
-		SELECT DISTINCT name
-		from restaurant,
-		(SELECT hostpot.id hid, restaurnat.id rid
-		FROM hotspot, restaurnat
+	<select id="getRestaurantsBySpotIdWithPage" parameterType="com.bitc.intro.domain.Hotspot"
+		resultType="com.bitc.intro.domain.Restaurant">
+		select *
+		FROM hotspot inner join restaurant
 		WHERE hotspot.district = restaurant.district
-		AND hotspot.id=#{id}) newtable
-		WHERE newtable.hid=#{id}
+		and hotspot.id = #{param1.id};
 	</select>
-	
+
 	<!-- 전체 글 개수 -->
 	<select id="getTotalCountBySpotId" resultType="int">
-		SELECT COUNT(*) FROM restaurant WHERE id = #{id}
+		SELECT COUNT(*)
+		FROM restaurant WHERE id = #{id}
 	</select>
-	
-	<select id="getRestaurantById" resultType="com.bitc.intro.domain.Restaurant">
+
+	<select id="getRestaurantById"
+		resultType="com.bitc.intro.domain.Restaurant">
 		SELECT * FROM restaurant WHERE id = #{id}
 	</select>
-	
-	<select id="getRestaurants" resultType="com.bitc.intro.domain.Restaurant">
+
+	<select id="getRestaurants"
+		resultType="com.bitc.intro.domain.Restaurant">
 		SELECT * FROM restaurant ORDER BY id DESC
 	</select>
-	
+
 	<delete id="deleteById">
 		DELETE FROM restaurant WHERE id = #{id}
 	</delete>
-	
-	<!-- 업데이트 이름, 주소, 전번, 홈페이지, 메뉴, 사진, 상세 / spot_id는 고정-->
+
+	<!-- 업데이트 이름, 주소, 전번, 홈페이지, 메뉴, 사진, 상세 / spot_id는 고정 -->
 	<update id="updateRestaurantById">
-		UPDATE restaurant 
-		SET name=#{name} , address=#{address} , phonenum=#{phonenum} , url=#{url} , mainmenu=${mainmenu} , img=#{img} , content=#{content} , spot_id=#{spot_id}
+		UPDATE restaurant
+		SET name=#{name} , address=#{address} , phonenum=#{phonenum} , url=#{url}
+		, mainmenu=${mainmenu} , img=#{img} , content=#{content} ,
+		spot_id=#{spot_id}
 		WHERE id=#{id}
 	</update>
 

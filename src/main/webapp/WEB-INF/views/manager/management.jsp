@@ -55,7 +55,7 @@
 							</thead>
 							<tbody>
 								<c:forEach items="${users }" var="user">
-									<tr onclick="location.href='/manager/manageDetail?username=${user.id}'">
+									<tr onclick="location.href='/manager/manageDetail?username=${user.username}'">
 										<td class="center-align">${ user.id }</td>
 										<td class="center-align">${ user.username }</td>
 										<td class="center-align">${ user.age }</td>
