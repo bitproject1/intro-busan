@@ -1,9 +1,6 @@
 package com.bitc.intro.controller;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,9 +21,7 @@ import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.domain.PageDTO;
 import com.bitc.intro.domain.PageDTODetail;
-import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.service.HotspotService;
-import com.bitc.intro.service.RestaurantService;
 
 @Controller
 @RequestMapping("/hotspot/*") // hotspot컨트롤러에서 index페이지 타기 문제
@@ -57,6 +52,7 @@ public class HotspotController {
 		//http://localhost:8888/hotspot/detail/
 		// 관광지 1건 가져오기
 		Hotspot hotspot = hotspotService.getHotspot(id);
+		System.out.println(hotspot.toString());
 		// 식당 전체가져오기
 		HotspotDetailVO hotspotDetailVO = new HotspotDetailVO();
 		hotspotDetailVO.setId(id);

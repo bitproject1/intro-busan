@@ -1,149 +1,139 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+</head>
 
-  <body>
-    <!-- App -->
-    <div id="app">
-      <%-- include header.jsp --%>
-      <jsp:include page="/WEB-INF/views/include/header.jsp" />
+<body>
+	<!-- App -->
+	<div id="app">
+		<%-- include header.jsp --%>
+		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 
-      <div class="container">
-        <!-- Image Slider -->
-        <div class="slider">
-          <ul class="slides">
-            <li>
-              <img src="/resources/images/amsterdam.jpg" />
-              <div class="caption center-align">
-                <h2>풍차의 나라</h2>
-                <h5 class="light grey-text text-lighten-3 hide-on-small-only">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Officiis accusantium libero, natus quibusdam nesciunt
-                  exercitationem commodi quo dolore asperiores tenetur.
-                  Perspiciatis cupiditate molestias eligendi placeat ab
-                  asperiores ex quae enim!
-                </h5>
-              </div>
-            </li>
-            <li>
-              <img src="/resources/images/dresden.jpg" />
-              <div class="caption left-align">
-                <h2>다시가고 싶은 도시</h2>
-                <h5 class="light grey-text text-lighten-3 hide-on-small-only">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Officiis accusantium libero, natus quibusdam nesciunt
-                  exercitationem commodi quo dolore asperiores tenetur.
-                  Perspiciatis cupiditate molestias eligendi placeat ab
-                  asperiores ex quae enim!
-                </h5>
-              </div>
-            </li>
-            <li>
-              <img src="/resources/images/venezia.jpg" />
-              <div class="caption right-align">
-                <h2>세계적인 수상도시</h2>
-                <h5 class="light grey-text text-lighten-3 hide-on-small-only">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Officiis accusantium libero, natus quibusdam nesciunt
-                  exercitationem commodi quo dolore asperiores tenetur.
-                  Perspiciatis cupiditate molestias eligendi placeat ab
-                  asperiores ex quae enim!
-                </h5>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <!-- end of Image Slider -->
+		<div class="container">
+			<!-- Image Slider -->
+			<div class="slider">
+				<ul class="slides">
+					<li><img src="/resources/images/amsterdam.jpg" />
+						<div class="caption center-align">
+							<h2>풍차의 나라</h2>
+							<h5 class="light grey-text text-lighten-3 hide-on-small-only">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+								Officiis accusantium libero, natus quibusdam nesciunt
+								exercitationem commodi quo dolore asperiores tenetur.
+								Perspiciatis cupiditate molestias eligendi placeat ab asperiores
+								ex quae enim!</h5>
+						</div></li>
+					<li><img src="/resources/images/dresden.jpg" />
+						<div class="caption left-align">
+							<h2>다시가고 싶은 도시</h2>
+							<h5 class="light grey-text text-lighten-3 hide-on-small-only">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+								Officiis accusantium libero, natus quibusdam nesciunt
+								exercitationem commodi quo dolore asperiores tenetur.
+								Perspiciatis cupiditate molestias eligendi placeat ab asperiores
+								ex quae enim!</h5>
+						</div></li>
+					<li><img src="/resources/images/venezia.jpg" />
+						<div class="caption right-align">
+							<h2>세계적인 수상도시</h2>
+							<h5 class="light grey-text text-lighten-3 hide-on-small-only">
+								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+								Officiis accusantium libero, natus quibusdam nesciunt
+								exercitationem commodi quo dolore asperiores tenetur.
+								Perspiciatis cupiditate molestias eligendi placeat ab asperiores
+								ex quae enim!</h5>
+						</div></li>
+				</ul>
+			</div>
+			<!-- end of Image Slider -->
 
-        <!-- AutoComplete -->
-        <div id="search" class="cyan white-text center">
-          <div class="row">
-            <div class="col s12">
-              <h5>검색</h5>
-              <div class="input-field">
-                <i id="" class="material-icons prefix">location_on</i>
-                <input
-                  type="text"
-                  class="white grey-text autocomplete"
-                  id="autocomplete-input"
-                  placeholder="드라스덴, 파리, 프라하, ..."
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end of AutoComplete -->
-      </div>
+			<!-- AutoComplete -->
+			<div id="search" class="cyan white-text center">
+				<div class="row">
+					<div class="col s12">
+						<h5>검색</h5>
+						<div class="input-field">
+							<i id="" class="material-icons prefix">location_on</i> <input
+								type="text" class="white grey-text autocomplete"
+								id="autocomplete-input" placeholder="드라스덴, 파리, 프라하, ..." />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of AutoComplete -->
+		</div>
 
-      <!-- end of Container -->
-      <div class="container">
-        <div class="row">
-          <div class="col s12 m2"></div>
+		<!-- end of Container -->
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m2"></div>
 
-          <div class="col s12 m8">
-            <div class="card">
-            <div class="card-title">${hotspot.name}</div>
-            
-              <div class="card-image">
-                <a href="#">
-                  <img src="/resources/images/amsterdam.jpg" />
-                </a>
-              </div>
-              <div class="card-content">
-              <div class="card-content-span">${hotspot.title}</div></br>
-              <div class="card-content-span">${hotspot.subTitle}</div></br>
-              <div class="card-content-span">${hotspot.address}</div></br>
-              <div class="card-content-span">${hotspot.phoneNum}</div></br>
-              <div class="card-content-span">${hotspot.traffic}</div></br>
-              <div class="card-content-span">${hotspot.day}</div></br>
-              <div class="card-content-span">${hotspot.holiday}</div></br>
-              <div class="card-content-span">${hotspot.time}</div></br>
-              <div class="card-content-span">${hotspot.fee}</div></br>
-              <div class="card-content-span">${hotspot.conv}</div></br>
-              <div class="card-content-span">${hotspot.content}</div>
-              <div class="card-action">
-          		<a href="${hotspot.url}">웹사이트 접속</a>
-        		</div>
-              </div>
-            </div>
-            <a
-              href="/restaurantmodify"
-              class="btn-large waves-effect waves-light btn right red"
-            >
-              <i class="material-icons left">delete</i> 글삭제
-            </a>
+				<div class="col s12 m8">
+					<div class="card">
+						<div class="card-title">${hotspot.name}</div>
 
-            <a
-              href="/restaurantmodify"
-              class="btn-large waves-effect waves-light btn right yellow"
-            >
-              <i class="material-icons left">edit</i> 글수정
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+						<div class="card-image">
+							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
+							</a>
+						</div>
+						<div class="card-content">
+							<div class="card-content-span">${hotspot.title}</div>
+							</br>
+							<div class="card-content-span">${hotspot.subTitle}</div>
+							</br>
+							<div class="card-content-span">${hotspot.address}</div>
+							</br>
+							<div class="card-content-span">${hotspot.phoneNum}</div>
+							</br>
+							<div class="card-content-span">${hotspot.traffic}</div>
+							</br>
+							<div class="card-content-span">${hotspot.day}</div>
+							</br>
+							<div class="card-content-span">${hotspot.holiday}</div>
+							</br>
+							<div class="card-content-span">${hotspot.time}</div>
+							</br>
+							<div class="card-content-span">${hotspot.fee}</div>
+							</br>
+							<div class="card-content-span">${hotspot.conv}</div>
+							</br>
+							<div class="card-content-span">${hotspot.content}</div>
+							<div class="card-action">
+								<a href="${hotspot.url}">웹사이트 접속</a>
+							</div>
+						</div>
+					</div>
+					<a href="/restaurantmodify"
+						class="btn-large waves-effect waves-light btn right red"> <i
+						class="material-icons left">delete</i> 글삭제
+					</a> <a href="/restaurantmodify"
+						class="btn-large waves-effect waves-light btn right yellow"> <i
+						class="material-icons left">edit</i> 글수정
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- Container -->
-    <div class="container">
-      <!-- Basic Card -->
+	<!-- Container -->
+	<div class="container">
+		<!-- Basic Card -->
+
+		<!-- 레스토랑 카드 1건 끝 -->
+
 
       <div class="row">
       

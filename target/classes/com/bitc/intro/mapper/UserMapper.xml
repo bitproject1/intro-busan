@@ -3,15 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitc.intro.mapper.UserMapper">
-	<!-- <resultMap type="com.bitc.intro.domain.User" id="user">
-		<id property="id" column="id" />
-		<result property="username" column="username" />
-		<result property="password" column="password" />
-		<result property="email" column="email" />
-		<result property="age" column="age" />
-		<result property="gender" column="gender" />
-		<result property="auth" column="auth" />
-	</resultMap> -->
 	
 	<insert id="insert">
 		INSERT INTO user (id, username, password, email, age, gender, auth) 
@@ -39,4 +30,13 @@
 		SET password=#{password}, email=#{email}
 		WHERE username=#{username}
 	</update>
+	
+	<select id="getLoveList" resultType="com.bitc.intro.domain.Restaurant">
+		SELECT distinct *
+		FROM restaurant,
+		(SELECT rest_id
+		FROM user, love
+		WHERE user_id=#{id}) newtable
+		WHERE rest_id=id
+	</select>
 </mapper>
