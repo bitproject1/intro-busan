@@ -21,24 +21,24 @@ public class RestaurantService {
 		restaurantRepository.insert(restaurant);
 	};
 	
-	public int getTotalCountBySpotId(int id) {
-		return restaurantRepository.getTotalCountSpotId(id);
-	};
-	
-	public int getRestaurantById(int id) {
-		return restaurantRepository.getRestaurantById(id);
+	public int getRestaurantById(int rid) {
+		return restaurantRepository.getRestaurantById(rid);
 	};
 	
 	public List<Restaurant> getRestaurants() {
 		return restaurantRepository.getRestaurants();
 	};
 	
-	public void deleteById(int id) {
-		restaurantRepository.deleteById(id);
+	public void deleteById(int rid) {
+		restaurantRepository.deleteById(rid);
 	};
 	
 	public void updateRestaurantById(Restaurant resutaurant) {
 		restaurantRepository.updateRestaurantById(resutaurant);
+	};
+	
+	public int getTotalCountBySpotId(Hotspot hotspot) {
+		return restaurantRepository.getTotalCountSpotId(hotspot);
 	};
 	
 	public List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot hotspot, CriteriaDetail cri) {

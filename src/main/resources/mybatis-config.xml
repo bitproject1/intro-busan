@@ -13,6 +13,7 @@
 
 	<typeAliases>
 		<package name="com.bitc.intro.domain" />
+		
 	</typeAliases>
 
 </configuration>
