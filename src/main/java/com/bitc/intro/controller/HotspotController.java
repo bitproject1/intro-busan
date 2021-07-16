@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,11 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
+import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.domain.PageDTO;
 import com.bitc.intro.domain.PageDTODetail;
-import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.service.HotspotService;
-import com.bitc.intro.service.RestaurantService;
 
 @Controller
 @RequestMapping("/hotspot/*") // hotspot컨트롤러에서 index페이지 타기 문제
@@ -29,9 +29,6 @@ public class HotspotController {
 	
 	@Autowired
 	private HotspotService hotspotService;
-	
-	@Autowired
-	private RestaurantService restaurantService;
 	
 	// 관광지 전체보기 / 메인화면
 	@GetMapping("list")
@@ -51,18 +48,22 @@ public class HotspotController {
 	// 관광지 1건 상세보기
 	// 관광지 정보, 식당 목록이 보여야한다.
 	@GetMapping("detail")
-	public String hotspotDetail(int id, CriteriaDetail cri, Model model) {
+	public String hotspotDetail(Model model, int id, @ModelAttribute("pageNum") String pageNum ,CriteriaDetail criDetail) {
 		//http://localhost:8888/hotspot/detail/
 		// 관광지 1건 가져오기
 		Hotspot hotspot = hotspotService.getHotspot(id);
 		System.out.println(hotspot.toString());
 		// 식당 전체가져오기
-		List<Restaurant> restaurants = restaurantService.getRestaurantsBySpotIdWithPage(hotspot, cri);
+		HotspotDetailVO hotspotDetailVO = new HotspotDetailVO();
+		hotspotDetailVO.setId(id);
+		hotspotDetailVO.setPageNum(criDetail.getPageNum());
+		hotspotDetailVO.setAmount(criDetail.getAmount());
+		Hotspot restaurants = hotspotService.getRestsWithPaging(id);
 		System.out.println(restaurants);
 		// board.setHitcount(board.getHitcount()+1); // OSIV = true 여기 있음 안댐
-		int totalCount = restaurantService.getTotalCountBySpotId(id);
+		int totalCount = hotspotService.getTotalCountBySpotId(id);
 		
-		PageDTODetail pageMaker = new PageDTODetail(cri, totalCount);
+		PageDTODetail pageMaker = new PageDTODetail(criDetail, totalCount);
 		model.addAttribute("hotspot", hotspot);
 		model.addAttribute("restaurants", restaurants);
 		model.addAttribute("pageMaker", pageMaker);

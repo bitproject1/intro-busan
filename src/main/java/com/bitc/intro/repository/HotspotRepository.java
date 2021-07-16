@@ -1,12 +1,14 @@
 package com.bitc.intro.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.Hotspot;
+import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.mapper.HotspotMapper;
 
 @Repository
@@ -46,4 +48,12 @@ public class HotspotRepository {
 	public void deleteHotspotById(int id) {
 		hotspotMapper.deleteHotspotById(id);
 	};
+	
+	public Hotspot getRestsWithPaging(int id) {
+		return hotspotMapper.getRestsWithPaging(id);
+	};
+	
+	public int getTotalCountBySpotId(int id) {
+		return hotspotMapper.getTotalCountBySpotId(id);
+	}
 }

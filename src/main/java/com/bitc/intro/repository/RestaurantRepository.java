@@ -21,24 +21,26 @@ public class RestaurantRepository {
 		restaurantMapper.insert(restaurant);
 	};
 	
-	public int getTotalCountSpotId(int id) {
-		return restaurantMapper.getTotalCountBySpotId(id);
-	};
 	
-	public int getRestaurantById(int id) {
-		return restaurantMapper.getRestaurantById(id);
+	
+	public int getRestaurantById(int rid) {
+		return restaurantMapper.getRestaurantById(rid);
 	};
 	
 	public List<Restaurant> getRestaurants() {
 		return restaurantMapper.getRestaurants();
 	};
 	
-	public void deleteById(int id) {
-		restaurantMapper.deleteById(id);
+	public void deleteById(int rid) {
+		restaurantMapper.deleteById(rid);
 	};
 	
 	public void updateRestaurantById(Restaurant resutaurant) {
 		restaurantMapper.updateRestaurantById(resutaurant);
+	};
+	
+	public int getTotalCountSpotId(Hotspot hotspot) {
+		return restaurantMapper.getTotalCountBySpotId(hotspot);
 	};
 	
 	public List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot hotspot, CriteriaDetail cri) {

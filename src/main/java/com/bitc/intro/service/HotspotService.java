@@ -1,6 +1,7 @@
 package com.bitc.intro.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.Hotspot;
+import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.repository.HotspotRepository;
 
 @Service
@@ -47,4 +49,11 @@ public class HotspotService {
 		hotspotRepository.deleteHotspotById(id);
 	}
 	
+	public Hotspot getRestsWithPaging(int id) {
+		return hotspotRepository.getRestsWithPaging(id);
+	};
+	
+	public int getTotalCountBySpotId(int id) {
+		return hotspotRepository.getTotalCountBySpotId(id);
+	}
 }

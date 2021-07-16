@@ -10,25 +10,9 @@
 		VALUES (#{name} , #{district} , #{address} , #{phonenum} , #{url} ,
 		#{mainmenu} , #{img} , #{content} , #{spot_id})
 	</insert>
-
-	<!-- 관광지 주변 식당 별점 추가해야함 -->
-	<select id="getRestaurantsBySpotIdWithPage" parameterType="com.bitc.intro.domain.Hotspot"
-		resultType="com.bitc.intro.domain.Restaurant">
-		select *
-		FROM hotspot inner join restaurant
-		WHERE hotspot.district = restaurant.district
-		and hotspot.id = #{param1.id};
-	</select>
-
-	<!-- 전체 글 개수 -->
-	<select id="getTotalCountBySpotId" resultType="int">
-		SELECT COUNT(*)
-		FROM restaurant WHERE id = #{id}
-	</select>
-
-	<select id="getRestaurantById"
-		resultType="com.bitc.intro.domain.Restaurant">
-		SELECT * FROM restaurant WHERE id = #{id}
+	
+	<select id="getRestaurantById" resultType="com.bitc.intro.domain.Restaurant">
+		SELECT * FROM restaurant WHERE rid = #{rid}
 	</select>
 
 	<select id="getRestaurants"
@@ -37,16 +21,32 @@
 	</select>
 
 	<delete id="deleteById">
-		DELETE FROM restaurant WHERE id = #{id}
+		DELETE FROM restaurant WHERE id = #{rid}
 	</delete>
 
 	<!-- 업데이트 이름, 주소, 전번, 홈페이지, 메뉴, 사진, 상세 / spot_id는 고정 -->
 	<update id="updateRestaurantById">
-		UPDATE restaurant
-		SET name=#{name} , address=#{address} , phonenum=#{phonenum} , url=#{url}
-		, mainmenu=${mainmenu} , img=#{img} , content=#{content} ,
-		spot_id=#{spot_id}
-		WHERE id=#{id}
+		UPDATE restaurant 
+		SET name=#{name} , address=#{address} , phonenum=#{phonenum} , url=#{url} , mainmenu=${mainmenu} , img=#{img} , content=#{content} , spot_id=#{spot_id}
+		WHERE rid=#{rid}
 	</update>
+	
+	<!-- 관광지 주변 식당 별점 추가해야함 -->
+	<select id="getRestaurantsBySpotIdWithPage" resultType="com.bitc.intro.domain.Restaurant">
+		SELECT *
+		FROM (select hotspot.id hid , restaurant.id rid , restaurant.img rimg , restaurant.name rname
+		FROM hotspot inner join restaurant
+		WHERE hotspot.district = restaurant.district) newtable
+		WHERE newtable.hid = #{id} LiMIT #{startPage} , #{amount}
+	</select>
+	
+	<!-- 전체 글 개수 -->
+	<select id="getTotalCountBySpotId" resultType="int">
+		SELECT COUNT(*)
+		FROM (select hotspot.id hid , restaurant.id rid , restaurant.img rimg , restaurant.name rname
+		FROM hotspot inner join restaurant
+		WHERE hotspot.district = restaurant.district) newtable
+		WHERE newtable.hid = #{id}
+	</select>
 
 </mapper>

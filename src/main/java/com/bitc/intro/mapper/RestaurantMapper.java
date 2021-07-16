@@ -22,7 +22,7 @@ public interface RestaurantMapper {
 	void updateRestaurantById(Restaurant resutaurant);
 	
 	// 관광지 detail의 페이징 용 맵퍼 
-	int getTotalCountBySpotId(int id);
+	int getTotalCountBySpotId(Hotspot hotspot);
 	
 	List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot param1, CriteriaDetail param2);
 }	

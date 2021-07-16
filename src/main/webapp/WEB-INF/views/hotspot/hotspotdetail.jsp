@@ -161,82 +161,125 @@
 		<!-- 레스토랑 카드 1건 끝 -->
 
 
-	</div>
-	<!-- end of Basic Card -->
-	</div>
-	<%--<a
+      <div class="row">
+      
+		<c:forEach var="restaurant" items="${ restaurants.restaurantList }">
+      <!-- 레스토랑 카드 1건 시작 -->
+        <div class="col s12 m2">
+          <div class="card">
+            <div class="card-image">
+              <a href="/restaurant/detail/${restaurant.rid}">
+                <img src="${restaurant.img}" />
+              </a>
+              <span class="card-title">${restaurant.name}</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red">
+                <i data-target="modal1" class="material-icons modal-trigger"
+                  >add</i
+                >
+              </a>
+            </div>
+            <div class="card-content">
+              <div class="card-content">${restaurant.district}</div>
+              <div class="card-content">${restaurant.mainMenu}</div>
+              <div class="card-content">좋아요 수</div>
+              <div class="card-content">리뷰 수</div>
+            </div>
+          </div>
+        </div>
+        
+      <!-- Modal Modal component -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+            >닫기</a
+          >
+        </div>
+      </div>
+ 		<!-- Modal component end-->
+        </div>
+		<!-- 레스토랑 카드 1건 끝 -->
+		
+		</div>
+			<!-- end of Basic Card -->
+			</c:forEach>
+		</div>
+        <%--<a
           href="/board/write?pageNum=${ pageMaker.cri.pageNum }"
           class="waves-effect waves-light btn right"
         >
           <i class="material-icons left">create</i>새글쓰기
         </a>
         --%>
-	</div>
-	<!-- Container -->
+      </div>
+      <!-- Container -->
 
+      
 
+      <br />
+		<!-- pagination -->
+		<ul class="pagination" align="center">
+			<li class="${pageMaker.prev ? 'waves-effect' : 'disabled'}">
+			<a id="prev"><i class="material-icons">chevron_left</i></a></li>
+				<!-- 페이지버튼 반복문 -->
+				<c:forEach var="i" begin="${pageMaker.startPage}" end="${pageMaker.endPage}" step="1">
+				<li class=" ${pageMaker.criDetail.pageNum == i ? 'active' : 'waves-effect'}">
+				<a href="/hotspot/list?pageNum=${i}">${i}</a></li>
+				</c:forEach>
+				<!-- 페이지버튼 반복문 끝 -->
+			<li class="${pageMaker.next ? 'waves-effect' : 'disabled'}">
+			<a id="next"><i class="material-icons">chevron_right</i></a></li>
+						
+		</ul>
+			<!-- end of pagination -->
 
-	<br />
-	<!-- pagination -->
-	<ul class="pagination" align="center">
-		<li class="${pageMaker.prev ? 'waves-effect' : 'disabled'}"><a
-			id="prev"><i class="material-icons">chevron_left</i></a></li>
-		<!-- 페이지버튼 반복문 -->
-		<c:forEach var="i" begin="${pageMaker.startPage}"
-			end="${pageMaker.endPage}" step="1">
-			<li
-				class=" ${pageMaker.cri.pageNum == i ? 'active' : 'waves-effect'}">
-				<a href="/hotspot/list?pageNum=${i}">${i}</a>
-			</li>
-		</c:forEach>
-		<!-- 페이지버튼 반복문 끝 -->
-		<li class="${pageMaker.next ? 'waves-effect' : 'disabled'}"><a
-			id="next"><i class="material-icons">chevron_right</i></a></li>
+      <!-- Footer -->
+      <%-- include footer.jsp --%>
+      <jsp:include page="/WEB-INF/views/include/footer.jsp" />
+      <!-- end of Footer -->
+    </div>
+    <!-- end of App -->
 
-	</ul>
-	<!-- end of pagination -->
+    <script>
+      const sideNav = document.querySelector('.sidenav');
+      M.Sidenav.init(sideNav, {});
 
-	<!-- Footer -->
-	<%-- include footer.jsp --%>
-	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	<!-- end of Footer -->
-	</div>
-	<!-- end of App -->
+      const slider = document.querySelector('.slider');
+      M.Slider.init(slider, {
+        indicators: false,
+        height: 485,
+        duration: 500,
+        interval: 6000,
+      });
 
-	<script>
-		const sideNav = document.querySelector('.sidenav');
-		M.Sidenav.init(sideNav, {});
-		const slider = document.querySelector('.slider');
-		M.Slider.init(slider, {
-			indicators : false,
-			height : 485,
-			duration : 500,
-			interval : 6000,
-		});
-		const ac = document.querySelector('.autocomplete');
-		M.Autocomplete.init(ac, {
-			data : {
-				파리 : null,
-				베네치아 : null,
-				암스테르담 : null,
-				부다페스트 : null,
-				프랑크푸르트 : null,
-				비엔나 : null,
-				드라스덴 : null,
-				프라하 : null,
-				로마 : null,
-			},
-		});
-		var elems = document.querySelectorAll('.collapsible');
-		var instances = M.Collapsible.init(elems, {});
-	</script>
+      const ac = document.querySelector('.autocomplete');
+      M.Autocomplete.init(ac, {
+        data: {
+          파리: null,
+          베네치아: null,
+          암스테르담: null,
+          부다페스트: null,
+          프랑크푸르트: null,
+          비엔나: null,
+          드라스덴: null,
+          프라하: null,
+          로마: null,
+        },
+      });
 
-	<!-- 이미지 모달(팝업창) 관련 자바스크립트 -->
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			var elems = document.querySelectorAll('.modal');
-			var instances = M.Modal.init(elems);
-		});
-	</script>
-</body>
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems, {});
+    </script>
+
+    <!-- 이미지 모달(팝업창) 관련 자바스크립트 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+      });
+    </script>
+  </body>
 </html>
