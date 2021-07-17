@@ -33,8 +33,8 @@ public class UserController {
 
 	// 회원가입 폼으로 이동
 	@GetMapping("join")
-	public String joinForm(){
-		return "/user/join";
+	public String joinForm() {
+		return "user/join";
 
 	} // get join
 
@@ -54,9 +54,7 @@ public class UserController {
 	// 로그인 폼으로 이동
 	@GetMapping("login")
 	public String loginForm() {
-
-		return "/user/login";
-
+		return "user/login";
 	} // get login
 
 	// 로그인
