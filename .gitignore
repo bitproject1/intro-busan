@@ -1,3 +1,10 @@
 pom.properties
 
 MANIFEST.MF
+
+# dohyun : db 계정 비밀번호 문제로 추가
+root-context.xml
+
+#multipart-config location 설정으로 인한 제외
+web.xml
+

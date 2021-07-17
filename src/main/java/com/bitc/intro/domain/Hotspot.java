@@ -1,5 +1,7 @@
 package com.bitc.intro.domain;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -19,4 +21,5 @@ public class Hotspot {
 	private String fee; // 요금정보
 	private String conv; // 편의시설
 	private String content; // 상세내용
+	private List<Restaurant> restaurantList;
 }
