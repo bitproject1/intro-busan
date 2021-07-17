@@ -21,7 +21,7 @@ public class RestaurantService {
 		restaurantRepository.insert(restaurant);
 	};
 	
-	public int getRestaurantById(int rid) {
+	public Restaurant getRestaurantById(int rid) {
 		return restaurantRepository.getRestaurantById(rid);
 	};
 	
@@ -44,4 +44,8 @@ public class RestaurantService {
 	public List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot hotspot, CriteriaDetail cri) {
 		return restaurantRepository.getRestaurantsBySpotIdWithPage(hotspot, cri);
 	};
+	
+	public int getLoveCount(int rid) {
+		return restaurantRepository.getLoveCount(rid);
+	}
 }

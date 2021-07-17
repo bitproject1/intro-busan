@@ -47,7 +47,7 @@
 									<c:forEach items="${loveList}" var="love">
 										<label style="float: left; font-size: 20px;" for="love">🤍&nbsp;</label>
 										<p style="font-size: 20px">
-											<a href="/restaurant/detail/${love.id }">${love.name}</a>
+											<a href="/restaurant/detail/${love.rid }">${love.name}</a>
 										</p>
 									</c:forEach>
 								</c:when>

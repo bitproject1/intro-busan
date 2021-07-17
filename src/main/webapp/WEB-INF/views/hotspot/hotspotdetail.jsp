@@ -90,10 +90,6 @@
 							</a>
 						</div>
 						<div class="card-content">
-							<div class="card-content-span">${hotspot.title}</div>
-							</br>
-							<div class="card-content-span">${hotspot.subTitle}</div>
-							</br>
 							<div class="card-content-span">${hotspot.address}</div>
 							</br>
 							<div class="card-content-span">${hotspot.phoneNum}</div>

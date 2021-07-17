@@ -44,4 +44,16 @@ public class UserRepository {
 	public List<Restaurant> getLoveList(User user) {
 		return userMapper.getLoveList(user);
 	}
+	
+	public void pressLove(int userId, int restId) {
+		userMapper.pressLove(userId, restId);
+	}
+	
+	public int checkLoveIsPressed(int userId, int restId) {
+		return userMapper.checkLoveIsPressed(userId, restId);
+	}
+	
+	public void cancleLove(int userId, int restId) {
+		userMapper.cancleLove(userId, restId);
+	}
 }

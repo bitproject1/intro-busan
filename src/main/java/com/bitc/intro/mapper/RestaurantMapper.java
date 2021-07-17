@@ -13,7 +13,7 @@ public interface RestaurantMapper {
 	
 	void insert(Restaurant restaurant);
 	
-	int getRestaurantById(int id);
+	Restaurant getRestaurantById(int id);
 	
 	List<Restaurant> getRestaurants();
 	
@@ -25,4 +25,6 @@ public interface RestaurantMapper {
 	int getTotalCountBySpotId(Hotspot hotspot);
 	
 	List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot param1, CriteriaDetail param2);
+	
+	int getLoveCount(int rid);
 }	

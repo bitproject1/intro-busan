@@ -48,5 +48,12 @@
 		WHERE hotspot.district = restaurant.district) newtable
 		WHERE newtable.hid = #{id}
 	</select>
+	
+	<!-- 식당 좋아요수 조회 -->
+	<select id="getLoveCount" resultType="int">
+		SELECT COUNT(*)
+		FROM love
+		WHERE rest_id=#{rid}
+	</select>
 
 </mapper>

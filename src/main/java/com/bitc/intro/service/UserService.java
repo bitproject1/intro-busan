@@ -47,4 +47,15 @@ public class UserService {
 		return userRepository.getLoveList(user);
 	}
 	
+	public void pressLove(int userId, int restId) {
+		userRepository.pressLove(userId, restId);
+	}
+	
+	public int checkLoveIsPressed(int userId, int restId) {
+		return userRepository.checkLoveIsPressed(userId, restId);
+	}
+	
+	public void cancleLove(int userId, int restId) {
+		userRepository.cancleLove(userId, restId);
+	}
 }

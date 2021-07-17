@@ -21,9 +21,7 @@ public class RestaurantRepository {
 		restaurantMapper.insert(restaurant);
 	};
 	
-	
-	
-	public int getRestaurantById(int rid) {
+	public Restaurant getRestaurantById(int rid) {
 		return restaurantMapper.getRestaurantById(rid);
 	};
 	
@@ -46,4 +44,8 @@ public class RestaurantRepository {
 	public List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot hotspot, CriteriaDetail cri) {
 		return restaurantMapper.getRestaurantsBySpotIdWithPage(hotspot, cri);
 	};
+	
+	public int getLoveCount(int rid) {
+		return restaurantMapper.getLoveCount(rid);
+	}
 }
