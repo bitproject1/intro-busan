@@ -40,13 +40,13 @@
                 <hr style="margin-bottom: 50px;">
             </div>
 
-			<c:if test="${ not empty memberVO }">
+		<%-- 	<c:if test="${ not empty memberVO }"> --%>
 				<div class="row">
-	                <a href="/board/write?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
+	                <a href="/qna/write?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
 	                    <i class="material-icons left">create</i>새글쓰기
 	                </a>
 	            </div>
-			</c:if>
+			<%-- </c:if> --%>
 
             <div class="row">
                 <!-- Table -->
@@ -54,35 +54,37 @@
                     <thead class="blue white-text">
                         <tr>
                             <th class="center-align">번호</th>
-                            <th class="center-align">글제목</th>
+                            <th class="center-align">제목</th>
+                            <th class="center-align">내용</th>
                             <th class="center-align">글쓴이</th>
                             <th class="center-align">작성일</th>
-                            <th class="center-align">조회수</th>
+                            <th class="center-align">조회수</th> 
                         </tr>
                     </thead>
             
                     <tbody>
-                    	<c:choose>
-                    		<c:when test="${ pageMaker.total gt 0 }">
+                    	<%-- <c:choose>
+                    		<c:when test="${ pageMaker.total gt 0 }"> --%>
                     		
                     			<%-- pageScope → requestScope → sessionScope → applicationScope --%>
-                    			<c:forEach var="board" items="${ boardList }">
-                    				<tr onclick="location.href='/board/content?num=${ board.num }&pageNum=${ pageMaker.cri.pageNum }'" style="cursor: pointer;">
-			                            <td class="center-align">${ board.num }</td>
-			                            <td>${ board.title }</td>
-			                            <td class="center-align">${ board.mbrid }</td>
-			                            <td class="center-align"><fmt:formatDate value="${ board.regDate }" pattern="yyyy.MM.dd" /></td>
-			                            <td class="center-align">${ board.readcount }</td>
+                    			<c:forEach var="qna" items="${qnaList}">
+                    				<tr onclick="location.href='/qna/content?id=${ qna.id }&pageNum=${ pageMaker.cri.pageNum }'" style="cursor: pointer;">
+			                            <td class="center-align">${qna.id}</td>
+			                            <td class="center-align">${qna.title}</td>
+			                            <td class="center-align">${qna.content}</td>
+			                            <td class="center-align">${qna.userId}</td>		                                              
+			                            <td class="center-align"><fmt:formatDate value="${ qna.regDate }" pattern="yyyy.MM.dd" /></td>
+			                            <td class="center-align">${ qna.readcount }</td>
 			                        </tr>
                     			</c:forEach>
-                    			
+                    	<%-- 		
                     		</c:when>
-                    		<c:otherwise>
-                    			<tr>
+                    		<c:otherwise> --%>
+                    		<!-- 	<tr>
                     				<td colspan="5">게시판 글이 없습니다.</td>
-                    			</tr>
-                    		</c:otherwise>
-                    	</c:choose>
+                    			</tr> -->
+                    		<%-- </c:otherwise>
+                    	</c:choose> --%>
                     </tbody>
                 </table>
                 <!-- end of Table -->
@@ -165,7 +167,7 @@
     		if (!isPrev) {
     			return;
     		}
-    		location.href = '/board/list?pageNum=${ pageMaker.startPage - 1 }';
+    		location.href = '/qna/qnaBoard?pageNum=${ pageMaker.startPage - 1 }';
     	});
     	
     	// [다음] a태그 클릭이벤트
@@ -178,13 +180,14 @@
     		if (!isNext) {
     			return;
     		}
-    		location.href = '/board/list?pageNum=${ pageMaker.endPage + 1 }';
+    		location.href = '/qna/qnaBoard?pageNum=${ pageMaker.endPage + 1 }';
     	});
     
     </script>
 </body>
 
 </html>
+
 
 
 

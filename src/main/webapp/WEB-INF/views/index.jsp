@@ -86,8 +86,7 @@
 						</div>
 					</div>
 				</div>
-<<<<<<< HEAD
-			
+
 
 				<%--<a href="/board/write?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
 						<i class="material-icons left">create</i>새글쓰기
@@ -100,10 +99,9 @@
 
 
 			<!-- 모달테스트 -->
-=======
 				
 				<!-- 모달테스트 -->
->>>>>>> 21cd940fa564b47a95a868a8dab5fbd44b58853e
+
 			<!-- Modal Structure -->
 			<div id="modal1" class="modal">
 				<div class="modal-content">
@@ -160,14 +158,6 @@
 	</div>
 	<!-- end of App -->
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 21cd940fa564b47a95a868a8dab5fbd44b58853e
 	<script>
 		const sideNav = document.querySelector('.sidenav');
 		M.Sidenav.init(sideNav, {});
