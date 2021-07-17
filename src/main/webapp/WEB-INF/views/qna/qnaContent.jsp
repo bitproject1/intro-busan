@@ -271,7 +271,6 @@
 function fdel(id){
 	//alert(cnum)
 	alert(id)
-	alert(resp)
 	
 	$.ajax({
 		type:"delete",

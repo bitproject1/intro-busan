@@ -51,6 +51,7 @@ public class QnaCommentController {
 		qservice.delete(id);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String clist2Json = gson.toJson(id);
+		System.out.println(id);
 		
 		
 		return id;

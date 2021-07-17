@@ -295,7 +295,7 @@ pageEncoding="UTF-8"%>
               </div>
             </div>
           </div>
-          <<<<<<< Updated upstream ======= >>>>>>> Stashed changes <%--<a
+        <%--<a
             href="/board/write?pageNum=${ pageMaker.cri.pageNum }"
             class="waves-effect waves-light btn right"
           >
@@ -309,11 +309,7 @@ pageEncoding="UTF-8"%>
         <!-- end of Basic Card -->
 
         <!-- 모달테스트 -->
-        <<<<<<< Updated upstream =======
-
-        <!-- 모달테스트 -->
-
-        >>>>>>> Stashed changes
+   
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
