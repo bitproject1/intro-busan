@@ -96,15 +96,5 @@ public class ManagerController {
 		return "manager/manageDetail";
 	}
 	
-	// 맛집 등록 페이지로 이동
-	@GetMapping("/write")
-	public String write() {
-		return "manager/write";
-	}
 	
-	// 맛집 등록하기
-	@PostMapping("/write")
-	public String write(Restaurant restaurant) {
-		restService.insert(null);
-	}
 }
