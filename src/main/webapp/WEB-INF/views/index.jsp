@@ -69,10 +69,17 @@
 			<%--<a href="/board/write?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
 						<i class="material-icons left">create</i>새글쓰기
 				</a> --%>
-			<div class="row">
-				<a href="/hotspotadd" class="waves-effect waves-light btn right">
-					<i class="material-icons left">create</i>새글쓰기
-				</a>
+				<div class="row">
+				<c:choose>
+					<c:when test="${ not empty manager }">
+						<a href="/hotspot/add?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
+						<i class="material-icons left">create</i>+ 관광지
+					</a>
+					</c:when>
+					<c:otherwise>
+						
+					</c:otherwise>
+				</c:choose>
 			</div>
 			
 			<!-- Basic Card -->

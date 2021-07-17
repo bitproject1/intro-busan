@@ -19,11 +19,13 @@
 						<li><a href="/user/mypage">마이페이지</a></li>
 					</c:when>
 					<c:when test="${ not empty manager }">
+						<li><a href="/hotspot/list">관광지 목록가기(수정예정)</a></li>
 						<li><a href="/qna/qnaBoard">QnA</a></li>
 						<li><a href="/user/logout">로그아웃</a></li>
 						<li><a href="/manager/management">고객관리</a></li>
 					</c:when>
 					<c:otherwise>
+						<li><a href="/hotspot/list">관광지 목록가기(수정예정)</a></li> <!-- 나중에 이 -->
 						<li><a href="/qna/qnaBoard">QnA</a></li>
 						<li><a href="/user/join">회원가입</a></li>
 						<li><a href="/user/login">로그인</a></li>

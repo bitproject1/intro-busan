@@ -21,7 +21,7 @@
 	<div id="app">
 		<%-- include header.jsp --%>
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
-
+		
 		<div class="container">
 			<!-- Image Slider -->
 			<div class="slider">
@@ -116,6 +116,10 @@
 						class="btn-large waves-effect waves-light btn right red"> <i
 						class="material-icons left">delete</i> 글삭제
 					</a> <a href="/restaurantmodify"
+						class="btn-large waves-effect waves-light btn right yellow"> <i
+						class="material-icons left">edit</i> 글수정
+					</a>
+					</a> <a href="/restaurant/restaurantadd"
 						class="btn-large waves-effect waves-light btn right yellow"> <i
 						class="material-icons left">edit</i> 글수정
 					</a>

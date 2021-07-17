@@ -2,6 +2,8 @@ package com.bitc.intro.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.CriteriaDetail;
@@ -23,8 +26,11 @@ import com.bitc.intro.domain.PageDTO;
 import com.bitc.intro.domain.PageDTODetail;
 import com.bitc.intro.service.HotspotService;
 
+import lombok.extern.java.Log;
+
 @Controller
 @RequestMapping("/hotspot/*") // hotspot컨트롤러에서 index페이지 타기 문제
+@Log
 public class HotspotController {
 	
 	@Autowired
@@ -71,16 +77,31 @@ public class HotspotController {
 		return "/hotspot/hotspotdetail";
 	}
 	
+	// 맛집 등록 페이지로 이동
 	@GetMapping("add")
-	public String hotspotAdd() {
-		return "hotspot/hotspotAdd";
+	public String hotspotAdd(@ModelAttribute("pageNum") String pageNum) { //pageNum 넘겨주기
+		return "hotspot/hotspotadd";
 	}
 	
 	@PostMapping("add")
-	public String hotspotAdd(Hotspot hotspot) {
+	public String hotspotAdd(Hotspot hotspot, HttpServletRequest request,
+			List<MultipartFile> files) throws Exception {
+//		String saveDir = request.getSession().getServletContext().getRealPath("/");
+//		saveDir += "resources/img/";
+//		System.out.println(saveDir);
+//		
+//		log.info("files 매개변수 : " + files);
+//		
+//		if (files != null) {
+//			log.info("업로드한 파일 개수 : " + files.size());
+//		}
+		System.out.println(hotspot.toString());
 		hotspotService.insert(hotspot);
-		return "rediect:";
+		
+		
+		return "redirect:/hotspot/list";
 	}
+	
 	
 	//수정페이지 이동
 	@GetMapping("modify/{id}")
