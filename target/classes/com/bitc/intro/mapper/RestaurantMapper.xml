@@ -55,5 +55,34 @@
 		FROM love
 		WHERE rest_id=#{rid}
 	</select>
+	
+	<!-- 추천 하는 연령대 -->
+	<select id="getRecommendationsByage" resultType="Integer">
+		SELECT age
+		FROM 
+		(SELECT age, MAX(maxCnt) FROM
+		(SELECT age, COUNT(*) AS maxCnt
+		FROM user, love
+		WHERE id = user_id
+		AND rest_id=#{rid}
+		GROUP BY age
+		ORDER BY COUNT(*) DESC) newtable
+		) newtable2
+	</select>
+	
+	
+	<!-- 추천 하는 성별 -->
+	<select id="getRecommendationsByGender" resultType="String">
+		SELECT gender
+		FROM 
+		(SELECT gender, MAX(maxCnt) FROM
+		(SELECT gender, COUNT(*) AS maxCnt
+		FROM user, love
+		WHERE id = user_id
+		AND rest_id=#{rid}
+		GROUP BY gender
+		ORDER BY COUNT(*) DESC) newtable
+		) newtable2
+	</select>
 
 </mapper>
