@@ -31,8 +31,11 @@ public interface RestaurantMapper {
 	Integer getRecommendationsByage(int rid);
 	
 	String getRecommendationsByGender(int rid);
+<<<<<<< HEAD
 	
 	void increaseLove(int rid);
 	
 	void decreaseLove(int rid);
+=======
+>>>>>>> ccec924 (연령, 성별에 따른 추천 기능 추가)
 }	
