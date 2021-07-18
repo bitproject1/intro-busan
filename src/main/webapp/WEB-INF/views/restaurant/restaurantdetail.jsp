@@ -36,6 +36,35 @@
 					<div class="card-title">${restaurant.name}</div>
 					<div class="card-content">
 						<div class="card-content">
+							<div class="card-content-span">연령별 추천 : 
+							<c:choose>
+								<c:when test="${not empty age }">
+									${age }0대에게 추천
+								</c:when>
+								<c:otherwise>
+									아직 제공할 추천 데이터가 없음
+								</c:otherwise>
+							</c:choose>
+							</div>
+							</br>
+							<div class="card-content-span">성별 추천 : 
+							<c:choose>
+								<c:when test="${not empty gender }">
+									<c:choose>
+										<c:when test="${gender eq 'M' }">
+											남성에게 추천
+										</c:when>
+										<c:otherwise>
+											여성에게 추천
+										</c:otherwise>
+									</c:choose>
+								</c:when>
+								<c:otherwise>
+									아직 제공할 추천 데이터가 없음
+								</c:otherwise>
+							</c:choose>
+							</div>
+							</br>
 							<div class="card-content-span">${restaurant.address}</div>
 							</br>
 							<div class="card-content-span">${restaurant.phoneNum}</div>
@@ -55,17 +84,17 @@
 							<div class="card-content-span">
 								<c:choose>
 									<c:when test="${not empty user }">
-										<button type="button" id="btnLove">
+										<button type="button" id="btnLove" style="background-color:transparent; border:0px transparent solid;">
 											<c:choose>
 												<c:when test="${checkLove eq 1 }">
-													♥
+													<span style="font-size: large; color:red;">♥</span>
 												</c:when>
 												<c:otherwise>
-													♡
+													<span style="font-size: large;">♡</span>
 												</c:otherwise>
 											</c:choose>
 										</button>
-										<div>${loveCount }</div>
+										<span style="font-size: medium;">${loveCount }</span>
 									</c:when>
 									<c:otherwise>
 										<button type="button" id="btnNotLoggedIn">♡</button>

@@ -46,6 +46,18 @@ public class RestaurantController {
 		int loveCount = restaurantService.getLoveCount(restaurant.getRid());
 		model.addAttribute("loveCount", loveCount);
 
+		// 추천하는 연령 데이터를 전달
+		Integer age = restaurantService.getRecommendationsByage(id);
+		if (age != null) {
+			model.addAttribute("age", age);
+		}
+		
+		// 추천하는 성별 데이터를 전달
+		String gender = restaurantService.getRecommendationsByGender(id);
+		if(gender!=null) {
+			model.addAttribute("gender", gender);
+		}
+		
 		return "restaurant/restaurantdetail";
 	}
 
