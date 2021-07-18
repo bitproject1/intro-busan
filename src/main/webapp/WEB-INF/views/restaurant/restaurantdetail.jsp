@@ -97,8 +97,10 @@
 										<span style="font-size: medium;">${loveCount }</span>
 									</c:when>
 									<c:otherwise>
-										<button type="button" id="btnNotLoggedIn">♡</button>
-										<div>${loveCount }</div>
+										<button type="button" id="btnNotLoggedIn"  style="background-color:transparent; border:0px transparent solid;">
+											<span style="font-size: large;">♡</span>
+										</button>
+										<span style="font-size: medium;">${loveCount }</span>
 									</c:otherwise>
 								</c:choose>
 							</div>
