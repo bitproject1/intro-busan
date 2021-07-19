@@ -57,6 +57,7 @@ public class RestaurantRepository {
 		return restaurantMapper.getRecommendationsByGender(rid);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	public void increaseLove(int rid) {
 		restaurantMapper.increaseLove(rid);
@@ -67,4 +68,6 @@ public class RestaurantRepository {
 	}
 =======
 >>>>>>> ccec924 (연령, 성별에 따른 추천 기능 추가)
+=======
+>>>>>>> dohyun2
 }
