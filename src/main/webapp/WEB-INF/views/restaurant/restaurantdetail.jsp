@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -8,8 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 
 </head>
@@ -21,188 +22,110 @@
 		<%-- include header.jsp --%>
 		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 
-		<div class="container">
-			<!-- Image Slider -->
-			<div class="slider">
-				<ul class="slides">
-					<li><img src="/resources/images/amsterdam.jpg">
-						<div class="caption center-align">
-							<h2>풍차의 나라</h2>
-							<h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis accusantium libero, natus quibusdam nesciunt exercitationem commodi quo dolore asperiores tenetur. Perspiciatis cupiditate molestias eligendi placeat ab asperiores ex quae enim!</h5>
-						</div></li>
-					<li><img src="/resources/images/dresden.jpg">
-						<div class="caption left-align">
-							<h2>다시가고 싶은 도시</h2>
-							<h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis accusantium libero, natus quibusdam nesciunt exercitationem commodi quo dolore asperiores tenetur. Perspiciatis cupiditate molestias eligendi placeat ab asperiores ex quae enim!</h5>
-						</div></li>
-					<li><img src="/resources/images/venezia.jpg">
-						<div class="caption right-align">
-							<h2>세계적인 수상도시</h2>
-							<h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis accusantium libero, natus quibusdam nesciunt exercitationem commodi quo dolore asperiores tenetur. Perspiciatis cupiditate molestias eligendi placeat ab asperiores ex quae enim!</h5>
-						</div></li>
-				</ul>
-			</div>
-			<!-- end of Image Slider -->
 
-			<!-- AutoComplete -->
-			<div id="search" class="cyan white-text center">
-				<div class="row">
-					<div class="col s12">
-						<h5>검색</h5>
-						<div class="input-field">
-							<i id="" class="material-icons prefix">location_on</i>
-							<input type="text" class="white grey-text autocomplete" id="autocomplete-input" placeholder="드라스덴, 파리, 프라하, ...">
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end of AutoComplete -->
-		</div>
+	</div>
 
-		<!-- end of Container -->
-		<div class="container">
-			
+	<!-- end of Container -->
+	<div class="container">
+		<div class="row">
 			<div class="col s12 l8 offset-l2">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="row">
-                            	<div class ="col s12 m6">
-                            		<img src="/resources/images/amsterdam.jpg"/>
-                            	</div>
-                            	
-                            	<div class="col s12 l4">
-                            		조회수: ${ boardVO.readcount }
-                            	</div>
-                            	<div class="col s12 l4">
-                            		글쓴이: ${ boardVO.mbrid }
-                            	</div>
-                            	<div class="col s12 l4">
-                            		작성일자: <fmt:formatDate value="${ boardVO.regDate }" pattern="yyyy-MM-dd a hh:mm:ss" />
-                            	</div>
-                            </div>
-                            <pre>${ boardVO.content }</pre>
-                        </div>
-                      
-                    </div>
-                </div>
-            </div>
-		
-		
-		</div>
-		
-		<!-- Container -->
-		<div class="container">
-			
-		
-			
-			<!-- Basic Card -->
-			
-			<div class="row">
-				<div class="col s12 m3">
-					<div class="card">
-						<div class="card-image">
-							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
+				<div class="card">
+					<div class="card-title">${restaurant.name}</div>
+					<div class="card-content">
 						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+							<div class="card-content-span">${restaurant.address}</div>
+							</br>
+							<div class="card-content-span">${restaurant.phoneNum}</div>
+							</br>
+							<div class="card-content-span">${restaurant.url}</div>
+							</br>
+							<div class="card-content-span">${restaurant.time}</div>
+							</br>
+							<div class="card-content-span">${restaurant.mainMenu}</div>
+							</br>
+							<div class="card-content-span">
+								<img src="${restaurant.img}" width="200" height="200">
+							</div>
+							</br>
+							<div class="card-content-span">${restaurant.content}</div>
+							</br>
+							<div class="card-content-span">
+								<c:choose>
+									<c:when test="${not empty user }">
+										<button type="button" id="btnLove">
+											<c:choose>
+												<c:when test="${checkLove eq 1 }">
+													♥
+												</c:when>
+												<c:otherwise>
+													♡
+												</c:otherwise>
+											</c:choose>
+										</button>
+										<div>${loveCount }</div>
+									</c:when>
+									<c:otherwise>
+										<button type="button" id="btnNotLoggedIn">♡</button>
+										<div>${loveCount }</div>
+									</c:otherwise>
+								</c:choose>
+							</div>
+							</br>
 						</div>
 					</div>
 				</div>
-				<div class="col s12 m3">
-					<div class="card">
-						<div class="card-image">
-							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m3">
-					<div class="card">
-						<div class="card-image">
-							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col s12 m3">
-					<div class="card">
-						<div class="card-image">
-							<a href="#"><img src="/resources/images/amsterdam.jpg"></a>
-							<span class="card-title">Card Title</span>
-							<a class="btn-floating halfway-fab waves-effect waves-light red">
-								<i data-target="modal1" class="material-icons modal-trigger">add</i>
-							</a>
-						</div>
-						<div class="card-content">
-							<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-						</div>
-					</div>
-				</div>
-
 			</div>
 
-			<%--<a href="/board/write?pageNum=${ pageMaker.cri.pageNum }" class="waves-effect waves-light btn right">
-						<i class="material-icons left">create</i>새글쓰기
-				</a> --%>
-			<a href="restaurantadd" class="waves-effect waves-light btn right">
-				<i class="material-icons left">create</i>새글쓰기
-			</a>
 		</div>
-		<!-- end of Basic Card -->
+	</div>
 
 
-		<!-- 모달테스트 -->
-		<!-- Modal Structure -->
-		<div id="modal1" class="modal">
-			<div class="modal-content">
-				<h4>Modal Header</h4>
-				<p>A bunch of text</p>
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn-flat">닫기</a>
-			</div>
+
+
+	<!-- 모달테스트 -->
+	<!-- Modal Structure -->
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4>Modal Header</h4>
+			<p>A bunch of text</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">닫기</a>
 		</div>
 
-		<!-- 모달테스트 끝-->
 
-		<br />
-		<!-- pagination -->
-		<ul class="pagination" align="center">
-			<li class="disabled"><a href="#!">
-					<i class="material-icons">chevron_left</i>
-				</a></li>
-			<li class="active"><a href="#!">1</a></li>
-			<li class="waves-effect"><a href="#!">2</a></li>
-			<li class="waves-effect"><a href="#!">3</a></li>
-			<li class="waves-effect"><a href="#!">4</a></li>
-			<li class="waves-effect"><a href="#!">5</a></li>
-			<li class="waves-effect"><a href="#!">
-					<i class="material-icons">chevron_right</i>
-				</a></li>
-		</ul>
-		<!-- end of pagination -->
+		<div align="right">
+			<textarea rows="3" cols="50" id="msg"></textarea>
+			<input type="button" value="댓글쓰기" class="btn btn-secondary  btn-sm" id="btnComment">
+		</div>
+		<hr />
+		<div id="replyResult"></div>
+	</div>
+
+	<!-- 모달테스트 끝-->
+
+	<br />
+	<!-- pagination -->
+	<ul class="pagination" align="center">
+		<li class="disabled"><a href="#!">
+				<i class="material-icons">chevron_left</i>
+			</a></li>
+		<li class="active"><a href="#!">1</a></li>
+		<li class="waves-effect"><a href="#!">2</a></li>
+		<li class="waves-effect"><a href="#!">3</a></li>
+		<li class="waves-effect"><a href="#!">4</a></li>
+		<li class="waves-effect"><a href="#!">5</a></li>
+		<li class="waves-effect"><a href="#!">
+				<i class="material-icons">chevron_right</i>
+			</a></li>
+	</ul>
+	<!-- end of pagination -->
 
 
-		<!-- Footer -->
-		<%-- include footer.jsp --%>
-		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-		<!-- end of Footer -->
+	<!-- Footer -->
+	<%-- include footer.jsp --%>
+	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+	<!-- end of Footer -->
 
 	</div>
 	<!-- end of Container -->
@@ -212,10 +135,31 @@
 
 	</div>
 	<!-- end of App -->
-
-
-
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+	<script>
+	
+		$("#btnLove").on('click', function() {
+			$.ajax({
+				type : "GET",
+				url : "/user/checkLove/${restaurant.rid}",
+				success : function(resp) {
+					if (resp == "success") {
+						alert("좋아요 목록에 추가되었습니다.");
+						location.href = '/restaurant/detail/${restaurant.rid}';
+					} else if (resp == "cancleLove") {
+						alert("좋아요를 취소하셨습니다.");
+						location.href = '/restaurant/detail/${restaurant.rid}';
+					}
+				}// success
+			}) //ajax
+		}); //btnLove
+		
+		
+		$("#btnNotLoggedIn").on('click', function() {
+			alert('좋아요를 누르려면 로그인을 먼저 진행해주세요.');
+		});
+	</script>
 
 
 	<script>
@@ -258,6 +202,116 @@
 			var instances = M.Modal.init(elems);
 		});
 	</script>
+
+	<script>
+	/* 댓글 불러오기 */
+	var init = function(){
+		$.ajax({
+			type:"get",
+			url:"/reply/commentList",
+			data:{"qnaId": ${qna.id}
+		}
+		})
+		.done(function(resp){
+			// Changes XML to JSON
+			alert(resp)
+			resp=JSON.parse(resp)
+			var str = "";
+			$.each(resp,function(key,val){
+
+				str +=
+				`<table>
+					<tr>
+						<th>아이디</th>
+						<th>내용</th>
+						<th>생성일자</th>
+					</tr>
+
+					<tr>
+				`
+										
+					
+				str += "<td>"+val.id+"</td>"+" "
+				str += "<td>"+val.content+"</td>" + " "
+				str += "<td>"+val.regdate+"</td>" + " "
+				str += "<td><a href='javascript:fdel("+val.id+")'>삭제</a></td><br/> "
+				str += "</table>"
+			})
+			console.log(str)
+			$("#replyResult").html(str);
+		})
+		
+		
+		.fail(function(resp){
+			alert("실패");
+		})
+	}		
+
+/* 		댓글쓰기 */   
+
+    $("#btnComment").click(function(){
+    	alert("눌렀음")
+    	/* if(${empty principal.user}){
+    		alert("로그인하세요");
+    		location.href="/login";
+    		return;
+    	} */
+    	
+    	if($("#msg").val()==""){
+    		alert("댓글을 적으세요");
+    		return;
+    	}
+    	data={
+    		"managerId" : ${qna.userId},
+    		"qnaId": ${qna.id},
+    		"content":$("#msg").val()
+    		
+    	}
+    	$.ajax({
+    		type:"POST",
+    		url:"/reply/insert/",
+    		data : JSON.stringify(data),
+    		contentType:"application/json;charset=utf-8"
+    		
+    	})
+
+    	.done(function(){
+    		alert("댓글 추가 성공");
+ 	})
+    	
+    	.fail(function(){
+    		alert("댓글 추가 실패")
+    	})
+    })
+
+//댓글 삭제
+function fdel(id){
+//alert(cnum)
+alert(id)
+alert(resp)
+
+$.ajax({
+	type:"delete",
+	url:"/reply/delete/"+id
+})	
+
+.done(function(resp){
+	alert(resp +"번 글 삭제 완료")
+	init();
+})
+
+	
+.fail(function(resp){
+alert("댓글 삭제 실패")
+
+})
+}
+init();
+
+	
+	</script>
+
+
 
 
 </body>

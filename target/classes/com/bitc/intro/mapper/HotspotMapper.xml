@@ -3,33 +3,53 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bitc.intro.mapper.HotspotMapper">
-	<!-- <resultMap type="com.bitc.intro.domain.Hotspot" id="HotspotMap">
-		<id property="id" column="id" />
-		<result property="name" column="name" />
-		<result property="district" column="district" />
-		<result property="title" column="title" />
-		<result property="subTitle" column="subTitle" />
-		<result property="address" column="address" />
-		<result property="phoneNum" column="phoneNum" />
-		<result property="url" column="url" />
-		<result property="traffic" column="traffic" />
-		<result property="day" column="day" />
-		<result property="holiday" column="holiday" />
-		<result property="time" column="time" />
-		<result property="fee" column="fee" />
-		<result property="conv" column="conv" />
-		<result property="content" column="content" />
-	</resultMap> -->
+
+<resultMap type="com.bitc.intro.domain.Hotspot" id="Hotspot">
+	<id property="id" column="id" />
+	<result property="name" column="name" />
+	<result property="district" column="district" />
+	<result property="title" column="title" />
+	<result property="subTitle" column="subtitle" />
+	<result property="address" column="address" />
+	<result property="phoneNum" column="phonenum" />
+	<result property="url" column="url" />
+	<result property="traffic" column="traffic" />
+	<result property="day" column="day" />
+	<result property="holiday" column="holiday" />
+	<result property="time" column="time" />
+	<result property="fee" column="fee" />
+	<result property="conv" column="conv" />
+	<result property="content" column="content" />
+	<collection property="restaurantList" resultMap="restaurantMap" />
+</resultMap>
+
+<resultMap type="com.bitc.intro.domain.Restaurant" id="restaurantMap">
+	<result property="rid" column="rid" />
+	<result property="name" column="name" />
+	<result property="district" column="district" />
+	<result property="address" column="address" />
+	<result property="phoneNum" column="phonenum" />
+	<result property="url" column="url" />
+	<result property="time" column="time" />
+	<result property="mainMenu" column="mainmenu" />
+	<result property="img" column="img" />
+	<result property="content" column="content" />
+</resultMap>
 	
+<<<<<<< HEAD
+=======
 	<insert id="insert">
 		INSERT INTO hotspot (name , district , title , subtitle , address , phonenum , url , traffic , day , holiday , time , fee , conv , img , content) 
-		VALUES (name=#{name} , district=#{district} , title=#{title} , subtitle=#{subtitle} , address=#{address} , phonenum=#{phonenum} , url=#{url} , traffic=#{traffic} , day=#{day} , holiday=#{holiday} , time=#{time} , fee=#{fee} , conv=#{conv} , img=#{img} , content=#{content})
+		VALUES (#{name} , #{district} , #{title} , #{subTitle} , #{address} , #{phoneNum} , #{url} , #{traffic} , #{day} , #{holiday} , #{time} , #{fee} , #{conv} , #{img} , #{content})
 	</insert>
 	
+>>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 	<!-- 관광지 1건 찾기 -->
-	<select id="getHotspot" resultType="com.bitc.intro.domain.Hotspot">
+	<select id="findById" resultType="com.bitc.intro.domain.Hotspot">
 		SELECT * FROM hotspot WHERE id = #{id}
 	</select>
+<<<<<<< HEAD
+=======
 	
 	<select id="getHotspots" resultType="com.bitc.intro.domain.Hotspot">
 		SELECT * FROM hotspot ORDER BY id DESC
@@ -53,5 +73,25 @@
 		SET name=#{name} , title=#{title} , subtitle=#{subtitle} , address=#{address} , phonenum=#{phonenum} , url=#{url} , traffic=#{traffic} , day=#{day} , holiday=#{holiday} , time=#{time} , fee=#{fee} , conv=#{conv} , img=#{img} , content=#{content}
 		WHERE id=#{id}
 	</update>
+	
+	<select id="getRestsWithPaging" resultMap="Hotspot" parameterType="com.bitc.intro.domain.Hotspot" >
+		select h.id , h.district , r.rid, r.name , r.mainmenu, r.img
+		FROM hotspot h
+        left outer join restaurant r
+		on h.district = r.district
+        where h.id = #{id}
+	</select>
+	
+	<!-- parameterType="com.bitc.intro.domain.HotspotDetailVO" -->
+	
+	<!-- 전체 글 개수 -->
+	<select id="getTotalCountBySpotId" resultType="int">
+		SELECT COUNT(*)
+		FROM (select hotspot.id hid , restaurant.rid rid , restaurant.img rimg , restaurant.name rname , restaurant.district district
+		FROM hotspot inner join restaurant
+		WHERE hotspot.district = restaurant.district) newtable
+		WHERE newtable.hid = #{id}
+	</select>
+>>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 
 </mapper>

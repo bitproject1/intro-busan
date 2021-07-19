@@ -26,8 +26,8 @@
 				<div class="nav-wrapper cyan">
 					<div class="col s12">
 						<a href="/" class="breadcrumb">홈</a>
-						<a href="/board/list?pageNum=${ pageNum }" class="breadcrumb">핫스팟 목록</a>
-						<a href="/board/write" class="breadcrumb">핫스팟 추가하기</a>
+						<a href="/hotspot/list?pageNum=${ pageNum }" class="breadcrumb">핫스팟 목록</a>
+						<a href="/hotspot/write" class="breadcrumb">핫스팟 추가하기</a>
 					</div>
 				</div>
 			</nav>
@@ -39,16 +39,24 @@
 				<h4 class="center-align">핫스팟 추가하기</h4>
 				<hr style="margin-bottom: 50px;">
 
-				<form class="col s12 l6 offset-l3" action="/board/write" method="post" enctype="multipart/form-data">
+				<form class="col s12 l6 offset-l3" action="/hotspot/add" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="pageNum" value="${ pageNum }">
 
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">assignment_ind</i>
-							<input type="text" id="member_id" readonly name="mbrid" value="${ memberVO.id }">
+							<input type="text" id="member_id" class="validate" name="district">
 							<label for="member_id">지역구</label>
 						</div>
 					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subtitles</i>
+							<input type="text" id="title" class="validate" name="name">
+							<label for="title">관광지 이름</label>
+						</div>
+					</div>	
+						
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subtitles</i>
@@ -59,70 +67,70 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subtitles</i>
-							<input type="text" id="title" class="validate" name="title">
+							<input type="text" id="title" class="validate" name="subTitle">
 							<label for="title">부제목</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="address"></textarea>
 							<label for="textarea1">주소</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="phoneNum"></textarea>
 							<label for="textarea1">전화번호</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="url"></textarea>
 							<label for="textarea1">url</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="traffic"></textarea>
 							<label for="textarea1">traffic</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="day"></textarea>
 							<label for="textarea1">day</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="holiday"></textarea>
 							<label for="textarea1">holiday</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="time"></textarea>
 							<label for="textarea1">time</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="fee"></textarea>
 							<label for="textarea1">fee</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="conv"></textarea>
 							<label for="textarea1">conv</label>
 						</div>
 					</div>
@@ -131,6 +139,14 @@
 							<i class="material-icons prefix">subject</i>
 							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
 							<label for="textarea1">content</label>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" name="img"></textarea>
+							<label for="textarea1">img</label>
 						</div>
 					</div>
 
@@ -159,7 +175,7 @@
 								</button>
 							</div>
 							<div class="col s6">
-								<a class="btn-large waves-effect waves-light" href="/board/list?pageNum=${ pageNum }">
+								<a class="btn-large waves-effect waves-light" href="/hotspot/list?pageNum=${ pageNum }">
 									<i class="material-icons left">list</i> 글목록
 								</a>
 							</div>

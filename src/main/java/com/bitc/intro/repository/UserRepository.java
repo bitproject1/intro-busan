@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
 import com.bitc.intro.mapper.UserMapper;
 
@@ -38,5 +39,21 @@ public class UserRepository {
 	
 	public void updateUserById(User user) {
 		userMapper.updateUserById(user);
+	}
+	
+	public List<Restaurant> getLoveList(User user) {
+		return userMapper.getLoveList(user);
+	}
+	
+	public void pressLove(int userId, int restId) {
+		userMapper.pressLove(userId, restId);
+	}
+	
+	public int checkLoveIsPressed(int userId, int restId) {
+		return userMapper.checkLoveIsPressed(userId, restId);
+	}
+	
+	public void cancleLove(int userId, int restId) {
+		userMapper.cancleLove(userId, restId);
 	}
 }

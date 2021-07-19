@@ -81,7 +81,7 @@
 					</div>
 					<div class="row">
 						<div class="card-content">
-							<p style="font-size: 20px">찜한 목록 보러가기</p>
+							<p style="font-size: 20px"><a href="/user/loveList">찜한 목록 보러가기</a></p>
 						</div>
 					</div>
 					<div class="row">

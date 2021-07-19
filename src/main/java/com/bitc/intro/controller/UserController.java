@@ -1,6 +1,7 @@
 package com.bitc.intro.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -12,13 +13,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bitc.intro.domain.Love;
+import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
+import com.bitc.intro.service.RestaurantService;
 import com.bitc.intro.service.UserService;
 import com.bitc.intro.util.Script;
 
@@ -32,15 +38,13 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private RestaurantService restaurantService;
+
 	// 회원가입 폼으로 이동
 	@GetMapping("join")
-<<<<<<< HEAD
 	public String joinForm() {
 		return "user/join";
-=======
-	public String joinForm(){
-		return "/user/join";
->>>>>>> lsuk
 	} // get join
 
 	// 회원가입
@@ -56,14 +60,24 @@ public class UserController {
 		return "redirect:/user/login";
 	} // post join
 
+	// 회원가입시 아이디 중복체크
+	@PostMapping(value = "/joinIdDupChkJson", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Map<String, Object> joinIdDupChkJson(String username) {
+
+		int rowCount = userService.getCountById(username);
+
+		boolean isIdDup = (rowCount == 1) ? true : false;
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("isIdDup", isIdDup);
+
+		return map;
+	}
+
 	// 로그인 폼으로 이동
 	@GetMapping("login")
 	public String loginForm() {
-<<<<<<< HEAD
 		return "user/login";
-=======
-		return "/user/login";
->>>>>>> lsuk
 	} // get login
 
 	// 로그인
@@ -156,6 +170,7 @@ public class UserController {
 		return "user/modifyPassword";
 	}
 
+	// 회원 정보 수정시 비밀번호 한번더 확인
 	@PostMapping("/modifyValid")
 	public ResponseEntity<String> modifyValid(String password, HttpSession session) {
 		User user = (User) session.getAttribute("user");
@@ -178,14 +193,13 @@ public class UserController {
 		return new ResponseEntity<String>(headers, HttpStatus.FOUND);
 	} // modifyForm post
 
-	
 	// 회원정보 수정 폼으로 이동
 	@GetMapping("/modifyForm")
 	public String modifyForm() {
 		return "user/modifyForm";
 	} // modifyFrom post
 
-	
+	// 회원정보 수정
 	@PostMapping("/modifyProcess")
 	public String modifyProcess(User user, HttpSession session) {
 
@@ -204,19 +218,36 @@ public class UserController {
 
 	} // modifyProcess post
 
+	// 좋아요 목록 보기
+	@GetMapping("loveList")
+	public String likeList(HttpSession session, Model model) {
+		User user = (User)session.getAttribute("user");
+		System.out.println(user);
+		List<Restaurant> loveList = userService.getLoveList(user);
+		System.out.println(loveList);
+		model.addAttribute("loveList", loveList);
+		return "user/loveList";
+	}
 
-	
-	@PostMapping(value = "/joinIdDupChkJson", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Map<String, Object> joinIdDupChkJson(String username) {
+	// restaurnatDetail 페이지에서 좋아요 기능
+	@GetMapping("/checkLove/{rid}")
+	@ResponseBody
+	public String checkLove(HttpSession session, Model model, @PathVariable int rid) {
+		User user = (User) session.getAttribute("user");
+		System.out.println(user);
+		int userId = user.getId();
+//		Restaurant restaurant = (Restaurant) session.getAttribute("restaurant");
+//		System.out.println(restaurant);
+		int restId = rid;
 		
-		int rowCount = userService.getCountById(username);
-		
-		boolean isIdDup = (rowCount == 1) ? true : false;
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("isIdDup", isIdDup);
-		
-		return map;
+		// 좋아요 눌렀는지 조회(love 테이블에 동일한 row가 있는지 확인)
+		if(userService.checkLoveIsPressed(userId, restId)==1) { // 이미 좋아요를 눌렀다면
+			userService.cancleLove(userId, restId); // 좋아요 취소
+			return "cancleLove";
+		} else { // 좋아요를 누른적이 없으면
+			userService.pressLove(userId, restId); // 좋아요
+			return "success";
+		}
 	}
 	
 }

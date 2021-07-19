@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
 import com.bitc.intro.repository.UserRepository;
 
@@ -42,5 +43,19 @@ public class UserService {
 		userRepository.updateUserById(user);
 	}
 	
+	public List<Restaurant> getLoveList(User user){
+		return userRepository.getLoveList(user);
+	}
 	
+	public void pressLove(int userId, int restId) {
+		userRepository.pressLove(userId, restId);
+	}
+	
+	public int checkLoveIsPressed(int userId, int restId) {
+		return userRepository.checkLoveIsPressed(userId, restId);
+	}
+	
+	public void cancleLove(int userId, int restId) {
+		userRepository.cancleLove(userId, restId);
+	}
 }
