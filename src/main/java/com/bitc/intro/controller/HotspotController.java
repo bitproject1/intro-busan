@@ -1,5 +1,9 @@
 package com.bitc.intro.controller;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.bitc.intro.domain.AttachVO;
 import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
@@ -84,22 +89,40 @@ public class HotspotController {
 	}
 	
 	@PostMapping("add")
-	public String hotspotAdd(Hotspot hotspot, HttpServletRequest request,
+	public String hotspotAdd(Hotspot hotspot, HttpServletRequest request, String pageNum,
 			List<MultipartFile> files) throws Exception {
-//		String saveDir = request.getSession().getServletContext().getRealPath("/");
-//		saveDir += "resources/img/";
-//		System.out.println(saveDir);
-//		
-//		log.info("files 매개변수 : " + files);
-//		
-//		if (files != null) {
-//			log.info("업로드한 파일 개수 : " + files.size());
-//		}
-		System.out.println(hotspot.toString());
-		hotspotService.insert(hotspot);
+		
+		
+		log.info("files 매개변수 : " + files);
+		
+		if (files != null) {
+			log.info("업로드한 파일 개수 : " + files.size());
+		}
+		// 파일 업로드 작업 시작
+		String realPath = request.getSession().getServletContext().getRealPath("/");
+		realPath += "resources/uploadimages/"; // 이미지 저장 패스 생성!
+		System.out.println(realPath);
+		
+		File uploadPath = new File(realPath, getDateFolder()); // 폴더 동적으로 생성하기
+		
+		if (!uploadPath.exists()) { // 실제 업로드패스가 존재하는지 확인 메소드
+			uploadPath.mkdirs(); // 없으면 경로에 폴더를 맹글고 진행해라
+		}
+		
+		List<AttachVO> attachList = new ArrayList<AttachVO>(); // attach 테이블에 저장할 attach 객체 list
+//		System.out.println(hotspot.toString());
+//		hotspotService.insert(hotspot); // attach랑 트랜잭션 처리 전
 		
 		
 		return "redirect:/hotspot/list";
+	}
+	
+	private String getDateFolder() { // 날짜형태 폴더명 생성 메소드
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		Date date = new Date();
+		String str = sdf.format(date);
+		
+		return str;
 	}
 	
 	
