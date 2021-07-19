@@ -46,12 +46,22 @@
 		SELECT * FROM hotspot WHERE id = #{id}
 	</select>
 	
-	<select id="getHotspots" resultType="com.bitc.intro.domain.Hotspot">
-		SELECT * FROM hotspot ORDER BY id DESC
+	<!-- 관광지 + 썸네일 전체 찾 -->
+	<select id="getHotspots" resultType="com.bitc.intro.domain.Hotspot"> 
+		SELECT * FROM hotspot h
+		LEFT JOIN attach a
+		ON h.id = a.hid
+		WHERE a.thumb = 1
+		ORDER BY h.id DESC
 	</select>
 	
+	<!-- SELECT * FROM hotspot ORDER BY id DESC LIMIT #{pageStart} , #{amount} -->
 	<select id="getHotspotsWithPaging" resultType="com.bitc.intro.domain.Hotspot">
-		SELECT * FROM hotspot ORDER BY id DESC LIMIT #{pageStart} , #{amount}
+		SELECT * FROM hotspot h
+		LEFT JOIN attach a
+		ON h.id = a.hid
+		WHERE a.thumb = 1
+		ORDER BY h.id DESC LIMIT #{pageStart} #{amount}
 	</select>
 	
 	<select id="getTotalCount" resultType="int">
@@ -89,7 +99,7 @@
 	</select>
 	
 	<select id="nextHotspotId" resultType="int">
-	
+		SELECT Max(id) FROM hotspot
 	</select>
 
 </mapper>
