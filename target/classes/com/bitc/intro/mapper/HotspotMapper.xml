@@ -34,6 +34,7 @@
 	<result property="mainMenu" column="mainmenu" />
 	<result property="img" column="img" />
 	<result property="content" column="content" />
+	<result property="loveCount" column="love_count" />
 </resultMap>
 	
 	<insert id="insert">
@@ -70,7 +71,7 @@
 	</update>
 	
 	<select id="getRestsWithPaging" resultMap="Hotspot" parameterType="com.bitc.intro.domain.Hotspot" >
-		select h.id , h.district , r.rid, r.name , r.mainmenu, r.img
+		select h.id , h.district , r.rid, r.name , r.mainmenu, r.img, r.love_count
 		FROM hotspot h
         left outer join restaurant r
 		on h.district = r.district

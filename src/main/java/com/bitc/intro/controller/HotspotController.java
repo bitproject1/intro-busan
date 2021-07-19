@@ -25,6 +25,7 @@ import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.domain.PageDTO;
 import com.bitc.intro.domain.PageDTODetail;
 import com.bitc.intro.service.HotspotService;
+import com.bitc.intro.service.RestaurantService;
 
 import lombok.extern.java.Log;
 
@@ -35,6 +36,9 @@ public class HotspotController {
 	
 	@Autowired
 	private HotspotService hotspotService;
+	
+	@Autowired
+	private RestaurantService restaurantService;
 	
 	// 관광지 전체보기 / 메인화면
 	@GetMapping("list")
@@ -66,6 +70,7 @@ public class HotspotController {
 		hotspotDetailVO.setAmount(criDetail.getAmount());
 		Hotspot restaurants = hotspotService.getRestsWithPaging(id);
 		System.out.println(restaurants);
+		
 		// board.setHitcount(board.getHitcount()+1); // OSIV = true 여기 있음 안댐
 		int totalCount = hotspotService.getTotalCountBySpotId(id);
 		

@@ -250,9 +250,11 @@ public class UserController {
 		// 좋아요 눌렀는지 조회(love 테이블에 동일한 row가 있는지 확인)
 		if(userService.checkLoveIsPressed(userId, restId)==1) { // 이미 좋아요를 눌렀다면
 			userService.cancleLove(userId, restId); // 좋아요 취소
+			// restaurantService.decreaseLove
 			return "cancleLove";
 		} else { // 좋아요를 누른적이 없으면
 			userService.pressLove(userId, restId); // 좋아요
+			// restaurantService.increaseLove
 			return "success";
 		}
 	}
