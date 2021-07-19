@@ -21,7 +21,7 @@ public interface HotspotMapper {
 	List<Hotspot> fidnAllWithPaging();
 	
 	// 관광지 1건 등록하기
-	void insert(Hotspot hotSpot);
+	void insert(Hotspot hotspot);
 	
 	// 관광지 1건 수정하기
 	void updateHotspotById(Hotspot hotspot);
@@ -32,5 +32,6 @@ public interface HotspotMapper {
 	int getTotalCountBySpotId(int id);
 	
 	void deleteHotspotById(int id);
+	int nextHotspotId();
 	
 }
