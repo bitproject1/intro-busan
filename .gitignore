@@ -8,3 +8,6 @@ root-context.xml
 #multipart-config location 설정으로 인한 제외
 web.xml
 
+target/classes/com/bitc/intro/controller/HotspotController.class
+target/classes/com/bitc/intro/controller/ManagerController.class
+target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
