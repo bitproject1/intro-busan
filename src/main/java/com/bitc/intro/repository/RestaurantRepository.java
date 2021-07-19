@@ -56,4 +56,12 @@ public class RestaurantRepository {
 	public String getRecommendationsByGender(int rid) {
 		return restaurantMapper.getRecommendationsByGender(rid);
 	}
+	
+	public void increaseLove(int rid) {
+		restaurantMapper.increaseLove(rid);
+	}
+	
+	public void decreaseLove(int rid) {
+		restaurantMapper.decreaseLove(rid);
+	}
 }

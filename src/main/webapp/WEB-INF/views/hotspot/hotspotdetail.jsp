@@ -210,7 +210,7 @@
             <div class="card-content">
               <div class="card-content">${restaurant.district}</div>
               <div class="card-content">${restaurant.mainMenu}</div>
-              <div class="card-content">좋아요 수</div>
+              <div class="card-content">좋아요 수 ${restaurant.loveCount }</div>
               <div class="card-content">리뷰 수</div>
             </div>
           </div>

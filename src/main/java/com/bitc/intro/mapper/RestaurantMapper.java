@@ -31,4 +31,8 @@ public interface RestaurantMapper {
 	Integer getRecommendationsByage(int rid);
 	
 	String getRecommendationsByGender(int rid);
+	
+	void increaseLove(int rid);
+	
+	void decreaseLove(int rid);
 }	

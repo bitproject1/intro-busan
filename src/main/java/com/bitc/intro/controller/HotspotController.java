@@ -1,7 +1,5 @@
 package com.bitc.intro.controller;
 
-<<<<<<< HEAD
-=======
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +8,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
->>>>>>> a8008d9453b987af52f8010e378ef58e1a9d4a3f
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,14 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-<<<<<<< HEAD
-=======
 import com.bitc.intro.domain.AttachVO;
 import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.CriteriaDetail;
->>>>>>> a8008d9453b987af52f8010e378ef58e1a9d4a3f
 import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.service.HotspotService;
+import com.bitc.intro.service.RestaurantService;
 
 @Controller
 @RequestMapping("/hotspot/*")
@@ -34,21 +29,34 @@ public class HotspotController {
 	@Autowired
 	private HotspotService hotspotService;
 	
+	@Autowired
+	private RestaurantService restaurantService;
+	
+	// 관광지 전체보기 / 메인화면
 	@GetMapping("list")
 	public String hotspotList() {
 		return "index";
 	}
 	
-	// 관광지 1건 상세보기 
-	@GetMapping("searchDetails/{num}")
-	public String searchDetails(Model model, @PathVariable int num) {
-		Hotspot hotspot = hotspotService.findById(num);
+	// 관광지 1건 상세보기
+	// 관광지 정보, 식당 목록이 보여야한다.
+	@GetMapping("detail")
+	public String hotspotDetail(Model model, int id, @ModelAttribute("pageNum") String pageNum ,CriteriaDetail criDetail) {
+		//http://localhost:8888/hotspot/detail/
+		// 관광지 1건 가져오기
+		Hotspot hotspot = hotspotService.getHotspot(id);
+		System.out.println(hotspot.toString());
+		// 식당 전체가져오기
+		HotspotDetailVO hotspotDetailVO = new HotspotDetailVO();
+		hotspotDetailVO.setId(id);
+		hotspotDetailVO.setPageNum(criDetail.getPageNum());
+		hotspotDetailVO.setAmount(criDetail.getAmount());
+		Hotspot restaurants = hotspotService.getRestsWithPaging(id);
+		System.out.println(restaurants);
+		
 		// board.setHitcount(board.getHitcount()+1); // OSIV = true 여기 있음 안댐
 		model.addAttribute("hotspot", hotspot);
 		//System.out.println(board.getComments().get(0));
-<<<<<<< HEAD
-		return "/board/detail";
-=======
 		return "/hotspot/hotspotdetail";
 	}
 	
@@ -117,6 +125,5 @@ public class HotspotController {
 	public String delete(@PathVariable int id) {
 		hotspotService.deleteHotspotById(id);
 		return "success";
->>>>>>> a8008d9453b987af52f8010e378ef58e1a9d4a3f
 	}
 }
