@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
@@ -11,6 +12,7 @@ import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.repository.RestaurantRepository;
 
 @Service
+@Transactional
 public class RestaurantService {
 
 	
@@ -55,5 +57,13 @@ public class RestaurantService {
 	
 	public String getRecommendationsByGender(int rid) {
 		return restaurantRepository.getRecommendationsByGender(rid);
+	}
+	
+	public void increaseLove(int rid) {
+		restaurantRepository.increaseLove(rid);
+	}
+	
+	public void decreaseLove(int rid) {
+		restaurantRepository.decreaseLove(rid);
 	}
 }

@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
+import com.bitc.intro.mapper.RestaurantMapper;
 import com.bitc.intro.mapper.UserMapper;
 
 import lombok.Setter;
@@ -16,6 +18,9 @@ public class UserRepository {
 
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Autowired
+	private RestaurantMapper restaurantMapper;
 	
 	public int insert(User user) {
 		return userMapper.insert(user);

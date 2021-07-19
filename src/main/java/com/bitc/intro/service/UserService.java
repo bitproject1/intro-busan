@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
+import com.bitc.intro.repository.RestaurantRepository;
 import com.bitc.intro.repository.UserRepository;
 
 import lombok.Setter;
@@ -18,6 +19,9 @@ public class UserService {
 	
 	@Setter(onMethod_ = @Autowired)
 	private UserRepository userRepository;
+	
+	@Autowired
+	private RestaurantRepository restaurantRepository;
 	
 	public int resister(User user) {
 		return userRepository.insert(user);
@@ -47,15 +51,19 @@ public class UserService {
 		return userRepository.getLoveList(user);
 	}
 	
+	@Transactional
 	public void pressLove(int userId, int restId) {
 		userRepository.pressLove(userId, restId);
+		restaurantRepository.increaseLove(restId);
 	}
 	
 	public int checkLoveIsPressed(int userId, int restId) {
 		return userRepository.checkLoveIsPressed(userId, restId);
 	}
 	
+	@Transactional
 	public void cancleLove(int userId, int restId) {
 		userRepository.cancleLove(userId, restId);
+		restaurantRepository.decreaseLove(restId);
 	}
 }

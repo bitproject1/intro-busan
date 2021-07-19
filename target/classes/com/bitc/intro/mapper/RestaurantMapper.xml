@@ -49,7 +49,7 @@
 		WHERE newtable.hid = #{id}
 	</select>
 	
-	<!-- 식당 좋아요수 조회 -->
+	<!-- love table에서 식당 좋아요수 조회 -->
 	<select id="getLoveCount" resultType="int">
 		SELECT COUNT(*)
 		FROM love
@@ -84,5 +84,19 @@
 		ORDER BY COUNT(*) DESC) newtable
 		) newtable2
 	</select>
+	
+	<!-- 식당 테이블에서 loveCnt 1 증가 -->
+	<update id="increaseLove">
+		UPDATE restaurant
+		SET love_count = love_count + 1
+		WHERE rid = #{rid}
+	</update>
+	
+	<!-- 식당 테이블에서 loveCnt 1 감소 -->
+	<update id="decreaseLove">
+		UPDATE restaurant
+		SET love_count = love_count - 1
+		WHERE rid = #{rid}
+	</update>
 
 </mapper>
