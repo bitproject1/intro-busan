@@ -239,8 +239,8 @@
 	var init = function(){
 		$.ajax({
 			type:"get",
-			url:"/reply/commentList",
-			data:{"qnaId": ${qna.id}
+			url:"/review/commentList",
+			data:{"rId": ${restaurant.rId}
 		}
 		})
 		.done(function(resp){
@@ -253,16 +253,17 @@
 				str +=
 				`<table>
 					<tr>
-						<th>아이디</th>
+						<th>유저 아이디</th>
 						<th>내용</th>
 						<th>생성일자</th>
+						
 					</tr>
 
 					<tr>
 				`
 										
 					
-				str += "<td>"+val.id+"</td>"+" "
+				str += "<td>"+val.rId+"</td>"+" "
 				str += "<td>"+val.content+"</td>" + " "
 				str += "<td>"+val.regdate+"</td>" + " "
 				str += "<td><a href='javascript:fdel("+val.id+")'>삭제</a></td><br/> "
@@ -293,14 +294,15 @@
     		return;
     	}
     	data={
-    		"managerId" : ${qna.userId},
-    		"qnaId": ${qna.id},
-    		"content":$("#msg").val()
+    		
+    		"content":$("#msg").val(),
+    		"userId":${user.id},
+    		"rId":${restaurant.rId}
     		
     	}
     	$.ajax({
     		type:"POST",
-    		url:"/reply/insert/",
+    		url:"/review/insert/",
     		data : JSON.stringify(data),
     		contentType:"application/json;charset=utf-8"
     		
@@ -323,7 +325,7 @@ alert(resp)
 
 $.ajax({
 	type:"delete",
-	url:"/reply/delete/"+id
+	url:"/review/delete/"+id
 })	
 
 .done(function(resp){

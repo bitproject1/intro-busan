@@ -35,8 +35,8 @@ public class ReviewController {
 	// 댓글리스트
 	
 	@GetMapping(value = "commentList", produces = "application/text;charset=utf8")
-	public String list(int rid) {
-		List<Review> rlist = reviewService.getList(rid);
+	public String list(int id) {
+		List<Review> rlist = reviewService.getList(id);
 		System.out.println(rlist.toString());
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -47,15 +47,15 @@ public class ReviewController {
 
 	// 댓글 삭제
 	@DeleteMapping("delete/{rid}")
-	public int delete(@PathVariable int rid) {
-		System.out.println(rid);
+	public int delete(@PathVariable int id) {
+		System.out.println(id);
 			
-		reviewService.delete(rid);
+		reviewService.delete(id);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String clist2Json = gson.toJson(rid);
-		System.out.println(rid);
+		String clist2Json = gson.toJson(id);
+		System.out.println(id);
 		
 		
-		return rid;
+		return id;
 	}
 }

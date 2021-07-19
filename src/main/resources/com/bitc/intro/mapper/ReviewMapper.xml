@@ -4,21 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.bitc.intro.mapper.ReviewMapper">
+
+	<!-- 댓글추가 -->
   <insert id="insert">
-  insert into qnacomment(content, regdate, qnaId)
-  values(#{content},now(), #{qnaId})
+  insert into review(content,userId,regdate,rId)
+  values(#{content},#{userId},now(), #{rId})
   </insert>
   
+  <!-- 레스토랑 ID로 관련 댓글 가져오기 -->
   <select id="getList" resultType="com.bitc.intro.domain.Review">
-  select * from qnacomment where qnaId = #{qnaId}
+  select * from review where rId = #{rId}  
   </select>
   
+  <!-- 댓글삭제 -->
   <delete id="delete">
-  delete from qnacomment where id=#{id}
+  delete from review where id=#{id}
   </delete>
   
+  <!-- 댓글 한건 찾기 -->
   <select id="findByNum" resultType="com.bitc.intro.domain.Review">
-  select * from qnacomment where id=#{id}
+  select * from review where id=#{id}
   </select>
   
 </mapper>

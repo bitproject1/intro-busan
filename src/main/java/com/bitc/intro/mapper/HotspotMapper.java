@@ -31,4 +31,6 @@ public interface HotspotMapper {
 	
 	int getTotalCountBySpotId(int id);
 	
+	void deleteHotspotById(int id);
+	
 }
