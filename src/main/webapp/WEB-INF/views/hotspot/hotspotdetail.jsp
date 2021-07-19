@@ -127,6 +127,12 @@
 
 =======
 						</div>
+						
+						<div class="card-image">
+							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
+							</a>
+						</div>
+						
 						<div class="card-content">
 							<div class="card-content-span">${hotspot.address}</div>
 							</br>

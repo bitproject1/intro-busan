@@ -34,8 +34,8 @@ public class HotspotRepository {
 	};
 		
 		// 관광지 1건 등록하기
-	public void insert(Hotspot hotSpot) {
-		hotspotMapper.insert(hotSpot);
+	public void insert(Hotspot hotspot) {
+		hotspotMapper.insert(hotspot);
 	};
 		
 		// 관광지 1건 수정하기
@@ -54,5 +54,9 @@ public class HotspotRepository {
 	
 	public int getTotalCountBySpotId(int id) {
 		return hotspotMapper.getTotalCountBySpotId(id);
+	}
+	
+	public int nextHotspotId() {
+		return hotspotMapper.nextHotspotId();
 	}
 }

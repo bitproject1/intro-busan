@@ -88,13 +88,14 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="url"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" name="url"
+							></textarea>
 							<label for="textarea1">url</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">subject</i>
+							<i class="material-icons prefix">subjejct</i>
 							<textarea id="textarea1" class="materialize-textarea" name="traffic"></textarea>
 							<label for="textarea1">traffic</label>
 						</div>
@@ -149,9 +150,22 @@
 							<label for="textarea1">img</label>
 						</div>
 					</div>
-
+					
 
 					<div class="row" id="fileContainer">
+						<div class="file-field input-field col s12">
+							<div class="btn">
+								<span>
+									<i class="material-icons left">attach_file</i>대표이미지
+								</span>
+								<input type="file" name="thumbnail" multiple>
+							</div>
+							<div class="file-path-wrapper">
+								<input type="text" class="file-path validate">
+							</div>
+							<span class="helper-text">첨부파일로 업로드 가능한 용량은 최대 50MB 입니다.</span>
+						</div>
+						
 						<div class="file-field input-field col s12">
 							<div class="btn">
 								<span>
