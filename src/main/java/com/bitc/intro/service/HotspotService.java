@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.repository.HotspotRepository;
@@ -19,8 +20,8 @@ public class HotspotService {
 	
 	// 관광지 1건 찾기
 	@Transactional
-	public Hotspot findById(int num) {
-		Hotspot hotspot = hotspotRepository.findById(num);
+	public Hotspot getHotspot(int num) {
+		Hotspot hotspot = hotspotRepository.getHotspot(num);
 		 return hotspot;
 	}
 	

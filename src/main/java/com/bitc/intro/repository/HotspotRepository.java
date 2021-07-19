@@ -15,8 +15,13 @@ public class HotspotRepository {
 	@Autowired
 	private HotspotMapper hotspotMapper;
 	
-	public Hotspot findById(int id) {
+	public Hotspot getHotspot(int id) {
 		return hotspotMapper.findById(id);
+	}
+	
+	
+	public List<Hotspot> getHotspots(){
+		return hotspotMapper.getHotspots();
 	}
 	
 	// 페이징 적용된 글 내용 가져오기

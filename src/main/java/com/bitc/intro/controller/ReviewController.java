@@ -58,4 +58,7 @@ public class ReviewController {
 		
 		return id;
 	}
+	
+	
+	//별점 
 }
