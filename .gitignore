@@ -8,8 +8,5 @@ root-context.xml
 #multipart-config location 설정으로 인한 제외
 web.xml
 
-<<<<<<< HEAD
 target/classes/com/bitc/intro/controller/HotspotController.class
 target/classes/com/bitc/intro/controller/ManagerController.class
-=======
->>>>>>> c51950e (db insert 테스트완료 파일업로드 작업중)
