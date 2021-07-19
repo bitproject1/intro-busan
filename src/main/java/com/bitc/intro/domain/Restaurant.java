@@ -14,4 +14,8 @@ public class Restaurant {
 	private String mainMenu;
 	private String img;
 	private String content;
+	
+	
+	
+	
 }

@@ -8,5 +8,7 @@ public class Review {
 	private Grade grade;
 	private String content;
 	private int userId; // FK
+	
+	private int rid; //레스토랑 id
 }
 

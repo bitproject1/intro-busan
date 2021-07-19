@@ -36,20 +36,15 @@
 	<result property="content" column="content" />
 </resultMap>
 	
-<<<<<<< HEAD
-=======
 	<insert id="insert">
 		INSERT INTO hotspot (name , district , title , subtitle , address , phonenum , url , traffic , day , holiday , time , fee , conv , img , content) 
 		VALUES (#{name} , #{district} , #{title} , #{subTitle} , #{address} , #{phoneNum} , #{url} , #{traffic} , #{day} , #{holiday} , #{time} , #{fee} , #{conv} , #{img} , #{content})
 	</insert>
 	
->>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 	<!-- 관광지 1건 찾기 -->
 	<select id="findById" resultType="com.bitc.intro.domain.Hotspot">
 		SELECT * FROM hotspot WHERE id = #{id}
 	</select>
-<<<<<<< HEAD
-=======
 	
 	<select id="getHotspots" resultType="com.bitc.intro.domain.Hotspot">
 		SELECT * FROM hotspot ORDER BY id DESC
@@ -92,6 +87,5 @@
 		WHERE hotspot.district = restaurant.district) newtable
 		WHERE newtable.hid = #{id}
 	</select>
->>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 
 </mapper>

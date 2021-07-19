@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.bitc.intro.mapper.ReviewMapper">
+  <insert id="insert">
+  insert into qnacomment(content, regdate, qnaId)
+  values(#{content},now(), #{qnaId})
+  </insert>
+  
+  <select id="getList" resultType="com.bitc.intro.domain.Review">
+  select * from qnacomment where qnaId = #{qnaId}
+  </select>
+  
+  <delete id="delete">
+  delete from qnacomment where id=#{id}
+  </delete>
+  
+  <select id="findByNum" resultType="com.bitc.intro.domain.Review">
+  select * from qnacomment where id=#{id}
+  </select>
+  
+</mapper>
