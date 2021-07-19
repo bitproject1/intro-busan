@@ -27,4 +27,8 @@ public interface RestaurantMapper {
 	List<Restaurant> getRestaurantsBySpotIdWithPage(Hotspot param1, CriteriaDetail param2);
 	
 	int getLoveCount(int rid);
+	
+	Integer getRecommendationsByage(int rid);
+	
+	String getRecommendationsByGender(int rid);
 }	

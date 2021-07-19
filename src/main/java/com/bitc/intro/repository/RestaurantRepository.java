@@ -48,4 +48,12 @@ public class RestaurantRepository {
 	public int getLoveCount(int rid) {
 		return restaurantMapper.getLoveCount(rid);
 	}
+	
+	public Integer getRecommendationsByage(int rid) {
+		return restaurantMapper.getRecommendationsByage(rid);
+	}
+	
+	public String getRecommendationsByGender(int rid) {
+		return restaurantMapper.getRecommendationsByGender(rid);
+	}
 }

@@ -48,6 +48,7 @@
 										<label style="float: left; font-size: 20px;" for="love">🤍&nbsp;</label>
 										<p style="font-size: 20px">
 											<a href="/restaurant/detail/${love.rid }">${love.name}</a>
+											<button type="button" style="float: right;" onclick="location.href='/user/deleteFromList/${love.rid}'">삭제</button>
 										</p>
 									</c:forEach>
 								</c:when>
@@ -72,8 +73,10 @@
 
 
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+	
+		
 	<script>
 		const sideNav = document.querySelector('.sidenav');
 		M.Sidenav.init(sideNav, {});

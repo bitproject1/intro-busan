@@ -61,3 +61,4 @@
 		WHERE user_id=#{param1} AND rest_id=#{param2}
 	</delete>
 </mapper>
+

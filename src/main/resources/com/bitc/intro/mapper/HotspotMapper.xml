@@ -87,5 +87,9 @@
 		WHERE hotspot.district = restaurant.district) newtable
 		WHERE newtable.hid = #{id}
 	</select>
+	
+	<select id="nextHotspotId" resultType="int">
+	
+	</select>
 
 </mapper>

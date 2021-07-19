@@ -219,26 +219,32 @@ public class UserController {
 
 	} // modifyProcess post
 
-	// 좋아요 목록 보기
+	// 좋아요한 목록 보기
 	@GetMapping("loveList")
-	public String likeList(HttpSession session, Model model) {
+	public String likeList(HttpSession session) {
 		User user = (User)session.getAttribute("user");
-		System.out.println(user);
 		List<Restaurant> loveList = userService.getLoveList(user);
-		System.out.println(loveList);
-		model.addAttribute("loveList", loveList);
+		session.setAttribute("loveList", loveList);
 		return "user/loveList";
 	}
+	
+	// 좋아요한 목록에서 좋아요 취소하기
+	@GetMapping("/deleteFromList/{rid}")
+	public String deleteFromList(HttpSession session, @PathVariable int rid) {
+		User user = (User) session.getAttribute("user");
+		int userId = user.getId();
+		int restId = rid;
+		userService.cancleLove(userId, restId);
+		return "redirect:/user/loveList";
+	}
+	
 
 	// restaurnatDetail 페이지에서 좋아요 기능
 	@GetMapping("/checkLove/{rid}")
 	@ResponseBody
 	public String checkLove(HttpSession session, Model model, @PathVariable int rid) {
 		User user = (User) session.getAttribute("user");
-		System.out.println(user);
 		int userId = user.getId();
-//		Restaurant restaurant = (Restaurant) session.getAttribute("restaurant");
-//		System.out.println(restaurant);
 		int restId = rid;
 		
 		// 좋아요 눌렀는지 조회(love 테이블에 동일한 row가 있는지 확인)
