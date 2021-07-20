@@ -1,7 +1,5 @@
 package com.bitc.intro.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,28 +28,12 @@ import com.bitc.intro.domain.Criteria;
 import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.PageDTO;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-/*import com.bitc.intro.service.AttachService;*/
-=======
 import com.bitc.intro.domain.PageDTODetail;
 import com.bitc.intro.domain.SearchCriteria;
->>>>>>> 5b5d0cea5b062ee947d290728f4ec910671664e7
-=======
->>>>>>> main
 import com.bitc.intro.service.AttachService;
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 import com.bitc.intro.service.HotspotService;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
 import lombok.extern.java.Log;
->>>>>>> 5b5d0cea5b062ee947d290728f4ec910671664e7
-=======
->>>>>>> main
 
 @Controller
 @RequestMapping("/hotspot/*")
@@ -60,9 +42,9 @@ public class HotspotController {
 	
 	@Autowired
 	private HotspotService hotspotService;
-	/*
-	 * @Autowired private AttachService attachService;
-	 */
+	
+	@Autowired
+	private AttachService attachService;
 	
 	// 관광지 전체보기 / 메인화면
 	@GetMapping("list")
@@ -173,15 +155,7 @@ public class HotspotController {
 		}
 		
 		// hotspot, attachVO 트랜잭션 처리
-<<<<<<< HEAD
-		/* hotspotService.insertHotspotAndAttaches(hotspot, thumbnailVO, attachList); */
-		
-		// 리다이렉트 시 서버로 다시 전달할 데이터를 저장하기
-		rttr.addAttribute("num", hotspot.getId());
-		rttr.addAttribute("pageNum", pageNum);
-=======
 		hotspotService.insertHotspotAndAttaches(hotspot, attachList);
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 		
 		return "redirect:/hotspot/list";
 	}
@@ -198,24 +172,10 @@ public class HotspotController {
 	//수정페이지 이동
 	@GetMapping("modify/{id}")
 	public String hotspotmodify(Model model, @PathVariable int id) {
-<<<<<<< HEAD
-		Hotspot hotspot = hotspotService.getHotspot(id);
-		
-		/*
-		 * AttachVO thumbnail = attachService.getThumbnailByHno(id); List<AttachVO>
-		 * imageList = attachService.getAttachesByHno(id);
-		 */
-		model.addAttribute("hotspot", hotspot);
-		/*
-		 * model.addAttribute("thumbnail",thumbnail); model.addAttribute("imageList",
-		 * imageList);
-		 */ 
-=======
 		Hotspot hotspot = hotspotService.findById(id);
 		List<AttachVO> imageList = attachService.getAttachesByHno(id);
 		model.addAttribute("hotspot", hotspot);
 		model.addAttribute("imageList", imageList);
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 		return "hotspot/hotspotmodify";
 	}
 	

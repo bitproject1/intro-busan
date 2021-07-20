@@ -17,21 +17,13 @@ public class HotspotRepository {
 	@Autowired
 	private HotspotMapper hotspotMapper;
 	
-	public Hotspot getHotspot(int id) {
+	public Hotspot findById(int id) {
 		return hotspotMapper.findById(id);
 	}
-	
-	
-<<<<<<< HEAD
 	public List<Hotspot> getHotspots(){
 		return hotspotMapper.getHotspots();
 	}
-	
-=======
-	public List<Hotspot> getHotspots() {
-		return hotspotMapper.getHotspots();
-	};
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
+
 	// 페이징 적용된 글 내용 가져오기
 	public List<Hotspot> getHotspotsWithPaging(Criteria cri) {
 		return hotspotMapper.getHotspotsWithPaging(cri);

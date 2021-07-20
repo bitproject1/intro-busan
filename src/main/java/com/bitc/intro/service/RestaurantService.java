@@ -58,11 +58,7 @@ public class RestaurantService {
 	public String getRecommendationsByGender(int rid) {
 		return restaurantRepository.getRecommendationsByGender(rid);
 	}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 5b5d0cea5b062ee947d290728f4ec910671664e7
 	public void increaseLove(int rid) {
 		restaurantRepository.increaseLove(rid);
 	}

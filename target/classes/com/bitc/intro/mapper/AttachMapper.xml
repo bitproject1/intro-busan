@@ -5,12 +5,8 @@
 <mapper namespace="com.bitc.intro.mapper.AttachMapper">
 			
 	<insert id="insertAttach">
-		INSERT INTO attach (uuid, uploadpath, filename, thumb, hid) 
-<<<<<<< HEAD
+		INSERT INTO attach (uuid, uploadpath, filename, thumb, hid)
 		VALUES (#{uuid}, #{uploadpath}, #{filename}, #{thumb}, #{hid})
-=======
-		VALUES (#{uuid}, #{uploadpath} , #{filename}, #{thumb}, #{hid})
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 	</insert>
 	
 	<select id="getAttachesByHid" resultType="com.bitc.intro.domain.AttachVO">
