@@ -31,6 +31,7 @@ import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.PageDTO;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 /*import com.bitc.intro.service.AttachService;*/
@@ -38,14 +39,19 @@ import com.bitc.intro.domain.PageDTO;
 import com.bitc.intro.domain.PageDTODetail;
 import com.bitc.intro.domain.SearchCriteria;
 >>>>>>> 5b5d0cea5b062ee947d290728f4ec910671664e7
+=======
+>>>>>>> main
 import com.bitc.intro.service.AttachService;
 >>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 import com.bitc.intro.service.HotspotService;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 import lombok.extern.java.Log;
 >>>>>>> 5b5d0cea5b062ee947d290728f4ec910671664e7
+=======
+>>>>>>> main
 
 @Controller
 @RequestMapping("/hotspot/*")

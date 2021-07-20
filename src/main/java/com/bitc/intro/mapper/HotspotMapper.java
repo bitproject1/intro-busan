@@ -10,9 +10,12 @@ import com.bitc.intro.domain.Hotspot;
 =======
 import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
+<<<<<<< HEAD
 import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.domain.Restaurant;
 >>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
+=======
+>>>>>>> main
 
 public interface HotspotMapper {
 	
@@ -54,9 +57,12 @@ public interface HotspotMapper {
 	int getTotalCountBySpotId(int id);
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
+=======
+>>>>>>> main
 	int nextHotspotId();
 	
 	
