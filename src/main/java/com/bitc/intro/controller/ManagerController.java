@@ -13,10 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bitc.intro.domain.Manager;
-import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
 import com.bitc.intro.service.ManagerService;
 import com.bitc.intro.service.RestaurantService;

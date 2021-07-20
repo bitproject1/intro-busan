@@ -9,5 +9,21 @@ root-context.xml
 web.xml
 
 target/classes/com/bitc/intro/controller/HotspotController.class
+<<<<<<< HEAD
+<<<<<<< HEAD
 target/classes/com/bitc/intro/controller/ManagerController.class
+<<<<<<< HEAD
+<<<<<<< HEAD
 target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+=======
+>>>>>>> 83df26c (7월 19일 오전까지)
+=======
+=======
+>>>>>>> c51950e (db insert 테스트완료 파일업로드 작업중)
+>>>>>>> b67e54c (db insert 테스트완료 파일업로드 작업중)
+=======
+target/classes/com/bitc/intro/controller/ManagerController.class
+>>>>>>> f236c55 (병합시도중)
+=======
+target/classes/com/bitc/intro/controller/ManagerController.class
+>>>>>>> dohyun2

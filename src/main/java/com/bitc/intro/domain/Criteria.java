@@ -60,6 +60,4 @@ public class Criteria {
 		return uriComponentsBuilder.build().encode().toString();
 	}// 검색 기능 작업중
 	
-	
-	
 }

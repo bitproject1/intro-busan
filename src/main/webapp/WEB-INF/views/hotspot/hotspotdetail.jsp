@@ -39,6 +39,7 @@
 		<!-- end of AutoComplete -->
 	</div>
 
+<<<<<<< HEAD
 	<!-- end of Container -->
 	<div class="container">
 		<div class="row">
@@ -70,9 +71,91 @@
 						<div class="card-content-span">${hotspot.content}</div>
 						<div class="card-action">
 							<a href="${hotspot.url}">웹사이트 접속</a>
+=======
+		<!-- end of Container -->
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m2"></div>
+
+				<div class="col s12 m8">
+					<div class="card">
+						<div class="card-title">${hotspot.name}</div>
+
+						<div class="card-image">
+							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
+							</a>
+<<<<<<< HEAD
+
 						</div>
+						<div class="card-content"></div>
+
+					</div>
+					<a href="/restaurantmodify" class="btn-large waves-effect waves-light btn right red">
+						<i class="material-icons left ">delete</i> 글삭제
+					</a>
+
+					<a href="/restaurantmodify" class="btn-large waves-effect waves-light btn right yellow">
+						<i class="material-icons left">edit</i> 글수정
+					</a>
+
+				</div>
+
+			</div>
+
+
+
+
+
+		</div>
+
+
+
+
+	div>
+
+				<div class="card-content">
+							
+							
+	
+
+
+								</div>
+
+=======
+						</div>
+						
+						<div class="card-image">
+							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
+							</a>
+						</div>
+						
+						<div class="card-content">
+							<div class="card-content-span">${hotspot.address}</div>
+							</br>
+							<div class="card-content-span">${hotspot.phoneNum}</div>
+							</br>
+							<div class="card-content-span">${hotspot.traffic}</div>
+							</br>
+							<div class="card-content-span">${hotspot.day}</div>
+							</br>
+							<div class="card-content-span">${hotspot.holiday}</div>
+							</br>
+							<div class="card-content-span">${hotspot.time}</div>
+							</br>
+							<div class="card-content-span">${hotspot.fee}</div>
+							</br>
+							<div class="card-content-span">${hotspot.conv}</div>
+							</br>
+							<div class="card-content-span">${hotspot.content}</div>
+							<div class="card-action">
+								<a href="${hotspot.url}">웹사이트 접속</a>
+							</div>
+>>>>>>> fb4216c3ad61913a7c4cee499b9cfd3d7c406733
+						</div>
+>>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 					</div>
 				</div>
+<<<<<<< HEAD
 				<a href="/restaurantmodify"
 					class="btn-large waves-effect waves-light btn right red"> <i
 					class="material-icons left">delete</i> 글삭제
@@ -83,9 +166,27 @@
 					class="btn-large waves-effect waves-light btn right yellow"> <i
 					class="material-icons left">edit</i> 글수정
 				</a>
+=======
+<<<<<<< HEAD
+
+			</div>
+
+
+
+
+		</div>
+
+
+
+
+	</div>
+
+=======
+>>>>>>> fb4216c3ad61913a7c4cee499b9cfd3d7c406733
 			</div>
 		</div>
 	</div>
+>>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 
 	<!-- Container -->
 	<div class="container">

@@ -73,5 +73,6 @@ public class RestaurantController {
 		restaurantService.insert(restaurant);
 		return "redirect: /restaurant/detail"; // 리다이렉트 디테일 id
 	}
-
+	
+	
 }

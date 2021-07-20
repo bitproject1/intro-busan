@@ -32,7 +32,6 @@
 						<li><a href="/user/login">로그인</a></li>
 					</c:otherwise>
 				</c:choose>
-
 			</ul>
 		</div>
 		</div>
