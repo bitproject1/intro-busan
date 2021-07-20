@@ -56,10 +56,7 @@ public class RestaurantRepository {
 	public String getRecommendationsByGender(int rid) {
 		return restaurantMapper.getRecommendationsByGender(rid);
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 	
 	public void increaseLove(int rid) {
 		restaurantMapper.increaseLove(rid);

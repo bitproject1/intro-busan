@@ -84,11 +84,7 @@
 		ORDER BY COUNT(*) DESC) newtable
 		) newtable2
 	</select>
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 	<!-- 식당 테이블에서 loveCnt 1 증가 -->
 	<update id="increaseLove">
 		UPDATE restaurant
@@ -102,9 +98,6 @@
 		SET love_count = love_count - 1
 		WHERE rid = #{rid}
 	</update>
-<<<<<<< HEAD
 
-=======
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 
 </mapper>

@@ -31,11 +31,7 @@ public interface RestaurantMapper {
 	Integer getRecommendationsByage(int rid);
 	
 	String getRecommendationsByGender(int rid);
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 	void increaseLove(int rid);
 	
 	void decreaseLove(int rid);
