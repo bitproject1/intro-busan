@@ -21,5 +21,6 @@ public class Hotspot {
 	private String fee; // 요금정보
 	private String conv; // 편의시설
 	private String content; // 상세내용
+	private String img; // 대표사진
 	private List<Restaurant> restaurantList;
 }

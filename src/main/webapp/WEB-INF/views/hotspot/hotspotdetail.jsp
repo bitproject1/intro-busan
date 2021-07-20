@@ -86,53 +86,9 @@
 						<div class="card-title">${hotspot.name}</div>
 
 						<div class="card-image">
-							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
-							</a>
-<<<<<<< HEAD
-
-						</div>
-						<div class="card-content"></div>
-
-					</div>
-					<a href="/restaurantmodify" class="btn-large waves-effect waves-light btn right red">
-						<i class="material-icons left ">delete</i> 글삭제
-					</a>
-
-					<a href="/restaurantmodify" class="btn-large waves-effect waves-light btn right yellow">
-						<i class="material-icons left">edit</i> 글수정
-					</a>
-
-				</div>
-
-			</div>
-
-
-
-
-
-		</div>
-
-
-
-
-	div>
-
-				<div class="card-content">
-							
-							
-	
-
-
-								</div>
-
-=======
-						</div>
-						
-						<div class="card-image">
-							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
+							<a href="#"> <img src="${hotspot.img}" />
 							</a>
 						</div>
-						
 						<div class="card-content">
 							<div class="card-content-span">${hotspot.address}</div>
 							</br>
@@ -155,7 +111,6 @@
 								<a href="${hotspot.url}">웹사이트 접속</a>
 							</div>
 						</div>
->>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 					</div>
 					<a href="/restaurantmodify"
 						class="btn-large waves-effect waves-light btn right red"> <i
@@ -169,25 +124,9 @@
 						class="material-icons left">edit</i> 글수정
 					</a>
 				</div>
-<<<<<<< HEAD
-
-			</div>
-
-
-
-
-		</div>
-
-
-
-
-	</div>
-
-=======
 			</div>
 		</div>
 	</div>
->>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 
 	<!-- Container -->
 	<div class="container">
@@ -262,7 +201,7 @@
 				<!-- 페이지버튼 반복문 -->
 				<c:forEach var="i" begin="${pageMaker.startPage}" end="${pageMaker.endPage}" step="1">
 				<li class=" ${pageMaker.criDetail.pageNum == i ? 'active' : 'waves-effect'}">
-				<a href="/hotspot/list?pageNum=${i}">${i}</a></li>
+				<a href="/hotspot/detail?id=${hotspot.id}&pageNum=${i}">${i}</a></li>
 				</c:forEach>
 				<!-- 페이지버튼 반복문 끝 -->
 			<li class="${pageMaker.next ? 'waves-effect' : 'disabled'}">
@@ -315,6 +254,28 @@
         var elems = document.querySelectorAll('.modal');
         var instances = M.Modal.init(elems);
       });
+      
+      
+      var prev = document.querySelector('a#prev');
+  		prev.addEventListener('click', function(event) {
+  		event.preventDefault();
+  		
+  		var isPrev = ${pageMaker.prev}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+  		if (!isPrev) {
+  			return;
+  		}
+  		location.href = '/hotspot/detail?id=${hotspot.id}&pageNum=${pageDTO.startPage - 1}';
+  	});
+  	// 다음 a태그 클릭 이벤트
+  	var next = document.querySelector('a#next');
+  		next.addEventListener('click', function(event) {
+  		event.preventDefault();
+  		var isNext = ${pageMaker.next}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+  		if (!isNext) {
+  			return;
+  		}
+  		location.href = '/hotspot/detail?id=${hotspot.id}&pageNum=${pageDTO.endPage + 1}';
+  	});
     </script>
   </body>
 </html>

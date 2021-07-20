@@ -51,9 +51,19 @@
 				<div class="row">
 					<div class="col s12">
 						<h5>검색</h5>
+						<select name="searchType" id="searchType">
+							<option value="n" <c:out value="${searchCriteria.searchType == null ? 'selected' : ''}"/>>===선택===</option>
+							<option value="t" <c:out value="${searchCriteria.searchType == null ? 'selected' : ''}"/>>제목</option>
+							<option value="c" <c:out value="${searchCriteria.searchType == null ? 'selected' : ''}"/>>내용</option>
+							<option value="d" <c:out value="${searchCriteria.searchType == null ? 'selected' : ''}"/>>지역</option>
+							<option value="tc" <c:out value="${searchCriteria.searchType == null ? 'selected' : ''}"/>>제목 + 내용</option>
+							<option value="tcd" <c:out value="${searchCriteria.searchType == null ? 'selected' : ''}"/>>제목 + 내용 + 지역</option>
+						</select>
+						
 						<div class="input-field">
 							<i id="" class="material-icons prefix">location_on</i>
-							<input type="text" class="white grey-text autocomplete" id="autocomplete-input" placeholder="드라스덴, 파리, 프라하, ...">
+							<input type="text" class="white grey-text autocomplete" id="keywordiInput" name="keyword" placeholder="검색">
+							<button id ="searchBtn" type="button">검색</button>
 						</div>
 					</div>
 				</div>
@@ -241,6 +251,12 @@
 		}
 		location.href = '/hotspot/list?pageNum=${pageMaker.endPage + 1}';
 	});
+	
+	$(function(){
+        $('#searchBtn').click(function() {
+          self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" + $("select option:selected").val() + "&keyword=" + encodeURIComponent($('#keywordInput').val());
+        });
+      }); 
 	</script>
 </body>
 

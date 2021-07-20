@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bitc.intro.domain.AttachVO;
 import com.bitc.intro.domain.Criteria;
+import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.repository.AttachRepository;
@@ -54,8 +55,8 @@ public class HotspotService {
 		hotspotRepository.deleteHotspotById(id);
 	}
 	
-	public Hotspot getRestsWithPaging(int id) {
-		return hotspotRepository.getRestsWithPaging(id);
+	public Hotspot getRestsWithPaging(int param1, CriteriaDetail param2) {
+		return hotspotRepository.getRestsWithPaging(param1, param2);
 	};
 	
 	public int getTotalCountBySpotId(int id) {
@@ -67,11 +68,9 @@ public class HotspotService {
 	}
 	
 	@Transactional // hotspot , attachList insert 트렌잭션 처리
-	public void insertHotspotAndAttaches(Hotspot hotspot, AttachVO thumbnail, List<AttachVO> attachList) {
+	public void insertHotspotAndAttaches(Hotspot hotspot, List<AttachVO> attachList) {
 		
 		hotspotRepository.insert(hotspot);
-		
-		attachRepository.insertAttach(thumbnail);
 		
 		if(attachList.size() > 0) {
 			for ( AttachVO attachVO : attachList ) {

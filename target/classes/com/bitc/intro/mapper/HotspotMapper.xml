@@ -18,6 +18,7 @@
 	<result property="holiday" column="holiday" />
 	<result property="time" column="time" />
 	<result property="fee" column="fee" />
+	<result property="img" column="img" />
 	<result property="conv" column="conv" />
 	<result property="content" column="content" />
 	<collection property="restaurantList" resultMap="restaurantMap" />
@@ -53,16 +54,13 @@
 		LEFT JOIN attach a
 		ON h.id = a.hid
 		WHERE a.thumb = 1
-		ORDER BY h.id DESC
+		ORDER BY h.id DESC #{pageStart} , #{amount}
 	</select>
 	
 	<!-- SELECT * FROM hotspot ORDER BY id DESC LIMIT #{pageStart} , #{amount} -->
 	<select id="getHotspotsWithPaging" resultType="com.bitc.intro.domain.Hotspot">
-		SELECT * FROM hotspot h
-		LEFT JOIN attach a
-		ON h.id = a.hid
-		WHERE a.thumb = 1
-		ORDER BY h.id DESC LIMIT #{pageStart} #{amount}
+		SELECT * FROM hotspot
+		ORDER BY id DESC LIMIT #{pageStart} , #{amount}
 	</select>
 	
 	<select id="getTotalCount" resultType="int">
@@ -80,15 +78,23 @@
 		WHERE id=#{id}
 	</update>
 	
-	<select id="getRestsWithPaging" resultMap="Hotspot" parameterType="com.bitc.intro.domain.Hotspot" >
+	<select id="getRestsWithPaging" resultMap="Hotspot">
 		select h.id , h.district , r.rid, r.name , r.mainmenu, r.img, r.love_count
 		FROM hotspot h
         left outer join restaurant r
 		on h.district = r.district
-        where h.id = #{id}
+        where h.id = #{param1} LIMIT #{param2.pageStart} , #{param2.amount}
 	</select>
 	
 	<!-- parameterType="com.bitc.intro.domain.HotspotDetailVO" -->
+	
+	<select id="getRestaurantsBySpotIdWithPage" resultType="com.bitc.intro.domain.Hotspot">
+		SELECT *
+		FROM (select hotspot.id hid , restaurant.id rid , restaurant.img rimg , restaurant.name rname
+		FROM hotspot inner join restaurant
+		WHERE hotspot.district = restaurant.district) newtable
+		WHERE newtable.hid = #{id} LIMIT #{startPage} , #{amount}
+	</select>
 	
 	<!-- 전체 글 개수 -->
 	<select id="getTotalCountBySpotId" resultType="int">
@@ -102,5 +108,67 @@
 	<select id="nextHotspotId" resultType="int">
 		SELECT Max(id) FROM hotspot
 	</select>
+	
+	<!-- 검색 조건문 -->
+    <!-- <sql id="criteria">
+        <trim prefix="AND (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            title like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            content like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            writer like '%'||#{keyword}||'%' 
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    
+    </sql>
+ 
+    게시물 목록(페이징)
+    <select id="getListPaging" resultType="com.vam.model.BoardVO">
+    
+    <![CDATA[
+        
+        select bno, title, content, writer, regdate, updatedate from(
+        
+                select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate
+                  
+                from vam_board where rownum <= #{pageNum} * #{amount} 
+    ]]>            
+                <if test="keyword != null">
+                    <include refid="criteria"></include> 
+                </if>
+    
+    <![CDATA[
+                    
+                )
+                    
+        where rn > (#{pageNum} -1) * #{amount}
+    
+    ]]>
+    
+    </select>
+ 
+ 
+    게시물 총 개숫
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from hotspot
+        
+        <if test="keyword != null">
+        
+            where id > 0 <include refid="criteria"></include>
+        
+        </if>
+    
+    </select>   -->
+	
 
 </mapper>

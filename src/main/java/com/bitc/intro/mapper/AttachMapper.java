@@ -8,8 +8,8 @@ public interface AttachMapper {
 
 	void insertAttach(AttachVO attachVO);// 첨부 파일 정보를 인서트 하는 메소드
 	
-	List<AttachVO> getAttachesByHno(int hno);
+	List<AttachVO> getAttachesByHid(int hid);
 	
-	AttachVO getThumbnailByHno(int hno);
+	AttachVO getThumbnailByHid(int hid);
 	
 }	

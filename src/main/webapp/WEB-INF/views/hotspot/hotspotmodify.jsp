@@ -51,30 +51,119 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">subtitles</i>
-							<input type="text" id="title" class="validate" name="title">
-							<label for="title">연락처</label>
+							<i class="material-icons prefix">assignment_ind</i>
+							<input type="text" id="district" class="validate" name="district" value="${ hopspot.district }">
+							<label for="member_id">지역구</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subtitles</i>
-							<input type="text" id="title" class="validate" name="title">
-							<label for="title">주소</label>
+							<input type="text" class="validate" id="name" name="name" value="${ hopspot.name }">
+							<label for="title">관광지 이름</label>
+						</div>
+					</div>	
+						
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subtitles</i>
+							<input type="text" class="validate" id="title" name="title" value="${ hopspot.title }">
+							<label for="title">제목</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subtitles</i>
+							<input type="text" class="validate" id="subTitle" name="subTitle" value="${ hopspot.subTitle }">
+							<label for="title">부제목</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
-							<label for="textarea1">내용</label>
+							<textarea id="textarea1" class="materialize-textarea" id="address" name="address"
+							value="${ hopspot.address }"></textarea>
+							<label for="textarea1">주소</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="phoneNum" name="phoneNum"
+							value="${ hopspot.phoneNum }"></textarea>
+							<label for="textarea1">전화번호</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="url" name="url"
+							value="${ hopspot.url }"></textarea>
 							<label for="textarea1">url</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="traffic" name="traffic"
+							value="${ hopspot.traffic }"></textarea>
+							<label for="textarea1">traffic</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="day" name="day"
+							value="${ hopspot.day }"></textarea>
+							<label for="textarea1">day</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="holiday" name="holiday"
+							value="${ hopspot.holiday }"></textarea>
+							<label for="textarea1">holiday</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="time" name="time"
+							value="${ hopspot.time }"></textarea>
+							<label for="textarea1">time</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="fee" name="fee"
+							value="${ hopspot.fee }"></textarea>
+							<label for="textarea1">fee</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="conv" name="conv"
+							value="${ hopspot.conv }"></textarea>
+							<label for="textarea1">conv</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" name="content"
+							value="${ hopspot.content }"></textarea>
+							<label for="textarea1">content</label>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="textarea1" class="materialize-textarea" id="img" name="img"></textarea>
+							<label for="textarea1">img 대표이미지 변경(url)</label>
 						</div>
 					</div>
 

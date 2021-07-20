@@ -15,11 +15,11 @@ public class AttachService {
 	private AttachRepository attachRepository;
 	
 	
-	public List<AttachVO> getAttachesByHno(int hno) {
-		return attachRepository.getAttachesByHno(hno);
+	public List<AttachVO> getAttachesByHno(int hid) {
+		return attachRepository.getAttachesByHid(hid);
 	}
 	
-	public AttachVO getThumbnailByHno(int hno) {
-		return attachRepository.getThumbnailByHno(hno);
+	public AttachVO getThumbnailByHno(int hid) {
+		return attachRepository.getThumbnailByHid(hid);
 	};
 }
