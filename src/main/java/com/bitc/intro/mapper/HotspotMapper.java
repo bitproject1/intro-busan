@@ -1,12 +1,10 @@
 package com.bitc.intro.mapper;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.bitc.intro.domain.Hotspot;
-import com.bitc.intro.domain.HotspotDetailVO;
 
 public interface HotspotMapper {
 	
@@ -34,7 +32,6 @@ public interface HotspotMapper {
 	
 	int getTotalCountBySpotId(int id);
 	
-	void deleteHotspotById(int id);
 	int nextHotspotId();
 	
 }
