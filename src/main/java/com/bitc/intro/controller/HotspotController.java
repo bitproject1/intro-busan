@@ -1,5 +1,7 @@
 package com.bitc.intro.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,8 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,10 +32,8 @@ import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
 import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.domain.PageDTO;
-import com.bitc.intro.domain.PageDTODetail;
 import com.bitc.intro.service.AttachService;
 import com.bitc.intro.service.HotspotService;
-import com.bitc.intro.service.RestaurantService;
 
 @Controller
 @RequestMapping("/hotspot/*")
