@@ -1,10 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-pageEncoding="UTF-8"%>
-=======
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> f9418f3e64651c9a53953039a3f889f238f99788
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -109,6 +105,7 @@ pageEncoding="UTF-8"%>
 
 			<!-- Basic Card -->
 			<div class="row">
+
 				<c:choose>
 					<c:when test="${ pageMaker.total gt 0 }">
 						<c:forEach var="hotspot" items="${ hotspotList }">
@@ -159,6 +156,29 @@ pageEncoding="UTF-8"%>
 						<div class="row">
 							<span colspan="5">현재 게시판에 작성된 글이 없습니다.</span>
 							<!-- colspan 열병합 속성 rowspan 행병합 -->
+
+			<c:choose>
+			<c:when test="${ pageMaker.total gt 0 }">
+			<c:forEach var="hotspot" items="${ hotspotList }">
+			<!-- 카드 1건 시작 -->
+				<div class="col s12 m4">
+					<div class="card">
+						<div class="card-image">
+							<c:set var = "hotspotImg" value = "${hotspot.img}"/>
+							<c:if test = "${fn:contains(hotspotImg,'https://')}">
+							<img src="${hotspot.img}" alt="카드 이미지" onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'" style="cursor: pointer;">
+							</c:if>
+							<c:if test = "${not fn:contains(hotspotImg,'https://')}">
+							<img src="/resources/uploadimages/2021/07/20/${hotspot.img}" alt="카드 이미지" onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'" style="cursor: pointer;">
+							</c:if>
+							<span class="card-title">${hotspot.name}</span>
+							<a class="btn-floating halfway-fab waves-effect waves-light red">
+								<i data-target="modal1" class="material-icons modal-trigger">add</i>
+							</a>
+						</div>
+						<div class="card-content" onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'" style="cursor: pointer;">
+							<p>${hotspot.title}</p>
+
 						</div>
 					</c:otherwise>
 				</c:choose>
@@ -275,6 +295,28 @@ pageEncoding="UTF-8"%>
 			}
 			location.href = '/hotspot/list?pageNum=${pageDTO.endPage + 1}';
 		});
+	var prev = document.querySelector('a#prev');
+
+	prev.addEventListener('click', function(event) {
+		event.preventDefault();
+		
+		var isPrev = ${pageMaker.prev}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+		if (!isPrev) {
+			return;
+		}
+		location.href = '/hotspot/list?pageNum=${pageMaker.startPage - 1}';
+	});
+	// 다음 a태그 클릭 이벤트
+	var next = document.querySelector('a#next');
+
+	next.addEventListener('click', function(event) {
+		event.preventDefault();
+		var isNext = ${pageMaker.next}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+		if (!isNext) {
+			return;
+		}
+		location.href = '/hotspot/list?pageNum=${pageMaker.endPage + 1}';
+	});
 	</script>
 </body>
 

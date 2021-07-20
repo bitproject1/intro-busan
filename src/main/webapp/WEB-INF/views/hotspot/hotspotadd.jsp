@@ -45,14 +45,14 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">assignment_ind</i>
-							<input type="text" id="member_id" class="validate" name="district">
+							<input type="text" id="district" class="validate" name="district">
 							<label for="member_id">지역구</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subtitles</i>
-							<input type="text" id="title" class="validate" name="name">
+							<input type="text" class="validate" id="name" name="name">
 							<label for="title">관광지 이름</label>
 						</div>
 					</div>	
@@ -60,35 +60,35 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subtitles</i>
-							<input type="text" id="title" class="validate" name="title">
+							<input type="text" class="validate" id="title" name="title">
 							<label for="title">제목</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subtitles</i>
-							<input type="text" id="title" class="validate" name="subTitle">
+							<input type="text" class="validate" id="subTitle" name="subTitle">
 							<label for="title">부제목</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="address"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="address" name="address"></textarea>
 							<label for="textarea1">주소</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="phoneNum"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="phoneNum" name="phoneNum"></textarea>
 							<label for="textarea1">전화번호</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="url"
+							<textarea id="textarea1" class="materialize-textarea" id="url" name="url"
 							></textarea>
 							<label for="textarea1">url</label>
 						</div>
@@ -96,42 +96,42 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subjejct</i>
-							<textarea id="textarea1" class="materialize-textarea" name="traffic"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="traffic" name="traffic"></textarea>
 							<label for="textarea1">traffic</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="day"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="day" name="day"></textarea>
 							<label for="textarea1">day</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="holiday"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="holiday" name="holiday"></textarea>
 							<label for="textarea1">holiday</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="time"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="time" name="time"></textarea>
 							<label for="textarea1">time</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="fee"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="fee" name="fee"></textarea>
 							<label for="textarea1">fee</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="conv"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="conv" name="conv"></textarea>
 							<label for="textarea1">conv</label>
 						</div>
 					</div>
@@ -146,7 +146,7 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">subject</i>
-							<textarea id="textarea1" class="materialize-textarea" name="img"></textarea>
+							<textarea id="textarea1" class="materialize-textarea" id="img" name="img"></textarea>
 							<label for="textarea1">img</label>
 						</div>
 					</div>

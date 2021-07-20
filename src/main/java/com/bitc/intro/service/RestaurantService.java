@@ -58,9 +58,7 @@ public class RestaurantService {
 	public String getRecommendationsByGender(int rid) {
 		return restaurantRepository.getRecommendationsByGender(rid);
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
+
 	public void increaseLove(int rid) {
 		restaurantRepository.increaseLove(rid);
 	}
@@ -68,8 +66,5 @@ public class RestaurantService {
 	public void decreaseLove(int rid) {
 		restaurantRepository.decreaseLove(rid);
 	}
-=======
->>>>>>> ccec924 (연령, 성별에 따른 추천 기능 추가)
-=======
->>>>>>> dohyun2
+
 }

@@ -39,86 +39,6 @@
 		<!-- end of AutoComplete -->
 	</div>
 
-<<<<<<< HEAD
-		<!-- end of Container -->
-		<div class="container">
-			<div class="row">
-				<div class="col s12 m2"></div>
-
-				<div class="col s12 m8">
-					<div class="card">
-						<div class="card-title">${hotspot.name}</div>
-
-						<div class="card-image">
-							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
-							</a>
-<<<<<<< HEAD
-
-						</div>
-						<div class="card-content"></div>
-
-					</div>
-					<a href="/restaurantmodify" class="btn-large waves-effect waves-light btn right red">
-						<i class="material-icons left ">delete</i> 글삭제
-					</a>
-
-					<a href="/restaurantmodify" class="btn-large waves-effect waves-light btn right yellow">
-						<i class="material-icons left">edit</i> 글수정
-					</a>
-
-				</div>
-
-			</div>
-
-
-
-
-
-		</div>
-
-
-
-
-	div>
-
-				<div class="card-content">
-							
-							
-	
-
-
-								</div>
-
-=======
-						</div>
-						
-						<div class="card-image">
-							<a href="#"> <img src="/resources/images/amsterdam.jpg" />
-							</a>
-						</div>
-						
-						<div class="card-content">
-							<div class="card-content-span">${hotspot.address}</div>
-							</br>
-							<div class="card-content-span">${hotspot.phoneNum}</div>
-							</br>
-							<div class="card-content-span">${hotspot.traffic}</div>
-							</br>
-							<div class="card-content-span">${hotspot.day}</div>
-							</br>
-							<div class="card-content-span">${hotspot.holiday}</div>
-							</br>
-							<div class="card-content-span">${hotspot.time}</div>
-							</br>
-							<div class="card-content-span">${hotspot.fee}</div>
-							</br>
-							<div class="card-content-span">${hotspot.conv}</div>
-							</br>
-							<div class="card-content-span">${hotspot.content}</div>
-							<div class="card-action">
-								<a href="${hotspot.url}">웹사이트 접속</a>
-							</div>
-=======
 	<!-- end of Container -->
 	<div class="container">
 		<div class="row">
@@ -150,13 +70,10 @@
 						<div class="card-content-span">${hotspot.content}</div>
 						<div class="card-action">
 							<a href="${hotspot.url}">웹사이트 접속</a>
->>>>>>> f9418f3e64651c9a53953039a3f889f238f99788
 						</div>
->>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 					</div>
 				</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 			</div>
 
@@ -169,9 +86,6 @@
 
 
 	</div>
-
-=======
-=======
 				<a href="/restaurantmodify"
 					class="btn-large waves-effect waves-light btn right red"> <i
 					class="material-icons left">delete</i> 글삭제
@@ -182,11 +96,9 @@
 					class="btn-large waves-effect waves-light btn right yellow"> <i
 					class="material-icons left">edit</i> 글수정
 				</a>
->>>>>>> f9418f3e64651c9a53953039a3f889f238f99788
 			</div>
 		</div>
 	</div>
->>>>>>> 2a59501db2698250d7f4100a9a9ffc032458c882
 
 	<!-- Container -->
 	<div class="container">
@@ -243,74 +155,94 @@
           <i class="material-icons left">create</i>새글쓰기
         </a>
         --%>
-	<!-- Container -->
+      </div>
+      <!-- Container -->
 
+      
 
+      <br />
+		<!-- pagination -->
+		<ul class="pagination" align="center">
+			<li class="${pageMaker.prev ? 'waves-effect' : 'disabled'}">
+			<a id="prev"><i class="material-icons">chevron_left</i></a></li>
+				<!-- 페이지버튼 반복문 -->
+				<c:forEach var="i" begin="${pageMaker.startPage}" end="${pageMaker.endPage}" step="1">
+				<li class=" ${pageMaker.criDetail.pageNum == i ? 'active' : 'waves-effect'}">
+				<a href="/hotspot/detail?id=${hotspot.id}&pageNum=${i}">${i}</a></li>
+				</c:forEach>
+				<!-- 페이지버튼 반복문 끝 -->
+			<li class="${pageMaker.next ? 'waves-effect' : 'disabled'}">
+			<a id="next"><i class="material-icons">chevron_right</i></a></li>
+						
+		</ul>
+			<!-- end of pagination -->
 
-	<br />
-	<!-- pagination -->
-	<ul class="pagination" align="center">
-		<li class="${pageMaker.prev ? 'waves-effect' : 'disabled'}"><a
-			id="prev"><i class="material-icons">chevron_left</i></a></li>
-		<!-- 페이지버튼 반복문 -->
-		<c:forEach var="i" begin="${pageMaker.startPage}"
-			end="${pageMaker.endPage}" step="1">
-			<li
-				class=" ${pageMaker.criDetail.pageNum == i ? 'active' : 'waves-effect'}">
-				<a href="/hotspot/list?pageNum=${i}">${i}</a>
-			</li>
-		</c:forEach>
-		<!-- 페이지버튼 반복문 끝 -->
-		<li class="${pageMaker.next ? 'waves-effect' : 'disabled'}"><a
-			id="next"><i class="material-icons">chevron_right</i></a></li>
+      <!-- Footer -->
+      <%-- include footer.jsp --%>
+      <jsp:include page="/WEB-INF/views/include/footer.jsp" />
+      <!-- end of Footer -->
+    </div>
+    <!-- end of App -->
 
-	</ul>
-	<!-- end of pagination -->
+    <script>
+      const sideNav = document.querySelector('.sidenav');
+      M.Sidenav.init(sideNav, {});
 
-	<!-- Footer -->
-	<%-- include footer.jsp --%>
-	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	<!-- end of Footer -->
-	</div>
-	<!-- end of App -->
+      const slider = document.querySelector('.slider');
+      M.Slider.init(slider, {
+        indicators: false,
+        height: 485,
+        duration: 500,
+        interval: 6000,
+      });
 
-	<script>
-		const sideNav = document.querySelector('.sidenav');
-		M.Sidenav.init(sideNav, {});
+      const ac = document.querySelector('.autocomplete');
+      M.Autocomplete.init(ac, {
+        data: {
+          파리: null,
+          베네치아: null,
+          암스테르담: null,
+          부다페스트: null,
+          프랑크푸르트: null,
+          비엔나: null,
+          드라스덴: null,
+          프라하: null,
+          로마: null,
+        },
+      });
 
-		const slider = document.querySelector('.slider');
-		M.Slider.init(slider, {
-			indicators : false,
-			height : 485,
-			duration : 500,
-			interval : 6000,
-		});
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems, {});
+    </script>
 
-		const ac = document.querySelector('.autocomplete');
-		M.Autocomplete.init(ac, {
-			data : {
-				파리 : null,
-				베네치아 : null,
-				암스테르담 : null,
-				부다페스트 : null,
-				프랑크푸르트 : null,
-				비엔나 : null,
-				드라스덴 : null,
-				프라하 : null,
-				로마 : null,
-			},
-		});
-
-		var elems = document.querySelectorAll('.collapsible');
-		var instances = M.Collapsible.init(elems, {});
-	</script>
-
-	<!-- 이미지 모달(팝업창) 관련 자바스크립트 -->
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			var elems = document.querySelectorAll('.modal');
-			var instances = M.Modal.init(elems);
-		});
-	</script>
-</body>
+    <!-- 이미지 모달(팝업창) 관련 자바스크립트 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+      });
+      
+      
+      var prev = document.querySelector('a#prev');
+  		prev.addEventListener('click', function(event) {
+  		event.preventDefault();
+  		
+  		var isPrev = ${pageMaker.prev}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+  		if (!isPrev) {
+  			return;
+  		}
+  		location.href = '/hotspot/detail?id=${hotspot.id}&pageNum=${pageDTO.startPage - 1}';
+  	});
+  	// 다음 a태그 클릭 이벤트
+  	var next = document.querySelector('a#next');
+  		next.addEventListener('click', function(event) {
+  		event.preventDefault();
+  		var isNext = ${pageMaker.next}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+  		if (!isNext) {
+  			return;
+  		}
+  		location.href = '/hotspot/detail?id=${hotspot.id}&pageNum=${pageDTO.endPage + 1}';
+  	});
+    </script>
+  </body>
 </html>

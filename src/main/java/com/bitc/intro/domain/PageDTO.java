@@ -1,5 +1,11 @@
 package com.bitc.intro.domain;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import lombok.Data;
 
 @Data
@@ -11,6 +17,7 @@ public class PageDTO {
 	
 	private int total; // 전체 글개수
 	private Criteria cri; // 요청한 페이지번호, 한페이지당 글 개수
+
 	
 	public PageDTO(Criteria cri , int total) { //Criteria 매개변수로 주입 받는다.
 		this.cri = cri;
@@ -32,4 +39,30 @@ public class PageDTO {
 		
 		this.next = this.endPage < realEnd; // 끝페이지가 실제페이지보다 작다면 다음 페이지블록으로 갈 수 있다.
 	}
+	
+	public String makeSearch(int pageNum, int total) {
+	  
+	 UriComponents uriComponents =
+	            UriComponentsBuilder.newInstance()
+	            .queryParam("pageNum", pageNum)
+	            .queryParam("amount", cri.getAmount())
+	            .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
+	            .queryParam("keyword", encoding(((SearchCriteria)cri).getKeyword()))
+	            .build(); 
+	    return uriComponents.toUriString();  
+	}
+
+	private String encoding(String keyword) {
+		if(keyword == null || keyword.trim().length() == 0) { 
+			return "";
+		}
+		 
+		try {
+			return URLEncoder.encode(keyword, "UTF-8");
+		} catch(UnsupportedEncodingException e) { 
+			return ""; 
+		}
+	}
+	
+	
 }

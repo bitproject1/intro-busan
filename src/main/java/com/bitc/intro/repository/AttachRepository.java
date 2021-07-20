@@ -18,11 +18,11 @@ public class AttachRepository {
 		attachMapper.insertAttach(attachVO);
 	};
 	
-	public List<AttachVO> getAttachesByHno(int hno) {
-		return attachMapper.getAttachesByHno(hno);
+	public List<AttachVO> getAttachesByHid(int hid) {
+		return attachMapper.getAttachesByHid(hid);
 	};
 	
-	public AttachVO getThumbnailByHno(int hno) {
-		return attachMapper.getThumbnailByHno(hno);
+	public AttachVO getThumbnailByHid(int hid) {
+		return attachMapper.getThumbnailByHid(hid);
 	};
 }
