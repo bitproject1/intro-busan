@@ -44,8 +44,7 @@
 					method="post">
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">assignment_ind</i> 
-							<input
+							<i class="material-icons prefix">assignment_ind</i> <input
 								type="text" id="username" class="validate" data-length="13"
 								name="username" value="${user.username }" readonly> <label
 								for="username">아이디</label>
@@ -53,23 +52,21 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">lock</i> 
-							<input type="password"
+							<i class="material-icons prefix">lock</i> <input type="password"
 								id="password" class="validate" data-length="20" name="password">
 							<label for="password">비밀번호</label>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mail</i> <input type="email"
-								id="email" class="validate" name="email"
-								value="${user.email }"> <label for="email">이메일</label>
-							<span class="helper-text" data-error="이메일 형식이 올바르지 않습니다."
-								data-success="OK!">이메일 주소를 입력하세요.</span>
+								id="email" class="validate" name="email" value="${user.email }">
+							<label for="email">이메일</label> <span class="helper-text"
+								data-error="이메일 형식이 올바르지 않습니다." data-success="OK!">이메일
+								주소를 입력하세요.</span>
 						</div>
 					</div>
-
 
 					<div class="row center-align">
 						<button type="submit" class="btn-large waves-effect waves-light">

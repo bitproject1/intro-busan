@@ -3,13 +3,14 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<div class="container">
+
 	<!-- Navbar -->
 	<nav>
-		<div class="nav-wrapper cyan">
-			<a href="/" class="brand-logo">Logo</a> <a href="#"
-				data-target="nav-mobile" class="sidenav-trigger"> <i
-				class="material-icons">menu</i>
+		<div class="nav-wrapper black">
+		<div class="container">
+			<a href="/" class="brand-logo">🌭 TripAdvisor</a> 
+			<a href="#" data-target="nav-mobile" class="sidenav-trigger"> 
+			<i class="material-icons">menu</i>
 			</a>
 			<ul class="right hide-on-med-and-down">
 				<c:choose>
@@ -33,6 +34,7 @@
 				</c:choose>
 
 			</ul>
+		</div>
 		</div>
 	</nav>
 	<ul id="nav-mobile" class="sidenav">
@@ -63,7 +65,7 @@
 
 	</ul>
 	<!-- end of Navbar -->
-</div>
+
 
 
 
