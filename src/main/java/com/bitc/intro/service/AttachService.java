@@ -1,3 +1,4 @@
+
 package com.bitc.intro.service;
 
 import java.util.List;
@@ -13,12 +14,11 @@ public class AttachService {
 
 	@Autowired
 	private AttachRepository attachRepository;
-	
-	
+
 	public List<AttachVO> getAttachesByHno(int hno) {
 		return attachRepository.getAttachesByHno(hno);
 	}
-	
+
 	public AttachVO getThumbnailByHno(int hno) {
 		return attachRepository.getThumbnailByHno(hno);
 	};

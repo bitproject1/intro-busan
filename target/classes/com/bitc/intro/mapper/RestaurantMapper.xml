@@ -12,7 +12,7 @@
 	</insert>
 	
 	<select id="getRestaurantById" resultType="com.bitc.intro.domain.Restaurant">
-		SELECT * FROM restaurant WHERE rid = #{rid}
+		SELECT * FROM restaurant WHERE id = #{id}
 	</select>
 
 	<select id="getRestaurants"
@@ -84,9 +84,7 @@
 		ORDER BY COUNT(*) DESC) newtable
 		) newtable2
 	</select>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
+
 	<!-- 식당 테이블에서 loveCnt 1 증가 -->
 	<update id="increaseLove">
 		UPDATE restaurant
@@ -100,9 +98,6 @@
 		SET love_count = love_count - 1
 		WHERE rid = #{rid}
 	</update>
-=======
->>>>>>> ccec924 (연령, 성별에 따른 추천 기능 추가)
-=======
->>>>>>> dohyun2
+
 
 </mapper>
