@@ -14,6 +14,7 @@ public class AttachService {
 
 	@Autowired
 	private AttachRepository attachRepository;
+<<<<<<< HEAD
 
 	public List<AttachVO> getAttachesByHno(int hno) {
 		return attachRepository.getAttachesByHno(hno);
@@ -21,5 +22,15 @@ public class AttachService {
 
 	public AttachVO getThumbnailByHno(int hno) {
 		return attachRepository.getThumbnailByHno(hno);
+=======
+	
+	
+	public List<AttachVO> getAttachesByHno(int hid) {
+		return attachRepository.getAttachesByHid(hid);
+	}
+	
+	public AttachVO getThumbnailByHno(int hid) {
+		return attachRepository.getThumbnailByHid(hid);
+>>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 	};
 }

@@ -12,6 +12,7 @@ public class HotspotDetailVO {
 	
 	public HotspotDetailVO() { // 첫페이지 설정 
 		// 최초 게시판에 진입할 때를 위한 기본값 설정
+		this.id = id;
 		this.pageNum = 1;
 		this.amount = 6;
 		// 최초 페이지 진입시에는 검색하지 않았으니까 null 값

@@ -6,15 +6,19 @@
 			
 	<insert id="insertAttach">
 		INSERT INTO attach (uuid, uploadpath, filename, thumb, hid) 
+<<<<<<< HEAD
 		VALUES (#{uuid}, #{uploadpath}, #{filename}, #{thumb}, #{hid})
+=======
+		VALUES (#{uuid}, #{uploadpath} , #{filename}, #{thumb}, #{hid})
+>>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 	</insert>
 	
-	<select id="getAttachesByHno" resultType="com.bitc.intro.domain.AttachVO">
+	<select id="getAttachesByHid" resultType="com.bitc.intro.domain.AttachVO">
 		SELECT * FROM attach
 		WHERE hid = #{hid} AND thumb = 0
 	</select>
 	
-	<select id="getThumbnailByHno" resultType="com.bitc.intro.domain.AttachVO">
+	<select id="getThumbnailByHid" resultType="com.bitc.intro.domain.AttachVO">
 		SELECT * FROM attach
 		WHERE hid = #{hid} AND thumb = 1
 	</select>

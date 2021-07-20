@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /*import com.bitc.intro.domain.AttachVO;*/
 import com.bitc.intro.domain.Criteria;
+import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
 /*import com.bitc.intro.repository.AttachRepository;*/
 import com.bitc.intro.repository.HotspotRepository;
@@ -53,8 +54,8 @@ public class HotspotService {
 		hotspotRepository.deleteHotspotById(id);
 	}
 	
-	public Hotspot getRestsWithPaging(int id) {
-		return hotspotRepository.getRestsWithPaging(id);
+	public Hotspot getRestsWithPaging(int param1, CriteriaDetail param2) {
+		return hotspotRepository.getRestsWithPaging(param1, param2);
 	};
 	
 	public int getTotalCountBySpotId(int id) {
@@ -65,6 +66,7 @@ public class HotspotService {
 		return hotspotRepository.nextHotspotId();
 	}
 	
+<<<<<<< HEAD
 	/*
 	 * @Transactional // hotspot , attachList insert 트렌잭션 처리 public void
 	 * insertHotspotAndAttaches(Hotspot hotspot, AttachVO thumbnail, List<AttachVO>
@@ -77,4 +79,17 @@ public class HotspotService {
 	 * if(attachList.size() > 0) { for ( AttachVO attachVO : attachList ) {
 	 * attachRepository.insertAttach(attachVO); // 첨부파일 정보 등록 개수 만큼 } } }
 	 */
+=======
+	@Transactional // hotspot , attachList insert 트렌잭션 처리
+	public void insertHotspotAndAttaches(Hotspot hotspot, List<AttachVO> attachList) {
+		
+		hotspotRepository.insert(hotspot);
+		
+		if(attachList.size() > 0) {
+			for ( AttachVO attachVO : attachList ) {
+				attachRepository.insertAttach(attachVO); // 첨부파일 정보 등록 개수 만큼
+			}
+		}
+	}
+>>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 }
