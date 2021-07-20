@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bitc.intro.domain.Criteria;
+import com.bitc.intro.domain.CriteriaDetail;
 import com.bitc.intro.domain.Hotspot;
+import com.bitc.intro.domain.HotspotDetailVO;
 import com.bitc.intro.mapper.HotspotMapper;
 
 @Repository
@@ -15,10 +17,21 @@ public class HotspotRepository {
 	@Autowired
 	private HotspotMapper hotspotMapper;
 	
-	public Hotspot findById(int id) {
+	public Hotspot getHotspot(int id) {
 		return hotspotMapper.findById(id);
 	}
 	
+	
+<<<<<<< HEAD
+	public List<Hotspot> getHotspots(){
+		return hotspotMapper.getHotspots();
+	}
+	
+=======
+	public List<Hotspot> getHotspots() {
+		return hotspotMapper.getHotspots();
+	};
+>>>>>>> 900263c36c5a9b8a29aecf99bc3df8bd36fff5ce
 	// 페이징 적용된 글 내용 가져오기
 	public List<Hotspot> getHotspotsWithPaging(Criteria cri) {
 		return hotspotMapper.getHotspotsWithPaging(cri);
@@ -43,8 +56,8 @@ public class HotspotRepository {
 		hotspotMapper.deleteHotspotById(id);
 	};
 	
-	public Hotspot getRestsWithPaging(int id) {
-		return hotspotMapper.getRestsWithPaging(id);
+	public Hotspot getRestsWithPaging(int param1, CriteriaDetail param2) {
+		return hotspotMapper.getRestsWithPaging(param1, param2);
 	};
 	
 	public int getTotalCountBySpotId(int id) {

@@ -7,8 +7,8 @@
 
 	<!-- 댓글추가 -->
   <insert id="insert">
-  insert into review(content,userId,regdate,rId)
-  values(#{content},#{userId},now(), #{rId})
+  insert into review(content,user_id,regdate,rId,grade)
+  values(#{content},#{userId},now(),#{rId},#{grade})
   </insert>
   
   <!-- 레스토랑 ID로 관련 댓글 가져오기 -->

@@ -47,17 +47,6 @@ public class Criteria {
 	}
 	
 	
-	public String makeQuery() {
-		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
-													.queryParam("pageNum", pageNum)
-													.queryParam("amount", this.amount);
-		
-		if(searchType!=null) { // searchType을 정해줬을때 쿼리와 
-			uriComponentsBuilder
-				.queryParam("searchType", this.searchType)
-				.queryParam("keyword", this.keyword);
-		}
-		return uriComponentsBuilder.build().encode().toString();
-	}// 검색 기능 작업중
+	
 	
 }
