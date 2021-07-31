@@ -176,6 +176,7 @@ body {
 		}
 		
 
+		// 여기서부터 수정한 부분입니다
 		// 중복된 아이디로 회원 가입 막기
 		var loginForm = document.querySelector('#loginForm');
 		
@@ -189,7 +190,7 @@ body {
 			}
 		});
 		
-		
+		// 여기까지 수정한 부분입니다
 		
     </script>
 </body>

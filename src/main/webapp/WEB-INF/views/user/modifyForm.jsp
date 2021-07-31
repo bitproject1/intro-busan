@@ -58,7 +58,8 @@
 							<label for="password">비밀번호</label>
 						</div>
 					</div>
-
+					
+					<!-- 여기서부터 수정한 부분입니다 -->
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mail</i> 
@@ -99,6 +100,7 @@
 							</div>
 						</div>
 					</div>
+					<!-- 여기까지 수정한 부분입니다 -->
 				
 					<div class="row center-align">
 						<button type="submit" class="btn-large waves-effect waves-light">
@@ -145,9 +147,11 @@
 	</script>
 	
 	<script>
+	// 여기서부터 수정한 부분입니다
 		$(document).ready(function() {
 			$('select').formSelect();
 		});
+	// 여기까지 수정한 부분입니다
 	</script>
 </body>
 

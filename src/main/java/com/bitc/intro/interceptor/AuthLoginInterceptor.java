@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bitc.intro.domain.User;
 
+//0731 새로 추가된 내용입니다
 public class AuthLoginInterceptor implements HandlerInterceptor{
 
 	@Override

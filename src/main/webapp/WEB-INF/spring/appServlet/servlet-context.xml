@@ -45,6 +45,7 @@
 
 <beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
 
+<!-- 여기서부터 수정한 부분입니다 -->
 <beans:bean id="authLoginInterceptor" class="com.bitc.intro.interceptor.AuthLoginInterceptor"></beans:bean>
 <interceptors>
 	<interceptor>
@@ -55,5 +56,6 @@
 		<beans:ref bean="authLoginInterceptor"/>
 	</interceptor>
 </interceptors>
+<!-- 여기까지 수정한 부분입니다 -->
 
 </beans:beans>

@@ -25,11 +25,13 @@
 		DELETE FROM user WHERE username=#{username}
 	</delete>
 	
+	<!-- 여기서부터 수정한 부분입니다  -->
 	<update id="updateUserById">
 		UPDATE user 
 		SET password=#{password}, email=#{email}, age=#{age}, gender=#{gender}
 		WHERE username=#{username}
 	</update>
+	<!-- 여기까지 수정한 부분입니다  -->
 	
 	<!-- 좋아요 목록 보기 -->
 	<select id="getLoveList" resultType="com.bitc.intro.domain.Restaurant">
