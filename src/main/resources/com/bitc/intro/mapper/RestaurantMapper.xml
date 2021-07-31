@@ -12,16 +12,16 @@
 	</insert>
 	
 	<select id="getRestaurantById" resultType="com.bitc.intro.domain.Restaurant">
-		SELECT * FROM restaurant WHERE id = #{id}
+		SELECT * FROM restaurant WHERE rid = #{id}
 	</select>
 
 	<select id="getRestaurants"
 		resultType="com.bitc.intro.domain.Restaurant">
-		SELECT * FROM restaurant ORDER BY id DESC
+		SELECT * FROM restaurant ORDER BY rid DESC
 	</select>
 
 	<delete id="deleteById">
-		DELETE FROM restaurant WHERE id = #{rid}
+		DELETE FROM restaurant WHERE rid = #{rid}
 	</delete>
 
 	<!-- 업데이트 이름, 주소, 전번, 홈페이지, 메뉴, 사진, 상세 / spot_id는 고정 -->

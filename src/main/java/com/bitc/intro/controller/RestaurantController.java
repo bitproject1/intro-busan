@@ -8,9 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bitc.intro.domain.CalCoords;
+import com.bitc.intro.domain.Coords;
 import com.bitc.intro.domain.Restaurant;
 import com.bitc.intro.domain.User;
 import com.bitc.intro.service.RestaurantService;
@@ -60,6 +63,25 @@ public class RestaurantController {
 		
 		return "restaurant/restaurantdetail";
 	}
+	
+	//지도 좌표를 받고 좌표간 거리를 받기위한 메소드
+	@PostMapping("checkCoords")
+	@ResponseBody
+	public String checkCoords(Model model,@RequestBody Coords coords) {
+		
+		double lat1 = coords.getDesY(); //식당 경도
+		double lat2 = coords.getMyY();	//내 위치 경도	
+		double lon1 = coords.getDesX(); //식당 위도
+		double lon2 = coords.getMyX();	//내 위치 위도
+		
+		//두 좌표간 거리를 구하기 위한 메소드
+		double distanceOf2location = CalCoords.geoDistance(lat1, lon1, lat2, lon2);
+		System.out.println(distanceOf2location);
+		coords.setDistance(distanceOf2location);
+		return "success";
+
+	}
+
 
 	// 식당 추가
 	@GetMapping("add")

@@ -62,8 +62,9 @@ public class UserController {
 	} // post join
 
 	// 회원가입시 아이디 중복체크
-	@PostMapping(value = "/joinIdDupChkJson", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Map<String, Object> joinIdDupChkJson(String username) {
+	@ResponseBody
+	@GetMapping(value = "/joinIdDupChkJson", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Object> joinIdDupChkJson(String username) {
 
 		int rowCount = userService.getCountById(username);
 

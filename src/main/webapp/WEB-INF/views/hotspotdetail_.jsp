@@ -105,7 +105,7 @@
 						<div class="card-image" style="overflow: visible">
 							<a href="/restaurant/detail/${restaurant.rid}"> <img
 								src="${restaurant.img}" style="height: 200px;" />
-							</a> <span class="card-title" style="padding: 0px;">${restaurant.name}</span>
+							</a> <span class="card-title" style="padding: 0px; font-weight: 800;">${restaurant.name}</span>
 							<a class="btn-floating halfway-fab waves-effect waves-light red">
 								<i data-target="modal1" class="material-icons modal-trigger">add</i>
 							</a>
@@ -114,7 +114,7 @@
 							<i class="material-icons Tiny">edit_location</i>
 							${restaurant.district}<br /> <i class="material-icons Tiny">local_dining</i>
 							${restaurant.mainMenu}<br /> <i class="material-icons Tiny">favorite</i>
-							${restaurant.loveCount }<br /> <i class="material-icons Tiny">comment</i>
+							${restaurant.loveCount}<br /> <i class="material-icons Tiny">comment</i>
 							리뷰수
 						</div>
 					</div>

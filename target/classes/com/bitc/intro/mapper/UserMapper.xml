@@ -27,7 +27,7 @@
 	
 	<update id="updateUserById">
 		UPDATE user 
-		SET password=#{password}, email=#{email}
+		SET password=#{password}, email=#{email}, age=#{age}, gender=#{gender}
 		WHERE username=#{username}
 	</update>
 	

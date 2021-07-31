@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
@@ -111,29 +112,28 @@
 						<c:forEach var="hotspot" items="${ hotspotList }">
 							<!-- 카드 1건 시작 -->
 							<div class="col s12 m4">
-								<div class="card small" >
+								<div class="card small">
 									<div class="card-image" style="overflow: visible; height: 200px; width: auto;">
-									<c:set var = "hotspotImg" value = "${hotspot.img}"/>
-									<c:if test = "${fn:contains(hotspotImg,'https://')}">
-										<img src="${hotspot.img}" alt="카드 이미지"
-											onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'"
-											style="height: 100%; width: 100%; cursor:pointer;">
-									</c:if>
-									<c:if test = "${not fn:contains(hotspotImg,'https://')}">
-										<img src="/resources/uploadimages/${hotspot.img}" alt="카드 이미지" 
-										onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'" 
-										style="height: 100%; width: 100%; cursor:pointer;">
-									</c:if>	
-											
-											
-											<span class="card-title" style="padding:0px;">${hotspot.name}</span>
+										<c:set var="hotspotImg" value="${hotspot.img}" />
+										<c:if test="${fn:contains(hotspotImg,'https://')}">
+											<img src="${hotspot.img}" alt="카드 이미지"
+												onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'"
+												style="height: 100%; width: 100%; cursor: pointer;">
+										</c:if>
+										<c:if test="${not fn:contains(hotspotImg,'https://')}">
+											<img src="/resources/uploadimages/${hotspot.img}"
+												alt="카드 이미지"
+												onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'"
+												style="height: 100%; width: 100%; cursor: pointer;">
+										</c:if>
+										<span class="card-title" style="padding: 0px;">${hotspot.name}</span>
 										<a class="btn-floating halfway-fab waves-effect waves-light red">
 											<i data-target="modal1" class="material-icons modal-trigger">add</i>
 										</a>
 									</div>
 									<div class="card-content"
 										onclick="location.href='/hotspot/detail?id=${hotspot.id}&pageNum=${ pageMaker.cri.pageNum }'"
-										style="cursor: pointer; display:block; height: 150px;">
+										style="cursor: pointer; display: block; height: 150px;">
 										<p>${hotspot.title}</p>
 									</div>
 								</div>
@@ -166,7 +166,7 @@
 						<div class="row">
 							<span colspan="5">현재 게시판에 작성된 글이 없습니다.</span>
 							<!-- colspan 열병합 속성 rowspan 행병합 -->
-
+						</div>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -178,16 +178,19 @@
 		<br />
 		<!-- pagination -->
 		<ul class="pagination" align="center">
-					<li class="${pageMaker.prev ? 'waves-effect' : 'disabled'}">
-				 	<a id="prev"><i class="material-icons">chevron_left</i></a></li>
-						<!-- 페이지버튼 반복문 -->
-						<c:forEach var="i" begin="${pageMaker.startPage}" end="${pageMaker.endPage}" step="1">
-						<li class=" ${pageMaker.cri.pageNum == i ? 'active' : 'waves-effect'}">
-						<a href="/hotspot/list?pageNum=${i}">${i}</a></li>
-						</c:forEach>
-						<!-- 페이지버튼 반복문 끝 -->
-					<li class="${pageMaker.next ? 'waves-effect' : 'disabled'}">
-					<a id="next"><i class="material-icons">chevron_right</i></a></li>
+			<li class="${pageMaker.prev ? 'waves-effect' : 'disabled'}"><a
+				id="prev"><i class="material-icons">chevron_left</i></a></li>
+			<!-- 페이지버튼 반복문 -->
+			<c:forEach var="i" begin="${pageMaker.startPage}"
+				end="${pageMaker.endPage}" step="1">
+				<li
+					class=" ${pageMaker.cri.pageNum == i ? 'active' : 'waves-effect'}">
+					<a href="/hotspot/list?pageNum=${i}">${i}</a>
+				</li>
+			</c:forEach>
+			<!-- 페이지버튼 반복문 끝 -->
+			<li class="${pageMaker.next ? 'waves-effect' : 'disabled'}"><a
+				id="next"><i class="material-icons">chevron_right</i></a></li>
 		</ul>
 		<!-- end of pagination -->
 
@@ -199,7 +202,6 @@
 	</div>
 	<!-- end of Container -->
 
-	</div>
 	<!-- end of App -->
 
 
@@ -278,28 +280,36 @@
 			}
 			location.href = '/hotspot/list?pageNum=${pageDTO.endPage + 1}';
 		});
-	var prev = document.querySelector('a#prev');
+		var prev = document.querySelector('a#prev');
 
-	prev.addEventListener('click', function(event) {
-		event.preventDefault();
-		
-		var isPrev = ${pageMaker.prev}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
-		if (!isPrev) {
-			return;
-		}
-		location.href = '/hotspot/list?pageNum=${pageMaker.startPage - 1}';
-	});
-	// 다음 a태그 클릭 이벤트
-	var next = document.querySelector('a#next');
+		prev.addEventListener('click', function(event) {
+			event.preventDefault();
 
-	next.addEventListener('click', function(event) {
-		event.preventDefault();
-		var isNext = ${pageMaker.next}; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
-		if (!isNext) {
-			return;
-		}
-		location.href = '/hotspot/list?pageNum=${pageMaker.endPage + 1}';
-	});
+			var isPrev = $
+			{
+				pageMaker.prev
+			}
+			; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+			if (!isPrev) {
+				return;
+			}
+			location.href = '/hotspot/list?pageNum=${pageMaker.startPage - 1}';
+		});
+		// 다음 a태그 클릭 이벤트
+		var next = document.querySelector('a#next');
+
+		next.addEventListener('click', function(event) {
+			event.preventDefault();
+			var isNext = $
+			{
+				pageMaker.next
+			}
+			; // jsp 파일이니까 el 표현식 사용 가능! ${ pageMaker.prev } true, false 값
+			if (!isNext) {
+				return;
+			}
+			location.href = '/hotspot/list?pageNum=${pageMaker.endPage + 1}';
+		});
 	</script>
 </body>
 

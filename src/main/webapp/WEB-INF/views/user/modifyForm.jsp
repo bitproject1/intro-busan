@@ -12,6 +12,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 
 <body>
@@ -52,22 +53,53 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">lock</i> <input type="password"
-								id="password" class="validate" data-length="20" name="password">
+							<i class="material-icons prefix">lock</i> 
+							<input type="password" id="password" class="validate" data-length="20" name="password">
 							<label for="password">비밀번호</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">mail</i> <input type="email"
-								id="email" class="validate" name="email" value="${user.email }">
-							<label for="email">이메일</label> <span class="helper-text"
-								data-error="이메일 형식이 올바르지 않습니다." data-success="OK!">이메일
-								주소를 입력하세요.</span>
+							<i class="material-icons prefix">mail</i> 
+							<input type="email" id="email" class="validate" name="email" value="${user.email }">
+							<label for="email">이메일</label> 
+							<span class="helper-text" data-error="이메일 형식이 올바르지 않습니다." data-success="OK!">
+							이메일 주소를 입력하세요.</span>
 						</div>
 					</div>
 
+					<div class="row">
+					<div class="input-field col s12">
+						<i id="selectAge" class="material-icons prefix">confirmation_number</i> <br />
+						<select id="age" name="age">
+							<option disabled selected>Select Your Age</option>
+							<option value="1">10s</option>
+							<option value="2">20s</option>
+							<option value="3">30s</option>
+							<option value="4">40s</option>
+							<option value="5">50s</option>
+							<option value="6">60s</option>
+							<option value="7">70s</option>
+							<option value="8">80s</option>
+							<option value="9">90s</option>
+						</select>
+					</div>
+				</div>
+	
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">person_pin_circle</i> <br /> <br />
+							<label for="gender-radio" data-error="wrong" data-success="right">Gender</label><br/>
+							<div>
+								<input name="gender" type="radio" id="r1" value="M" autocomplete="off" style="position: relative; opacity: 1; pointer-events: inherit">
+								<label for="r1" class="active">Male</label>
+								<input name="gender" type="radio" id="r2" value="F" autocomplete="off" style="position: relative; opacity: 1; pointer-events: inherit">
+								<label for="r2" class="active">Female</label>
+							</div>
+						</div>
+					</div>
+				
 					<div class="row center-align">
 						<button type="submit" class="btn-large waves-effect waves-light">
 							회원정보 수정하기 <i class="material-icons right">send</i>
@@ -103,6 +135,19 @@
 
 		var textNeedCount = document.querySelectorAll('#member_id, #password');
 		M.CharacterCounter.init(textNeedCount);
+	</script>
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('select');
+			var instances = M.FormSelect.init(elems, options);
+		});
+	</script>
+	
+	<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
 	</script>
 </body>
 
